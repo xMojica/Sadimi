@@ -1,0 +1,26 @@
+:root {
+    --background: #fbf0f4;
+    --primero: #4c7766;
+    --segundo: #cce5db;
+    --tercero: #ececec;
+    --cuarto: #e36666;
+    --quinto: #505956;
+}
+
+html {
+    background: var(--background);
+    font-family: "Onest Variable", sans-serif;
+    font-weight: bold;
+    margin: 8px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
