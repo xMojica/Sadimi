@@ -4,7 +4,7 @@ function Header() {
     return (
         <header className='flex h-16 w-full flex-row-reverse items-center justify-between px-2 sm:flex-row sm:px-4'>
             <h1 className='hidden font-cursive text-4xl text-primero hover:scale-105 hover:cursor-pointer md:flex'>Sadimi</h1>
-            <div className='flex h-10 items-center justify-center md:hidden'>
+            <div className='flex h-10 items-center justify-center rounded-xl p-2 px-4 hover:bg-segundo md:hidden'>
                 <img className='h-7' src="hamburguesa.svg" alt="menu" />
             </div>
             <div className='flex h-10 w-4/6 max-w-80 items-center rounded-xl bg-tercero p-1 pl-4 shadow-md sm:w-80'>
