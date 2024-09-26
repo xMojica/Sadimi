@@ -2,7 +2,7 @@ import React from 'react'
 
 function Header() {
     return (
-        <header className='flex h-16 w-full items-center justify-between md:px-4'>
+        <header className='flex h-16 w-full items-center justify-between px-2 sm:px-4'>
             <h1 className='hidden font-cursive text-4xl text-primero hover:scale-105 hover:cursor-pointer sm:flex'>Sadimi</h1>
             <div className='flex h-10 w-2/3 max-w-80 items-center rounded-xl bg-tercero p-1 pl-4 shadow-md sm:w-80'>
                 <input className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero" type="text" placeholder='Buscar' />
