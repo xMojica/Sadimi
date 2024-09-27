@@ -24,13 +24,13 @@ function Home() {
     return (
         <main className='mt-10 flex w-full flex-wrap items-center justify-center gap-4 px-2 sm:px-4'>
             {products.map(product => (
-                <article key={product._id} className="h-96 w-60 justify-center overflow-hidden rounded-xl border-2 bg-tercero p-3 shadow-lg hover:cursor-pointer">
-                    <div className='flex h-52 w-full items-center justify-center'>
+                <article key={product._id} className="h-80 w-40 justify-center overflow-hidden rounded-xl border-2 bg-tercero p-3 shadow-lg hover:cursor-pointer md:h-96 md:w-60">
+                    <div className='flex h-36 w-full items-center justify-center md:h-52'>
                         <img src={product.imagen} alt={product.nombre} width={200} className='aspect-square rounded-xl shadow-md' />
                     </div>
-                    <div className='my-2 flex flex-col'>
+                    <div className='mt-2 flex flex-col md:my-2'>
                         <h6 className='text-[0.7rem] text-primero'>{product.marca}</h6>
-                        <h1 className='mb-4 whitespace-nowrap text-2xl font-semibold text-quinto'>{product.nombre}</h1>
+                        <h1 className='mb-4 whitespace-nowrap text-lg font-semibold text-quinto md:text-2xl'>{product.nombre}</h1>
                         <div className='flex flex-row flex-nowrap gap-3'>
                             {product.colores && product.colores.map((color, index) => (
                                 <svg className='hover:scale-125' key={index} width="20px" height="20px" viewBox="0 0 16 16" fill={color} xmlns="http://www.w3.org/2000/svg">
