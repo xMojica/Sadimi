@@ -24,8 +24,8 @@ function Home() {
     return (
         <main className='mt-10 flex w-full flex-wrap items-center justify-center gap-4 px-2 sm:px-4'>
             {products.map(product => (
-                <article key={product._id} className="h-96 w-72 justify-center overflow-hidden rounded-xl border-2 bg-tercero p-3 shadow-lg hover:cursor-pointer">
-                    <div className='flex w-full items-center justify-center'>
+                <article key={product._id} className="h-96 w-60 justify-center overflow-hidden rounded-xl border-2 bg-tercero p-3 shadow-lg hover:cursor-pointer">
+                    <div className='flex h-52 w-full items-center justify-center'>
                         <img src={product.imagen} alt={product.nombre} width={200} className='aspect-square rounded-xl shadow-md' />
                     </div>
                     <div className='my-2 flex flex-col'>
@@ -33,7 +33,7 @@ function Home() {
                         <h1 className='mb-4 whitespace-nowrap text-2xl font-semibold text-quinto'>{product.nombre}</h1>
                         <div className='flex flex-row flex-nowrap gap-3'>
                             {product.colores && product.colores.map((color, index) => (
-                                <svg key={index} width="20px" height="20px" viewBox="0 0 16 16" fill={color} xmlns="http://www.w3.org/2000/svg">
+                                <svg className='hover:scale-125' key={index} width="20px" height="20px" viewBox="0 0 16 16" fill={color} xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="8" cy="8" r="8" />
                                 </svg>
                             ))}
