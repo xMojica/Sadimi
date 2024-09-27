@@ -23,7 +23,7 @@ function Header() {
                     <button className='hidden rounded-xl p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:bg-segundo md:flex'>Iniciar sesion</button>
                 </div>
             </div>
-            <div className='mt-6 flex h-16 w-full justify-center px-2 sm:px-4 md:hidden'>
+            <div className='mt-6 flex h-16 w-full justify-center px-4 md:hidden'>
                 <div className='flex h-10 w-full items-center justify-center rounded-xl bg-tercero p-1 pl-4 shadow-md'>
                     <input className="flex h-full w-5/6 bg-tercero font-semibold text-primero outline-none placeholder:text-primero" type="text" placeholder='Buscar' />
                     <span className='sm:2/6 flex h-full w-1/6 items-center justify-center rounded-xl hover:cursor-pointer hover:bg-segundo'>
