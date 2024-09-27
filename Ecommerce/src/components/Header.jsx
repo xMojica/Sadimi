@@ -1,5 +1,5 @@
 import React from 'react'
-import Carrito from '../../public/carrito'
+import Carrito from './Carrito.jsx'
 
 function Header() {
     return (

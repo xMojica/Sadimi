@@ -1,5 +1,5 @@
 import React from 'react'
-import Carrito from '../../public/carrito'
+import Carrito from './Carrito'
 
 function Home() {
     return (
@@ -13,7 +13,7 @@ function Home() {
                     <h1 className='mb-4 whitespace-nowrap text-2xl font-semibold text-quinto'>Redmi Note 13 Pro+</h1>
                     <p>Lorem ipsum dsinus!</p>
                 </div>
-                <div className='h- flex flex-row items-center justify-between'>
+                <div className='flex h-14 flex-row items-center justify-between'>
                     <span className='flex flex-col'>
                         <h3 className='text-xl font-bold text-cuarto'>$ 4.999.900</h3>
                         <h4 className='text-md font-semibold text-quinto'><s>$ 5.999.900</s></h4>
