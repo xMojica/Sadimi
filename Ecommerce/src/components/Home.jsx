@@ -12,7 +12,7 @@ function Home() {
                 const response = await axios.get('https://api-sadimi-v2.vercel.app/products');
                 setProducts(response.data);
             } catch (err) {
-                console.log('Error al obtener los productos');
+                console.log('Error al obtener los productos', err);
             } finally {
                 console.log("Obtencion de datos finalizada")
             }
@@ -32,9 +32,12 @@ function Home() {
                         <h6 className='text-[0.7rem] text-primero'>{product.marca}</h6>
                         <h1 className='mb-4 whitespace-nowrap text-2xl font-semibold text-quinto'>{product.nombre}</h1>
                         <div className='flex flex-row flex-nowrap gap-3'>
-                            {product.color && product.color.map((color, index) => (
-                                <svg key={index} width="20px" height="20px" viewBox="0 0 16 16" fill={product.color} xmlns="http://www.w3.org/2000/svg"></svg>
+                            {product.colores && product.colores.map((color, index) => (
+                                <svg key={index} width="20px" height="20px" viewBox="0 0 16 16" fill={color} xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="8" />
+                                </svg>
                             ))}
+
                         </div>
                     </div>
                     <div className='flex h-14 flex-row items-center justify-between'>
@@ -47,8 +50,9 @@ function Home() {
                         </div>
                     </div>
                 </article>
-            ))}
-        </main>
+            ))
+            }
+        </main >
     )
 }
 
