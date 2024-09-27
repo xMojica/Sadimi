@@ -4,7 +4,7 @@ import Color from './Color'
 
 function Home() {
     return (
-        <main className='mt-20 flex w-full flex-wrap items-center justify-center gap-4 px-2 sm:px-4'>
+        <main className='mt-10 flex w-full flex-wrap items-center justify-center gap-4 px-2 sm:px-4'>
             <article className="h-96 w-72 justify-center overflow-hidden rounded-xl border-2 bg-tercero p-3 shadow-lg hover:cursor-pointer">
                 <div className='flex w-full items-center justify-center'>
                     <img src="producto.jpg" alt="Producto" className='rounded-xl shadow-md' />
