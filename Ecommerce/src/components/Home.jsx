@@ -22,7 +22,7 @@ function Home() {
 
     console.log(products)
     return (
-        <main className='mt-10 flex w-full flex-wrap items-center justify-center gap-4 px-2 sm:px-4'>
+        <main className='my-20 flex w-full flex-wrap items-center justify-center gap-4 px-2 sm:px-4'>
             {products.map(product => (
                 <article key={product._id} className="h-80 w-40 justify-center overflow-hidden rounded-xl border-2 bg-tercero p-3 shadow-lg hover:cursor-pointer md:h-96 md:w-60">
                     <div className='flex h-36 w-full items-center justify-center md:h-52'>
