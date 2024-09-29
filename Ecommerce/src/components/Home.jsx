@@ -25,7 +25,7 @@ function Home() {
     return (
         <main className='my-20 flex w-full min-w-96 flex-wrap items-center justify-center gap-4 px-2 sm:px-4'>
             {products.map(product => (
-                <article key={product._id} className="flex h-[28rem] w-40 flex-col justify-center overflow-hidden rounded-xl border-2 bg-tercero p-3 shadow-lg hover:cursor-pointer md:w-60">
+                <article key={product._id} className="flex h-96 w-40 flex-col justify-center overflow-hidden rounded-xl border-2 bg-tercero p-3 shadow-lg hover:cursor-pointer md:h-[28rem] md:w-60">
                     <div className='flex h-36 w-full items-center justify-center md:h-52'>
                         <img src={product.imagen} alt={product.nombre} width={200} className='aspect-square rounded-xl mix-blend-multiply shadow-md' />
                     </div>
