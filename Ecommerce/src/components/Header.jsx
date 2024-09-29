@@ -3,7 +3,7 @@ import Carrito from './Carrito.jsx'
 
 function Header() {
     return (
-        <header className='flex flex-col'>
+        <header className='flex min-w-96 flex-col'>
             <div className='flex h-16 w-full flex-row items-center justify-between px-2 sm:px-4'>
                 <div className='flex h-10 items-center justify-center rounded-xl p-2 px-4 hover:bg-segundo md:hidden'>
                     <img className='h-7' src="hamburguesa.svg" alt="menu" />
