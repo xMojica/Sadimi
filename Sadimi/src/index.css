@@ -17,6 +17,7 @@ html {
 body {
     display: flex;
     justify-content: center;
+    overflow-y: visible;
 }
 
 * {
@@ -24,4 +25,12 @@ body {
     padding: 0;
     box-sizing: border-box;
     transition: transform 0.3s ease;
+}
+
+*::-webkit-scrollbar {
+    width: 0;
+}
+
+#root {
+    width: 100%;
 }
