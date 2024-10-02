@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Close from '../../../assets/close.svg'
+import { Context } from '../../../Context/main'
 
 function Cerrar() {
 
-    const handleClick = () => {
-        const register = document.getElementById('register');
-        register.style.display = 'none';
+    const context = useContext(Context);
+
+    function handleClick() {
+        context.setMostrarLogin(false)
     }
 
     return (

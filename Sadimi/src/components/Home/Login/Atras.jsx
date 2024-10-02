@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Arrow from '../../../assets/back.svg'
+import { Context } from '../../../Context/main';
 
-function Back() {
+function Atras() {
+
+    const context = useContext(Context);
 
     const handleClick = () => {
-        const register = document.getElementById('register');
-        register.style.display = 'none';
+        context.setMostrarLogin(false)
     }
-
 
     return (
         <div className='rounded-[50%] hover:scale-110 hover:cursor-pointer hover:bg-segundo' onClick={handleClick}>
@@ -16,4 +17,4 @@ function Back() {
     )
 }
 
-export default Back
+export default Atras
