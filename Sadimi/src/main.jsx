@@ -5,11 +5,12 @@ import "@fontsource-variable/onest";
 import "@fontsource/pacifico";
 import ContextProvider from './Context/main.jsx';
 import "./index.css"
+<div className='container'>
+  {createRoot(document.getElementById('root')).render(
 
-createRoot(document.getElementById('root')).render(
-  <div className='container'>
     <ContextProvider>
       <App />
     </ContextProvider>
-  </div>
-)
+
+  )}
+</div>
