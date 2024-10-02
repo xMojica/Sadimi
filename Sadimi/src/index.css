@@ -35,6 +35,14 @@ body {
     width: 100%;
 }
 
-main {
-    min-height: calc(100vh - 240px - 240px);
+@media (min-width: 640px) {
+    main {
+        min-height: calc(100vh - 240px - 240px);
+    }
+}
+
+@media (max-width: 640px) {
+    main {
+        min-height: calc(100vh - 240px);
+    }
 }
