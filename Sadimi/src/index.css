@@ -35,7 +35,7 @@ body {
     width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 641px) {
     main {
         min-height: calc(100vh - 240px - 240px);
     }
@@ -43,6 +43,6 @@ body {
 
 @media (max-width: 640px) {
     main {
-        min-height: calc(100vh - 240px);
+        min-height: calc(50vh);
     }
 }
