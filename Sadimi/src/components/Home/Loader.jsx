@@ -11,7 +11,6 @@ const Loader = () => {
                     width="1em"
                     className="animate-ping"
                 >
-                    <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8" />
 
                 </svg>
             </div>
