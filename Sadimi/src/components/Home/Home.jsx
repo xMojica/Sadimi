@@ -2,10 +2,12 @@ import Carrito from '../Header/IconoCarrito'
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Context } from '../../Context/main';
+import Loader from './Loader';
 
 function Home() {
     const context = useContext(Context);
     const [products, setProducts] = useState([]);
+    let productosFiltrados = []
 
     function handleClick() {
         context.setContador(context.contador + 1)
@@ -25,9 +27,15 @@ function Home() {
         fetchProducts();
     }, []);
 
-    const productosFiltrados = products.filter(product =>
-        product.nombre.toLowerCase().includes(context.busqueda.toLowerCase())
-    );
+    // Muestra la barra de carga antes de traer los datos del GET
+    if (products.length !== 0) {
+        productosFiltrados = products.filter(product =>
+            product.nombre.toLowerCase().includes(context.busqueda.toLowerCase())
+        );
+    } else {
+        return (
+            <Loader />)
+    }
 
     if (productosFiltrados.length === 0) {
         return (
