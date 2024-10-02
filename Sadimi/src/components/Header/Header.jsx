@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import Hamburguesa from "../../assets/hamburguesa.svg"
 import Carrito from './IconoCarrito.jsx'
 import Buscador from './Buscador.jsx'
+import Login from '../Home/Login/Login.jsx'
 import { Context } from '../../Context/main';
 
 function Header() {
@@ -9,6 +10,9 @@ function Header() {
 
     function handleClick() {
         context.setMostrarLogin(true)
+        return (
+            <Login />
+        )
     }
 
     return (

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Context } from '../../../Context/main';
 import Loader from './Loader';
 import Article from './Article';
+import Login from '../Login/Login';
 
 function Home() {
 
@@ -25,7 +26,6 @@ function Home() {
         fetchProducts();
     }, []);
 
-    // Muestra la barra de carga antes de traer los datos del GET
     if (products.length === 0) {
         return (
             <Loader />
@@ -51,7 +51,6 @@ function Home() {
             </main>
         );
     }
-
 
 }
 
