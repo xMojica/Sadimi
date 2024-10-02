@@ -33,7 +33,7 @@ function Home() {
         return (
             <>
                 <main className='my-20 flex w-full min-w-96 flex-wrap items-center justify-center gap-4 px-2 sm:px-4'>
-                    <h1 className='text-3xl text-primero'>No existe ningún producto que coincida con la búsqueda.</h1>
+                    <h1 className='text-center text-xl text-primero md:text-3xl'>No existe ningún producto que coincida con la búsqueda.</h1>
                 </main>
             </>
         )
