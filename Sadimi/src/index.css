@@ -43,6 +43,6 @@ body {
 
 @media (max-width: 640px) {
     main {
-        min-height: calc(20vh);
+        min-height: calc(100vh - 240px - 240px);
     }
 }
