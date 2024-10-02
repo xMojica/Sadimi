@@ -3,11 +3,10 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Context } from '../../../Context/main';
 import Loader from './Loader';
-import Header from '../../Header/Header';
 import Article from './Article';
-import Footer from '../../Footer/Footer';
 
 function Home() {
+
     const context = useContext(Context);
     const [products, setProducts] = useState([]);
     let productosFiltrados = []
@@ -27,35 +26,32 @@ function Home() {
     }, []);
 
     // Muestra la barra de carga antes de traer los datos del GET
-    if (products.length !== 0) {
-        productosFiltrados = products.filter(product =>
-            product.nombre.toLowerCase().includes(context.busqueda.toLowerCase())
-        );
-    } else {
+    if (products.length === 0) {
         return (
             <Loader />
         )
+    } else {
+        productosFiltrados = products.filter(product =>
+            product.nombre.toLowerCase().includes(context.busqueda.toLowerCase())
+        );
     }
 
     if (productosFiltrados.length === 0) {
         return (
-            <>
-                <main className='my-20 flex w-full min-w-96 flex-wrap items-start justify-center gap-4 px-2 sm:px-4 md:items-center'>
-                    <h1 className='text-center text-xl text-primero md:text-3xl'>No existe ningún producto que coincida con la búsqueda.</h1>
-                </main>
-            </>
+            <main className='my-20 flex w-full min-w-96 flex-wrap items-start justify-center gap-4 px-2 sm:px-4 md:items-center'>
+                <h1 className='text-center text-xl text-primero md:text-3xl'>No existe ningún producto que coincida con la búsqueda.</h1>
+            </main>
         )
-    }
-
-    return (
-        <>
+    } else {
+        return (
             <main className='my-20 flex w-full min-w-96 flex-wrap items-center justify-center gap-4 px-2 sm:px-4'>
                 {productosFiltrados.map(product => (
                     <Article key={product._id} product={product} />
                 ))}
             </main>
-        </>
-    );
+        );
+    }
+
 
 }
 
