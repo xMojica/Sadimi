@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import IniciarSesion from '../Home/Login/Login.jsx';
 import Hamburguesa from "../../assets/hamburguesa.svg"
 import Carrito from './IconoCarrito.jsx'
 import Buscador from './Buscador.jsx'
