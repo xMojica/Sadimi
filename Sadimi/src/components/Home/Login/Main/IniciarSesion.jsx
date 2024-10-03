@@ -16,19 +16,19 @@ function IniciarSesion({ setTitulo }) {
     }
 
     return (
-        <div className='flex h-auto flex-col gap-6 rounded-xl bg-background p-10'>
-            <div className='flex rounded-xl bg-segundo p-2 pl-4 shadow-md'>
-                <img src={Email} alt="Email" />
-                <input className='h-8 w-full rounded-xl bg-segundo px-3 text-xl text-primero outline-none placeholder:text-primero md:h-12' type="email" placeholder='Email: ' />
+        <div className='flex h-auto flex-col justify-center gap-6 rounded-xl bg-background p-10'>
+            <div className='flex h-12 items-center rounded-xl bg-segundo'>
+                <img className='mx-4 h-6 w-6' src={Email} alt="Email" />
+                <input className='bg-red h-full w-full rounded-r-xl border-l-8 border-background bg-tercero pl-3 text-xl text-primero shadow-lg outline-none placeholder:text-primero' type="email" placeholder='Email: ' />
             </div>
-            <div className='flex rounded-xl bg-segundo p-2 pl-4 shadow-md'>
-                <img src={Password} alt="Contraseña" />
-                <input className='h-8 w-full rounded-xl bg-segundo px-3 text-xl text-primero outline-none placeholder:text-primero md:h-12' type="password" placeholder='Contraseña: ' />
+            <div className='flex h-12 items-center rounded-xl bg-segundo'>
+                <img className='mx-4 h-6 w-6' src={Password} alt="Contraseña" />
+                <input className='bg-red h-full w-full rounded-r-xl border-l-8 border-background bg-tercero pl-3 text-xl text-primero shadow-lg outline-none placeholder:text-primero' type="password" placeholder='Contraseña: ' />
             </div>
-            <p className='text-right text-primero hover:cursor-pointer'><u>¿Olvidaste tu contraseña?</u></p>
+            <p className='mt-3 text-right text-quinto hover:cursor-pointer hover:text-primero'><u className='no-underline hover:underline'>¿Olvidaste tu contraseña?</u></p>
             <div className='mt-10 flex w-full flex-col'>
                 <button className='rounded-xl bg-primero p-4 text-2xl text-segundo hover:scale-105 hover:cursor-pointer' onClick={iniciar}>Iniciar sesion</button>
-                <p className='mt-4 justify-center text-center text-quinto'>¿Aún no tienes una cuenta? <u className='font-extrabold text-primero hover:scale-105 hover:cursor-pointer' onClick={siguiente}>Registrate</u></p>
+                <p className='mt-4 justify-center text-center text-quinto'>¿Aún no tienes una cuenta? <u className='font-extrabold no-underline hover:cursor-pointer hover:text-primero hover:underline' onClick={siguiente}>Registrate</u></p>
             </div>
         </div>
 
