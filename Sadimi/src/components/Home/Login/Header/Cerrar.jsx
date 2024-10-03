@@ -1,20 +1,20 @@
 import React, { useContext } from 'react'
-import Arrow from '../../../assets/back.svg'
-import { Context } from '../../../Context/main';
+import Close from '../../../../assets/close.svg'
+import { Context } from '../../../../Context/main'
 
-function Atras() {
+function Cerrar() {
 
     const context = useContext(Context);
 
-    const handleClick = () => {
+    function handleClick() {
         context.setMostrarLogin(false)
     }
 
     return (
         <div className='rounded-[50%] hover:scale-110 hover:cursor-pointer hover:bg-segundo' onClick={handleClick}>
-            <img src={Arrow} alt="atras" />
+            <img src={Close} alt="cerrar" />
         </div>
     )
 }
 
-export default Atras
+export default Cerrar
