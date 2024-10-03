@@ -35,7 +35,7 @@ function Alerta({ tipo, mensaje }) {
         return (
             <Collapse in={open}>
                 <Alert
-                    icon={<DoDisturbIcon sx={{ color: "var(--tercero)" }} fontSize="large" />}
+                    icon={<DoDisturbIcon sx={{ color: "var(--tercero)" }} fontSize="inherit" />}
                     sx={{
                         mb: 2, alignItems: "center", background: "var(--error)", borderRadius: "16px"
                     }}
