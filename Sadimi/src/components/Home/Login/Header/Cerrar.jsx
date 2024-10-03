@@ -8,6 +8,7 @@ function Cerrar() {
 
     function handleClick() {
         context.setMostrarLogin(false)
+        document.body.style.overflow = "scroll";
     }
 
     return (

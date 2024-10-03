@@ -12,17 +12,18 @@ function IniciarSesion({ setTitulo }) {
 
     function iniciar() {
         setMostrarLogin(false)
+        document.body.style.overflow = "scroll";
     }
 
     return (
         <div className='flex h-auto flex-col gap-6 rounded-xl bg-background p-10'>
             <div className='flex rounded-xl bg-segundo p-2 pl-4 shadow-md'>
                 <img src={Email} alt="Email" />
-                <input className='h-12 w-full rounded-xl bg-segundo px-3 text-xl text-primero outline-none placeholder:text-primero' type="email" placeholder='Email: ' />
+                <input className='h-8 w-full rounded-xl bg-segundo px-3 text-xl text-primero outline-none placeholder:text-primero md:h-12' type="email" placeholder='Email: ' />
             </div>
             <div className='flex rounded-xl bg-segundo p-2 pl-4 shadow-md'>
                 <img src={Password} alt="Contraseña" />
-                <input className='h-12 w-full rounded-xl bg-segundo px-3 text-xl text-primero outline-none placeholder:text-primero' type="password" placeholder='Contraseña: ' />
+                <input className='h-8 w-full rounded-xl bg-segundo px-3 text-xl text-primero outline-none placeholder:text-primero md:h-12' type="password" placeholder='Contraseña: ' />
             </div>
             <p className='text-right text-primero hover:cursor-pointer'><u>¿Olvidaste tu contraseña?</u></p>
             <div className='mt-10 flex w-full flex-col'>

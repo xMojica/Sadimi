@@ -15,7 +15,7 @@ function Login() {
 
     if (mostrarLogin == true) {
         return (
-            <div id='login' className='fixed bottom-0 top-0 z-50 flex h-full w-full items-center justify-center border border-quinto/15 bg-black/40 shadow-md backdrop-blur-sm'>
+            <div id='login' className='fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center border border-quinto/15 bg-black/40 shadow-md backdrop-blur-sm'>
                 <div className='h-full w-full bg-background md:h-3/4 md:w-1/2 md:min-w-[490px] md:max-w-[700px] md:rounded-xl'>
                     <div id='header-login' className='flex w-full items-center justify-between p-5'>
                         <span className='h-8 w-8 md:h-10 md:w-10'>

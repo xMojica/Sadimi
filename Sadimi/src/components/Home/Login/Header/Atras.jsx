@@ -10,6 +10,7 @@ function Atras({ titulo, setTitulo }) {
         switch (titulo) {
             case "Iniciar sesion":
                 context.setMostrarLogin(false)
+                document.body.style.overflow = "scroll";
                 break;
             case "Datos personales":
                 setTitulo("Iniciar sesion")
