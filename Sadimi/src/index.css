@@ -5,12 +5,14 @@
     --tercero: #ececec;
     --cuarto: #e36666;
     --quinto: #505956;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
 }
 
 html {
     background: var(--background);
     font-family: "Onest Variable", sans-serif;
-    font-weight: bold;
     margin: 8px;
 }
 
@@ -28,7 +30,7 @@ body {
 }
 
 *::-webkit-scrollbar {
-    width: 0;
+    width: fit-content;
 }
 
 #root {

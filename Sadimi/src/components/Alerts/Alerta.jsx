@@ -27,7 +27,7 @@ function Alerta({ tipo, mensaje }) {
                         </IconButton>
                     }
                 >
-                    <h1 className="font-bold text-primero">{mensaje}</h1>
+                    <h1 className="font-semibold text-primero">{mensaje}</h1>
                 </Alert>
             </Collapse>
         )
@@ -35,22 +35,22 @@ function Alerta({ tipo, mensaje }) {
         return (
             <Collapse in={open}>
                 <Alert
-                    icon={<DoDisturbIcon sx={{ color: "var(--tercero)" }} fontSize="inherit" />}
-                    sx={{ mb: 2, alignItems: "center", background: "var(--cuarto)", borderRadius: "16px" }}
+                    icon={<DoDisturbIcon sx={{ color: "var(--tercero)" }} fontSize="large" />}
+                    sx={{
+                        mb: 2, alignItems: "center", background: "var(--cuarto)", borderRadius: "16px"
+                    }}
                     action={
                         <IconButton
                             size="medium"
-                            onClick={() => {
-                                setOpen(false);
-                            }}
+                            onClick={() => { setOpen(false) }}
                         >
                             <CloseIcon fontSize="inherit" sx={{ color: "var(--tercero)" }} />
                         </IconButton>
                     }
                 >
-                    <h1 className="font-bold text-tercero">{mensaje}</h1>
+                    <h1 className="font-semibold text-tercero">{mensaje}</h1>
                 </Alert>
-            </Collapse>
+            </Collapse >
         )
     }
 }
