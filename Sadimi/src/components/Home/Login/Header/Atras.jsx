@@ -7,6 +7,7 @@ function Atras({ titulo, setTitulo }) {
     const context = useContext(Context);
 
     const handleClick = () => {
+        context.setOpen(false);
         switch (titulo) {
             case "Iniciar sesion":
                 context.setMostrarLogin(false)

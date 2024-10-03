@@ -22,7 +22,7 @@ function Login() {
                         <span className='h-8 w-8 md:h-10 md:w-10'>
                             <Atras titulo={titulo} setTitulo={setTitulo} />
                         </span>
-                        <h1 className='mx-auto text-3xl font-bold text-primero'>{titulo}</h1>
+                        <h1 className='mx-auto text-xl font-bold text-primero sm:text-3xl'>{titulo}</h1>
                         <span className='h-10 w-10'>
                             <Cerrar />
                         </span>
