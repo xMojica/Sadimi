@@ -12,6 +12,9 @@ function Atras({ titulo, setTitulo }) {
                 context.setMostrarLogin(false)
                 document.body.style.overflow = "scroll";
                 break;
+            case "Recuperar contraseña":
+                setTitulo("Iniciar sesion")
+                break;
             case "Datos personales":
                 setTitulo("Iniciar sesion")
                 break;
