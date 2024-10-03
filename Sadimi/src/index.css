@@ -5,6 +5,8 @@
     --tercero: #ececec;
     --cuarto: #e36666;
     --quinto: #505956;
+    --success: #d9eddef6;
+    --error: #eb7373;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
