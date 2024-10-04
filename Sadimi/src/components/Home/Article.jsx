@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import Carrito from '../../Header/IconoCarrito';
-import { Context } from '../../../Context/main';
+import Carrito from '../Header/IconoCarrito';
+import { Context } from '../../Context/main';
 
 function Article({ product }) {
 

@@ -1,23 +1,23 @@
 import React, { useContext } from 'react'
-import Arrow from '../../../../assets/back.svg'
-import { Context } from '../../../../Context/main';
+import Arrow from '../../../assets/back.svg'
+import { Context } from '../../../Context/main';
+import { useNavigate } from 'react-router-dom';
 
 function Atras({ titulo, setTitulo }) {
-
-    const context = useContext(Context);
+    const navigate = useNavigate()
+    const { setOpen } = useContext(Context);
 
     const handleClick = () => {
-        context.setOpen(false);
+        setOpen(false);
         switch (titulo) {
             case "Iniciar sesion":
-                context.setMostrarLogin(false)
-                document.body.style.overflow = "scroll";
+                navigate("/");
                 break;
             case "Recuperar contraseña":
-                setTitulo("Iniciar sesion")
+                navigate("/Login");
                 break;
             case "Datos personales":
-                setTitulo("Iniciar sesion")
+                navigate("/Login");
                 break;
             case "Contacto":
                 setTitulo("Datos personales")

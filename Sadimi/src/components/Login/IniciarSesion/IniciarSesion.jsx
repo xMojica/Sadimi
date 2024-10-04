@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
-import { Context } from '../../../../Context/main';
-import Email from '../../../../assets/email.svg'
-import Password from '../../../../assets/password.svg'
-import Alerta from '../../../Alerts/Alerta';
-import Show from './Show';
+import { Context } from '../../../Context/main';
+import Email from '../../../assets/email.svg'
+import Password from '../../../assets/password.svg'
+import Alerta from '../../Alerts/Alerta';
+import Show from '../Header/Show';
 
 function IniciarSesion({ setTitulo }) {
     const { setOpen } = useContext(Context);

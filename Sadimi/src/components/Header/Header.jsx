@@ -4,14 +4,15 @@ import Carrito from './IconoCarrito.jsx'
 import Buscador from './Buscador.jsx'
 import user from '../../assets/user.svg'
 import { Context } from '../../Context/main';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
     const context = useContext(Context);
+    const navigate = useNavigate();
 
 
     function handleClick() {
-        context.setMostrarLogin(true)
-        document.body.style.overflow = "hidden";
+        navigate("/Login")
     }
 
     return (

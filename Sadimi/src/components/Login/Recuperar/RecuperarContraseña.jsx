@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import Email from '../../../../assets/email.svg'
-import Documento from '../../../../assets/documento.svg'
-import Alerta from '../../../Alerts/Alerta'
-import { Context } from '../../../../Context/main'
+import Email from '../../../assets/email.svg'
+import Documento from '../../../assets/documento.svg'
+import Alerta from '../../Alerts/Alerta';
+import { Context } from '../../../Context/main';
 
 function RecuperarContraseña() {
     const { setOpen } = useContext(Context)

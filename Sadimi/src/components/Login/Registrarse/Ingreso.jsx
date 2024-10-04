@@ -1,16 +1,25 @@
 import React, { useContext, useState } from 'react'
-import { Context } from '../../../../Context/main';
-import Alerta from '../../../Alerts/Alerta';
-import Password from '../../../../assets/password.svg'
-import Show from './Show';
+import { Context } from '../../../Context/main';
+import Alerta from '../../Alerts/Alerta';
+import Password from '../../../assets/password.svg'
+import Show from '../Header/Show';
 
 function Inicio() {
     const { setOpen } = useContext(Context);
     const [mostrarContraseña, setMostrarContraseña] = useState(true);
     const inputType = mostrarContraseña ? 'password' : 'text';
 
-    function handleChange() {
-        setOpen(false)
+    const [registro, setRegistro] = useState(() => {
+        const storedRegistro = sessionStorage.getItem('registro');
+        return storedRegistro ? JSON.parse(storedRegistro) : { nombre: '', apellido: '', documento: '', telefono: '', email: '', pais: '', departamento: '', ciudad: '', direccion: '', contraseña: '' };
+    });
+
+    function handleChange(e) {
+        setOpen(false);
+        const { name, value } = e.target;
+        setRegistro((prevRegistro) => ({
+            ...prevRegistro, [name]: value
+        }));
     }
 
     function handleToggle() {
@@ -27,7 +36,7 @@ function Inicio() {
             <div className='flex h-12 items-center rounded-xl bg-tercero'>
                 <img className='mx-4 h-full w-6' src={Password} alt="Contraseña" />
                 <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                    <input className='bg-red h-full w-full rounded-r-xl border-l-8 border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero' type={inputType} placeholder='Contraseña:' onChange={handleChange} />
+                    <input className='bg-red h-full w-full rounded-r-xl border-l-8 border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero' type={inputType} name='contraseña' placeholder='Contraseña:' onChange={handleChange} />
                     <Show mostrarContraseña={mostrarContraseña} onToggle={handleToggle} />
                 </span>
             </div>
@@ -35,7 +44,7 @@ function Inicio() {
             <div className='flex h-12 items-center rounded-xl bg-tercero'>
                 <img className='mx-4 h-full w-6' src={Password} alt="Repetir contraseña" />
                 <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                    <input className='bg-red h-full w-full rounded-r-xl border-l-8 border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero' type={inputType} placeholder='Repetir contraseña:' onChange={handleChange} />
+                    <input className='bg-red h-full w-full rounded-r-xl border-l-8 border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero' type={inputType} name='contraseña' placeholder='Repetir contraseña:' onChange={handleChange} />
                     <Show mostrarContraseña={mostrarContraseña} onToggle={handleToggle} />
                 </span>
             </div>
