@@ -4,7 +4,7 @@ import Email from '../../../../assets/email.svg'
 import { Context } from '../../../../Context/main';
 import Alerta from '../../../Alerts/Alerta';
 
-function Contacto() {
+function Contacto({ setTitulo }) {
     const { setOpen } = useContext(Context);
 
     function handleChange() {
@@ -12,8 +12,8 @@ function Contacto() {
     }
 
     function siguiente() {
-        // setTitulo("Ubicacion")
-        setOpen(true)
+        setTitulo("Ubicacion")
+        // setOpen(true)
     }
 
     return (
