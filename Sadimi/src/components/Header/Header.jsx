@@ -31,9 +31,9 @@ function Header() {
                 </div>
             </div>
 
-            <div className='mt-6 flex h-16 w-full justify-between gap-4 px-4 md:hidden'>
+            <div className='mt-6 flex h-16 w-full justify-around gap-4 px-4 md:hidden'>
                 <Buscador />
-                <span className='relative flex h-10 items-baseline justify-center rounded-xl p-1 text-center text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo'>
+                <span className='relative mr-4 flex h-10 items-baseline justify-center rounded-xl p-2 text-center text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo'>
                     <Carrito color={"#4c7766"} />
                     <span className='absolute left-1/2 top-0 flex h-4 w-4 -translate-x-1/2 items-center justify-center rounded-[50%] bg-cuarto text-[75%] font-normal text-tercero'>{context.contador}</span>
                 </span>
