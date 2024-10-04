@@ -17,7 +17,7 @@ function Header() {
     return (
 
         <header className='flex w-full min-w-96 flex-col'>
-            <div className='flex h-16 w-full flex-row items-center justify-between rounded-xl bg-tercero px-2 sm:px-4'>
+            <div className='flex h-16 w-full flex-row items-center justify-between rounded-xl px-2 sm:px-4'>
                 <div className='flex h-10 items-center justify-center rounded-xl p-2 px-4 hover:cursor-pointer hover:bg-segundo md:hidden' onClick={handleClick}>
                     <img className='h-7' src={Hamburguesa} alt="menu" />
                 </div>
