@@ -34,7 +34,7 @@ function Header() {
                 </div>
             </div>
 
-            <div className='mt-6 flex h-16 w-full justify-between gap-4 px-2 md:hidden'>
+            <div className='mt-1 flex h-16 w-full justify-between gap-4 px-2 md:hidden'>
                 <Buscador />
                 <span className='relative flex h-10 items-baseline justify-center rounded-xl p-2 text-center text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo'>
                     <Carrito color={"#4c7766"} />
