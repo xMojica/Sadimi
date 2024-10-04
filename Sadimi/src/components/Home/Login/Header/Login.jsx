@@ -24,7 +24,7 @@ function Login() {
                         </span>
                         <h1 className='mx-auto text-xl font-bold text-primero sm:text-3xl'>{titulo}</h1>
                         <span className='h-10 w-10'>
-                            <Cerrar />
+                            <Cerrar setTitulo={setTitulo} />
                         </span>
                     </header>
                     {(titulo == "Iniciar sesion") ? <IniciarSesion setTitulo={setTitulo} /> : null}

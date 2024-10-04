@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Close from '../../../../assets/close.svg'
 import { Context } from '../../../../Context/main'
 
-function Cerrar() {
+function Cerrar({ setTitulo }) {
 
     const context = useContext(Context);
 
@@ -10,6 +10,7 @@ function Cerrar() {
         context.setMostrarLogin(false)
         document.body.style.overflow = "scroll";
         context.setOpen(false);
+        setTitulo("Iniciar sesion");
     }
 
     return (
