@@ -11,8 +11,8 @@ import Ciudades from './Ciudades.jsx';
 
 function Ubicacion({ setTitulo }) {
     const { setOpen, token, setToken } = useContext(Context);
-    const [pais, setPais] = useState("");
-    const [departamento, setDepartamento] = useState("");
+    const [pais, setPais] = useState(null);
+    const [departamento, setDepartamento] = useState(null);
     const [ciudad, setCiudad] = useState("");
     const [registro, setRegistro] = useState(() => {
         const storedRegistro = sessionStorage.getItem('registro');
@@ -37,7 +37,9 @@ function Ubicacion({ setTitulo }) {
             <div className='flex h-12 items-center rounded-xl bg-tercero'>
                 <img className='mx-4 h-6 w-6' src={IconoPais} alt="Pais" />
                 <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                    <Paises setPais={setPais} />
+                    <Paises
+                        setPais={setPais}
+                        disabled={false} />
                 </span>
             </div>
             <div className='flex h-12 items-center rounded-xl bg-tercero'>
@@ -46,7 +48,7 @@ function Ubicacion({ setTitulo }) {
                     <Departamentos
                         setDepartamento={setDepartamento}
                         pais={pais}
-                        disabled={pais === null}
+                        disabled={pais == null}
                     />
                 </span>
             </div>
@@ -56,7 +58,7 @@ function Ubicacion({ setTitulo }) {
                     <Ciudades
                         setCiudad={setCiudad}
                         departamento={departamento}
-                        disabled={departamento === null}
+                        disabled={departamento == null}
                     />
                 </span>
             </div>

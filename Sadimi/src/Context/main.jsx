@@ -8,9 +8,16 @@ export default function ContextProvider({ children }) {
     const [mostrarLogin, setMostrarLogin] = useState(false);
     const [open, setOpen] = useState(false);
     const [token, setToken] = useState("");
+    const [menuVisiblePaises, setMenuVisiblePaises] = useState(false)
+    const [menuVisibleDepartamentos, setMenuVisibleDepartamentos] = useState(false)
+    const [menuVisibleCiudades, setMenuVisibleCiudades] = useState(false)
 
     return (
-        <Context.Provider value={{ contador, setContador, busqueda, setBusqueda, mostrarLogin, setMostrarLogin, open, setOpen, token, setToken }}>
+        <Context.Provider value={{
+            contador, setContador, busqueda, setBusqueda, mostrarLogin, setMostrarLogin,
+            open, setOpen, token, setToken, menuVisiblePaises, setMenuVisiblePaises,
+            menuVisibleDepartamentos, setMenuVisibleDepartamentos, menuVisibleCiudades, setMenuVisibleCiudades
+        }}>
             {children}
         </Context.Provider>
     );

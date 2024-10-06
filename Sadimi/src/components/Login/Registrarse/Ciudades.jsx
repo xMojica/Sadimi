@@ -3,7 +3,7 @@ import { Context } from '../../../Context/main';
 import axios from 'axios';
 
 function Ciudades({ setCiudad, departamento, disabled }) {
-    const { token } = useContext(Context);
+    const { token, menuVisibleCiudades, setMenuVisibleCiudades, setMenuVisiblePaises, setMenuVisibleDepartamentos } = useContext(Context);
     const [menuVisible, setMenuVisible] = useState(false);
     const [seleccionado, setSeleccionado] = useState(null);
     const [ciudades, setCiudades] = useState([]);
@@ -30,19 +30,25 @@ function Ciudades({ setCiudad, departamento, disabled }) {
     const handleSelect = (ciudad) => {
         setSeleccionado(ciudad.city_name);
         setCiudad(ciudad.city_name)
-        setMenuVisible(false);
+        setMenuVisibleCiudades(false);
     };
+
+    function visibilidad() {
+        setMenuVisibleCiudades(prev => !prev)
+        setMenuVisibleDepartamentos(false)
+        setMenuVisiblePaises(false)
+    }
 
     return (
         <div className="relative h-full w-full rounded-r-xl border-l-8 border-background">
             <button
                 className='h-full w-full bg-tercero px-4 text-left text-lg font-normal text-primero outline-none hover:cursor-pointer'
-                onClick={() => setMenuVisible(prev => !prev)}
+                onClick={visibilidad}
                 disabled={disabled}
             >
                 {seleccionado || "Ciudades:"}
             </button>
-            <div className={`absolute z-10 mt-1 w-full rounded-r-xl border bg-segundo overflow-y-auto max-h-56 ${menuVisible ? 'block' : 'hidden'}`}>
+            <div className={`absolute z-10 mt-1 w-full rounded-r-xl border bg-segundo overflow-y-auto max-h-56 ${menuVisibleCiudades ? 'block' : 'hidden'}`}>
                 {
                     ciudades.length > 0 ? (
                         ciudades.map((ciudad) => (

@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../../../Context/main';
 import axios from 'axios';
 
-function Departamentos({ pais, setDepartamento, disabled }) {
-    const { token } = useContext(Context);
+function Departamentos({ pais, setDepartamento }) {
+    const { token, disabled, menuVisibleDepartamentos, setMenuVisibleDepartamentos, setMenuVisiblePaises, setMenuVisibleCiudades } = useContext(Context);
     const [menuVisible, setMenuVisible] = useState(false);
     const [seleccionado, setSeleccionado] = useState(null);
     const [departamentos, setDepartamentos] = useState([]);
@@ -30,19 +30,26 @@ function Departamentos({ pais, setDepartamento, disabled }) {
     const handleSelect = (departamento) => {
         setSeleccionado(departamento.state_name);
         setDepartamento(departamento.state_name);
-        setMenuVisible(false);
+        setMenuVisibleDepartamentos(false);
     };
+
+    function visibilidad() {
+        setMenuVisibleDepartamentos(prev => !prev)
+        setMenuVisiblePaises(false)
+        setMenuVisibleCiudades(false)
+    }
 
     return (
         <div className="relative h-full w-full rounded-r-xl border-l-8 border-background">
             <button
                 className='h-full w-full bg-tercero px-4 text-left text-lg font-normal text-primero outline-none hover:cursor-pointer'
-                onClick={() => setMenuVisible(prev => !prev)}
+                onClick={visibilidad}
                 disabled={disabled}
+
             >
                 {seleccionado || "Departamentos:"}
             </button>
-            <div className={`absolute z-10 mt-1 w-full rounded-r-xl border bg-segundo overflow-y-auto max-h-56 ${menuVisible ? 'block' : 'hidden'}`}>
+            <div className={`absolute z-10 mt-1 w-full rounded-r-xl border bg-segundo overflow-y-auto max-h-56 ${menuVisibleDepartamentos ? 'block' : 'hidden'}`}>
                 {
                     departamentos.length > 0 ? (
                         departamentos.map((departamento) => (
