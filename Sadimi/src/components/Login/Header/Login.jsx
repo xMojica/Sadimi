@@ -1,5 +1,6 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 import { Context } from '../../../Context/main';
 import Atras from './Atras';
 import Cerrar from './Cerrar';
@@ -10,8 +11,30 @@ import Contacto from '../Registrarse/Contacto'
 import Ingreso from '../Registrarse/Ingreso'
 import RecuperarContraseña from '../Recuperar/RecuperarContraseña';
 
+
 function Login() {
     const [titulo, setTitulo] = useState("Iniciar sesion")
+    const { setToken } = useContext(Context);
+
+    useEffect(() => {
+
+        const getAuthToken = async () => {
+            try {
+                const response = await axios.get('https://www.universal-tutorial.com/api/getaccesstoken', {
+                    headers: {
+                        'Accept': 'application/json',
+                        'api-token': 'UFmpvLEJ9QRDMITEp3kglEJZiqmdVa_tV7Um3sKtkLctyU5NKZ70rhDEjpMc7uYZJRA',
+                        'user-email': 'samojica08@hotmail.com'
+                    }
+                });
+                setToken(response.data.auth_token)
+                return response.data.auth_token;
+            } catch (error) {
+                throw new Error(`Error getting auth token: ${error.message}`);
+            }
+        };
+        getAuthToken()
+    }, [])
 
     return (
         <main className='flex h-full w-full min-w-96 items-start justify-center bg-background md:items-center'>

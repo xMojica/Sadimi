@@ -1,17 +1,39 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
+import { Context } from '../../../Context/main';
 
-const paises = [
-    { value: 'colombia', nombre: 'Colombia' },
-    { value: 'peru', nombre: 'Perú' },
-    { value: 'argentina', nombre: 'Argentina' },
-    { value: 'mexico', nombre: 'México' },
-];
-
-const Paises = () => {
+function Paises({ setPais }) {
+    const { token } = useContext(Context);
     const [menuVisible, setMenuVisible] = useState(false);
+    const [seleccionado, setSeleccionado] = useState(null);
+    const [paises, setPaises] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+        const getCountries = async () => {
+
+            try {
+                const response = await axios.get('https://www.universal-tutorial.com/api/countries', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Accept': 'application/json',
+                    },
+                });
+                setPaises(response.data);
+            } catch (error) {
+                setError(`Error al obtener los países: ${error.message}`);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        getCountries();
+    }, [token]);
 
     const handleSelect = (pais) => {
-        console.log(`Seleccionaste: ${pais.nombre}`);
+        setSeleccionado(pais.country_name);
+        setPais(pais.country_name);
         setMenuVisible(false);
     };
 
@@ -21,19 +43,27 @@ const Paises = () => {
                 className='h-full w-full bg-tercero px-4 text-left text-lg font-normal text-primero outline-none hover:cursor-pointer'
                 onClick={() => setMenuVisible(prev => !prev)}
             >
-                Pais:
+                {seleccionado || "Paises:"}
             </button>
-            <div className={`absolute z-10 mt-1 w-full rounded-r-xl border bg-segundo ${menuVisible ? 'block' : 'hidden'}`}>
-                {paises.map((pais) => (
-                    <div
-                        key={pais.value}
-                        className='m-2 flex cursor-pointer rounded-r-xl p-2 text-primero hover:cursor-pointer hover:bg-quinto hover:text-tercero'
-                        onClick={() => handleSelect(pais)}
-                    >
-                        <span className='w-4 bg-white'></span>
-                        <span>{pais.nombre}</span>
-                    </div>
-                ))}
+            <div className={`absolute z-10 mt-1 w-full rounded-r-xl border bg-segundo overflow-y-auto max-h-56 ${menuVisible ? 'block' : 'hidden'}`}>
+                {loading ? (
+                    <div className="p-2 text-center">Cargando países ...</div>
+                ) : error ? (
+                    <div className="p-2 text-center text-red-500">{error}</div>
+                ) : (
+                    paises.map((pais) => (
+                        <div
+                            key={pais.country_short_name}
+                            className='m-2 flex cursor-pointer items-center rounded-r-xl p-2 text-primero hover:bg-quinto hover:text-tercero'
+                            onClick={() => handleSelect(pais)}
+                        >
+                            <span className='h-8 w-8'>
+                                <img src={`https://flagsapi.com/${pais.country_short_name}/flat/64.png`} alt={pais.country_name} className="h-full w-full object-cover" />
+                            </span>
+                            <span className='ml-4'>{pais.country_name}</span>
+                        </div>
+                    ))
+                )}
             </div>
         </div>
     );

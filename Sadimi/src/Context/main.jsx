@@ -7,9 +7,10 @@ export default function ContextProvider({ children }) {
     const [busqueda, setBusqueda] = useState("")
     const [mostrarLogin, setMostrarLogin] = useState(false);
     const [open, setOpen] = useState(false);
+    const [token, setToken] = useState("");
 
     return (
-        <Context.Provider value={{ contador, setContador, busqueda, setBusqueda, mostrarLogin, setMostrarLogin, open, setOpen }}>
+        <Context.Provider value={{ contador, setContador, busqueda, setBusqueda, mostrarLogin, setMostrarLogin, open, setOpen, token, setToken }}>
             {children}
         </Context.Provider>
     );

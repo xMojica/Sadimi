@@ -97,7 +97,7 @@ function DatosPersonales({ setTitulo }) {
                 </span>
             </div>
 
-            <span className='mt-4 flex h-12 w-full justify-center'>
+            <span className='flex h-12 w-full justify-center'>
                 <Alerta tipo={"Error"} mensaje={mensaje} />
             </span>
 
