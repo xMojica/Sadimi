@@ -14,9 +14,9 @@ function Login() {
     const [titulo, setTitulo] = useState("Iniciar sesion")
 
     return (
-        <section id='login' className='fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center border border-quinto/15 bg-black/40 shadow-md backdrop-blur-sm'>
-            <div className='h-full w-full bg-background md:my-4 md:h-auto md:max-h-screen md:w-1/2 md:min-w-[490px] md:max-w-[700px] md:rounded-xl'>
-                <header id='header-login' className='flex w-full items-center justify-between p-5'>
+        <main className='flex h-full w-full min-w-96 items-start justify-center bg-background md:items-center'>
+            <section id='login' className='z-50 flex h-full w-full flex-col items-center justify-between rounded-xl bg-tercero md:h-5/6 md:w-1/2 md:min-w-[490px] md:max-w-[700px]'>
+                <header className='flex w-full min-w-96 items-center justify-between p-5 md:rounded-xl'>
                     <span className='h-8 w-8 md:h-10 md:w-10'>
                         <Atras titulo={titulo} setTitulo={setTitulo} />
                     </span>
@@ -25,14 +25,18 @@ function Login() {
                         <Cerrar setTitulo={setTitulo} />
                     </span>
                 </header>
+
                 {(titulo == "Iniciar sesion") ? <IniciarSesion setTitulo={setTitulo} /> : null}
                 {(titulo == "Recuperar contraseña") ? <RecuperarContraseña setTitulo={setTitulo} /> : null}
                 {(titulo == "Datos personales") ? <DatosPersonales setTitulo={setTitulo} /> : null}
                 {(titulo == "Contacto") ? <Contacto setTitulo={setTitulo} /> : null}
                 {(titulo == "Ubicacion") ? <Ubicacion setTitulo={setTitulo} /> : null}
                 {(titulo == "Ingreso") ? <Ingreso setTitulo={setTitulo} /> : null}
-            </div>
-        </section >
+                {/* <div className='h-full w-full border-4 border-violet-500 md:my-4 md:h-auto md:max-h-screen md:w-1/2 md:min-w-[490px] md:max-w-[700px] md:rounded-xl'>
+                </div> */}
+
+            </section >
+        </main>
     );
 
 }

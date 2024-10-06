@@ -29,7 +29,7 @@ function Header() {
                         <Carrito color={"#4c7766"} />
                         <span className='absolute left-1/2 top-0 flex h-4 w-4 items-center justify-center rounded-[50%] bg-cuarto text-[75%] font-normal text-tercero'>{context.contador}</span>
                     </span>
-                    <div className='flex items-center rounded-xl p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:bg-segundo' onClick={handleClick}>
+                    <div className='flex items-center rounded-xl p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo' onClick={handleClick}>
                         <img src={user} alt="Usuario" className='h-7' />
                     </div>
                 </div>

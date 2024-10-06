@@ -14,10 +14,10 @@ function Atras({ titulo, setTitulo }) {
                 navigate("/");
                 break;
             case "Recuperar contraseña":
-                navigate("/Login");
+                setTitulo("Iniciar sesion");
                 break;
             case "Datos personales":
-                navigate("/Login");
+                setTitulo("Iniciar sesion");
                 break;
             case "Contacto":
                 setTitulo("Datos personales")

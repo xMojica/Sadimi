@@ -15,15 +15,15 @@ function Alerta({ tipo, mensaje }) {
             <Collapse in={open}>
                 <Alert
                     icon={<CheckIcon sx={{ color: "#4c7766" }} fontSize="inherit" />}
-                    sx={{ mb: 2, alignItems: "center", background: "var(--success)", borderRadius: "16px", widht: "100%" }}
+                    sx={{ mb: 2, textAlign: "center", fontWeight: "Bold", alignItems: "center", background: "var(--success)", borderRadius: "16px", widht: "100%" }}
                     action={
                         <IconButton
-                            size="medium"
+                            size="large"
                             onClick={() => {
                                 setOpen(false);
                             }}
                         >
-                            <CloseIcon fontSize="inherit" sx={{ color: "#4c7766" }} />
+                            <CloseIcon fontSize="inherit" size="large" sx={{ color: "#4c7766" }} />
                         </IconButton>
                     }
                 >

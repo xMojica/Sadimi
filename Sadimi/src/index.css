@@ -20,13 +20,18 @@
 html {
     background: var(--background);
     font-family: "Onest Variable", sans-serif;
-    margin: 8px;
+    margin: 0;
 }
 
 body {
     display: flex;
     justify-content: center;
     overflow-y: visible;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
 }
 
 * {
@@ -38,10 +43,6 @@ body {
 
 *::-webkit-scrollbar {
     width: fit-content;
-}
-
-#root {
-    width: 100%;
 }
 
 @media (min-width: 641px) {
