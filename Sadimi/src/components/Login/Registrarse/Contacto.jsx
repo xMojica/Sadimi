@@ -47,9 +47,9 @@ function Contacto({ setTitulo }) {
     }
 
     return (
-        <div className='flex h-full w-full flex-col justify-start gap-6 rounded-xl p-10'>
+        <div className='flex h-full w-full flex-col justify-start gap-6 rounded-xl bg-background p-10'>
 
-            <div className='flex h-12 items-center rounded-xl bg-background'>
+            <div className='flex h-12 items-center rounded-xl bg-tercero'>
                 <img className='mx-4 h-6 w-6' src={Telefono} alt="Telefono" />
                 <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <input className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero'

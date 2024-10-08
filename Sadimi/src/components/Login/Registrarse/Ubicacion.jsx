@@ -40,8 +40,8 @@ function Ubicacion({ setTitulo }) {
     }
 
     return (
-        <div className='flex h-full w-full flex-col justify-start gap-6 rounded-xl bg-tercero p-10'>
-            <div className='flex h-12 items-center rounded-xl bg-background'>
+        <div className='flex h-full w-full flex-col justify-start gap-6 rounded-xl bg-background p-10'>
+            <div className='flex h-12 items-center rounded-xl bg-tercero'>
                 <img className='mx-4 h-6 w-6' src={IconoPais} alt="Pais" />
                 <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <Paises
