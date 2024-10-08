@@ -22,7 +22,7 @@ function Header() {
                     <div className='flex h-10 items-center justify-start rounded-xl p-2 px-4 hover:cursor-pointer hover:bg-segundo md:hidden' onClick={handleClick}>
                         <img className='h-7' src={Hamburguesa} alt="menu" />
                     </div>
-                    <h1 className='flex translate-x-9 p-2 text-center font-cursive text-3xl font-bold text-primero hover:scale-105 hover:cursor-pointer md:mx-0 md:flex md:w-80'>Sadimi</h1>
+                    <h1 className='flex translate-x-8 p-2 text-center font-cursive text-3xl font-bold text-primero hover:scale-105 hover:cursor-pointer md:mx-0 md:flex md:w-80'>Sadimi</h1>
                     <span className='hidden md:flex'><Buscador /></span>
                     <div className='flex h-10 items-center justify-end md:w-80 md:min-w-60'>
 
