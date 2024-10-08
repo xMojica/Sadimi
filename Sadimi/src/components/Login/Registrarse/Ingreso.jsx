@@ -32,9 +32,9 @@ function Inicio() {
     }
 
     return (
-        <div className='flex h-full flex-col justify-start gap-6 rounded-xl bg-tercero p-10'>
+        <div className='flex h-full flex-col justify-start gap-6 rounded-xl p-10'>
 
-            <div className='flex h-12 items-center rounded-xl bg-tercero'>
+            <div className='flex h-12 items-center rounded-xl bg-background'>
                 <img className='mx-4 h-full w-6' src={Password} alt="Contraseña" />
                 <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <input className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero' type={inputType} name='contraseña' placeholder='Contraseña:' onChange={handleChange} />
