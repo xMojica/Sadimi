@@ -28,6 +28,7 @@ function Inicio() {
 
     function finalizar() {
         setOpen(true)
+
     }
 
     return (
