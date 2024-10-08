@@ -10,7 +10,7 @@ import { Context } from "../../Context/main";
 function Alerta({ tipo, mensaje }) {
     const { open, setOpen } = useContext(Context);
 
-    if (tipo == "Success") {
+    if (tipo == "Correcto") {
         return (
             <Collapse in={open}>
                 <Alert

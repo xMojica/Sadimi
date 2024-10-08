@@ -34,8 +34,8 @@ function Header() {
                             }
                         </span>
 
-                        <div className='flex items-center justify-end gap-4 rounded-xl p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo' onClick={handleClick}>
-                            <h3 className='ml-6 hidden font-bold text-primero md:flex'>Diego</h3>
+                        <div className='flex items-center justify-between gap-4 rounded-xl p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo' onClick={handleClick}>
+                            <h3 className='ml-6 hidden font-bold text-primero md:flex'>Iniciar</h3>
                             <img src={user} alt="Usuario" className='h-7' />
                         </div>
                     </div>

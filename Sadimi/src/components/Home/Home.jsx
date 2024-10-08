@@ -41,7 +41,7 @@ function Home() {
     return (
         <>
             <Header />
-            <main className='my-20 flex w-full min-w-96 flex-wrap items-start justify-center gap-4 px-2 sm:px-4 md:items-center'>
+            <main className='my-8 flex w-full min-w-96 flex-wrap items-start justify-center gap-4 px-2 sm:px-4'>
                 {productosFiltrados.length === 0 ? (
                     <h1 className='text-center text-xl text-primero md:text-3xl'>
                         {mensajeProductos || "El producto que buscas no está disponible en este momento."}
