@@ -7,39 +7,47 @@ import IconoCiudad from '../../../assets/ciudad.svg'
 import IconoDireccion from '../../../assets/direccion.svg'
 import Paises from './Paises';
 import Departamentos from './Departamentos';
-import Ciudades from './Ciudades.jsx';
+import Ciudades from './Ciudades';
 
 function Ubicacion({ setTitulo }) {
-    const { setOpen, token, setToken } = useContext(Context);
+    const { setOpen, token, setToken, tipo, mensaje, setTipo, setMensaje } = useContext(Context);
     const [pais, setPais] = useState(null);
     const [departamento, setDepartamento] = useState(null);
     const [ciudad, setCiudad] = useState("");
     const [registro, setRegistro] = useState(() => {
         const storedRegistro = sessionStorage.getItem('registro');
-        return storedRegistro ? JSON.parse(storedRegistro) : { nombre: '', apellido: '', documento: '', telefono: '', email: '', pais: '', departamento: '', ciudad: '', direccion: '', contraseña: '' };
+        return storedRegistro ? JSON.parse(storedRegistro) : { nombre: '', apellido: '', documento: '', telefono: '', email: '', pais: "", departamento: "", ciudad: "", direccion: '', contraseña: '' };
     });
 
-    function handleChange(e) {
+    function handleChange(e, tipo, valor) {
         setOpen(false);
-        const { name, value } = e.target;
-        setRegistro((prevRegistro) => ({
-            ...prevRegistro, [name]: value
-        }));
+        if (tipo) {
+            setRegistro((prevRegistro) => ({
+                ...prevRegistro, [tipo]: valor
+            }))
+        } else {
+            const { name, value } = e.target;
+            setRegistro((prevRegistro) => ({
+                ...prevRegistro, [name]: value
+            }));
+        }
     }
 
     function siguiente() {
-        sessionStorage.setItem('registro', JSON.stringify(registro));
         setTitulo("Ingreso")
+        console.log(registro)
+
     }
 
     return (
-        <div className='flex h-full w-full flex-col justify-start gap-6 rounded-xl bg-background p-10'>
+        <div className='flex h-full w-full flex-col justify-start gap-6 rounded-xl bg-tercero p-10'>
             <div className='flex h-12 items-center rounded-xl bg-tercero'>
                 <img className='mx-4 h-6 w-6' src={IconoPais} alt="Pais" />
                 <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <Paises
                         setPais={setPais}
-                        disabled={false} />
+                        disabled={false}
+                        handleChange={handleChange} />
                 </span>
             </div>
             <div className='flex h-12 items-center rounded-xl bg-tercero'>
@@ -49,6 +57,7 @@ function Ubicacion({ setTitulo }) {
                         setDepartamento={setDepartamento}
                         pais={pais}
                         disabled={pais == null}
+                        handleChange={handleChange}
                     />
                 </span>
             </div>
@@ -59,6 +68,7 @@ function Ubicacion({ setTitulo }) {
                         setCiudad={setCiudad}
                         departamento={departamento}
                         disabled={departamento == null}
+                        handleChange={handleChange}
                     />
                 </span>
             </div>
@@ -72,7 +82,7 @@ function Ubicacion({ setTitulo }) {
             </div>
 
             <div className='flex h-12 w-full justify-center'>
-                <Alerta tipo={"Error"} mensaje={"Debes ingresar los datos correctamente"} />
+                <Alerta tipo={tipo} mensaje={mensaje} />
             </div>
 
             <span className='mt-auto flex w-full flex-col'>

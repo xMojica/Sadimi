@@ -66,7 +66,7 @@ function Contacto({ setTitulo }) {
                 <img className='mx-4 h-full w-6' src={Email} alt="Email" />
                 <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <input className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero'
-                        type="email"
+                        type="text"
                         value={registro.email}
                         name='email'
                         placeholder='Email:'

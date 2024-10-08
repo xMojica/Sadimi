@@ -17,7 +17,7 @@ function Login() {
     const { setToken } = useContext(Context);
 
     useEffect(() => {
-
+        sessionStorage.clear();
         const getAuthToken = async () => {
             try {
                 const response = await axios.get('https://www.universal-tutorial.com/api/getaccesstoken', {
@@ -37,7 +37,7 @@ function Login() {
     }, [])
 
     return (
-        <main className='flex h-full w-full min-w-96 items-start justify-center bg-background md:items-center'>
+        <main className='flex h-full w-full min-w-96 items-start justify-center bg-background pb-20 md:items-center md:pb-0'>
             <section id='login' className='z-50 flex h-full w-full flex-col items-center justify-between rounded-xl bg-tercero md:h-5/6 md:w-1/2 md:min-w-[490px] md:max-w-[700px]'>
                 <header className='flex w-full min-w-96 items-center justify-between p-5 md:rounded-xl'>
                     <span className='h-8 w-8 md:h-10 md:w-10'>

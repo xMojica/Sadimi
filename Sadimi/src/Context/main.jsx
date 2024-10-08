@@ -11,12 +11,15 @@ export default function ContextProvider({ children }) {
     const [menuVisiblePaises, setMenuVisiblePaises] = useState(false)
     const [menuVisibleDepartamentos, setMenuVisibleDepartamentos] = useState(false)
     const [menuVisibleCiudades, setMenuVisibleCiudades] = useState(false)
+    const [tipo, setTipo] = useState();
+    const [mensaje, setMensaje] = useState()
 
     return (
         <Context.Provider value={{
             contador, setContador, busqueda, setBusqueda, mostrarLogin, setMostrarLogin,
             open, setOpen, token, setToken, menuVisiblePaises, setMenuVisiblePaises,
-            menuVisibleDepartamentos, setMenuVisibleDepartamentos, menuVisibleCiudades, setMenuVisibleCiudades
+            menuVisibleDepartamentos, setMenuVisibleDepartamentos, menuVisibleCiudades, setMenuVisibleCiudades,
+            tipo, setTipo, mensaje, setMensaje
         }}>
             {children}
         </Context.Provider>

@@ -2,12 +2,13 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../../../Context/main';
 import axios from 'axios';
 
-function Ciudades({ setCiudad, departamento, disabled }) {
+function Ciudades({ setCiudad, departamento, disabled, handleChange }) {
     const { token, menuVisibleCiudades, setMenuVisibleCiudades, setMenuVisiblePaises, setMenuVisibleDepartamentos } = useContext(Context);
     const [menuVisible, setMenuVisible] = useState(false);
     const [seleccionado, setSeleccionado] = useState(null);
     const [ciudades, setCiudades] = useState([]);
     const [error, setError] = useState(null);
+    const [busqueda, setBusqueda] = useState("");
 
     useEffect(() => {
         const getStates = async () => {
@@ -31,6 +32,7 @@ function Ciudades({ setCiudad, departamento, disabled }) {
         setSeleccionado(ciudad.city_name);
         setCiudad(ciudad.city_name)
         setMenuVisibleCiudades(false);
+        document.getElementById("ciudades").value = ciudad.city_name
     };
 
     function visibilidad() {
@@ -40,33 +42,31 @@ function Ciudades({ setCiudad, departamento, disabled }) {
     }
 
     return (
-        <div className="relative h-full w-full rounded-r-xl border-l-8 border-background">
-            <button
-                className='h-full w-full bg-tercero px-4 text-left text-lg font-normal text-primero outline-none hover:cursor-pointer'
+        <div className="relative h-full w-full rounded-r-xl border-background">
+            <input
+                id='ciudades'
+                className='h-full w-full bg-tercero px-4 text-left text-lg font-normal text-primero outline-none placeholder:text-primero hover:cursor-pointer'
                 onClick={visibilidad}
                 disabled={disabled}
-            >
-                {seleccionado || "Ciudades:"}
-            </button>
+                placeholder={"Ciudades:"}
+                onChange={(e) => setBusqueda(e.target.value)}
+            />
             <div className={`absolute z-10 mt-1 w-full rounded-r-xl border bg-segundo overflow-y-auto max-h-56 ${menuVisibleCiudades ? 'block' : 'hidden'}`}>
-                {
-                    ciudades.length > 0 ? (
-                        ciudades.map((ciudad) => (
-                            <div
-                                key={ciudad.city_name}
-                                className='m-2 flex cursor-pointer items-center rounded-r-xl p-2 text-primero hover:bg-quinto hover:text-tercero'
-                                onClick={() => handleSelect(ciudad)}
-                            >
-                                <span className='ml-4'>{ciudad.city_name}</span>
-                            </div>
-                        ))
-                    ) : (
-                        <div className="p-2 text-center">No se encontraron Ciudades.</div>
-                    )
-                }
+                {ciudades.filter(ciudad =>
+                    ciudad.city_name.toLowerCase().includes(busqueda.toLowerCase())
+                ).map((ciudad) => (
+                    <div
+                        key={ciudad.city_name}
+                        className='m-2 flex cursor-pointer items-center rounded-r-xl p-2 text-primero hover:bg-quinto hover:text-tercero'
+                        name='ciudad'
+                        onClick={() => { handleSelect(ciudad); handleChange(null, "ciudad", ciudad.city_name) }}
+                    >
+                        <span className='ml-4'>{ciudad.city_name}</span>
+                    </div>
+                ))}
             </div>
         </div>
     );
 }
 
-export default Ciudades
+export default Ciudades;
