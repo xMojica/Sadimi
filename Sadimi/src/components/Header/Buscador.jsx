@@ -11,7 +11,7 @@ function Buscador() {
 
     return (
         <>
-            <div className='hidden h-10 w-80 max-w-80 items-center rounded-xl bg-tercero p-1 pl-4 shadow-md md:flex'>
+            <div className='hidden h-10 w-80 max-w-80 items-center rounded-xl bg-tercero p-2 pl-4 shadow-md md:flex'>
                 <input
                     className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero"
                     type="text"

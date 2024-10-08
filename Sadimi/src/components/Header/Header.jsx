@@ -24,7 +24,7 @@ function Header() {
                     </div>
                     <h1 className='flex translate-x-9 p-2 text-center font-cursive text-3xl font-bold text-primero hover:scale-105 hover:cursor-pointer md:mx-0 md:flex md:w-80'>Sadimi</h1>
                     <span className='hidden md:flex'><Buscador /></span>
-                    <div className='flex h-10 items-center justify-end gap-4 md:w-80 md:min-w-60'>
+                    <div className='flex h-10 items-center justify-end md:w-80 md:min-w-60'>
 
                         <span className='relative flex rounded-xl p-2 px-4 text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo'>
                             <Carrito color={"#4c7766"} />
@@ -41,7 +41,7 @@ function Header() {
                     </div>
                 </div>
 
-                <div className='flex h-16 w-full items-center justify-between px-2 md:hidden'>
+                <div className='mx-2 flex h-10 items-center justify-center px-2 sm:mx-4 md:hidden'>
                     <Buscador />
                 </div>
 
