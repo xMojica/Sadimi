@@ -27,6 +27,7 @@ html {
 }
 
 body {
+    display: flex;
     overflow-y: visible;
     width: 100%;
 }
