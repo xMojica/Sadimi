@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Context } from '../../Context/main';
-import Loader from './Loader';
+import Loader from '../Alerts/Loader';
 import Article from './Article';
 import Login from '../Login/Header/Login';
 import Header from '../Header/Header';
