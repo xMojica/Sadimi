@@ -6,8 +6,10 @@ import Password from '../../../assets/password.svg';
 import Alerta from '../../Alerts/Alerta';
 import Show from '../Header/Show';
 import Loader from '../../Alerts/Loader';
+import { useNavigate } from 'react-router-dom';
 
 function IniciarSesion({ setTitulo }) {
+    const navigate = useNavigate()
     const { setOpen, setUsuario } = useContext(Context);
     const [mostrarContraseña, setMostrarContraseña] = useState(true);
     const [email, setEmail] = useState('');
@@ -20,7 +22,7 @@ function IniciarSesion({ setTitulo }) {
     const handleEmail = (e) => { setOpen(false); setEmail(e.target.value) };
     const handleContraseña = (e) => { setOpen(false); setContraseña(e.target.value) };
     const handleToggle = () => { setMostrarContraseña(!mostrarContraseña) };
-    function registrarse() { setTitulo("Datos personales"); setOpen(false) };
+    function registrarse() { navigate("/registrarse") };
     function recuperarContraseña() { setTitulo("Recuperar contraseña"); setOpen(false) };
 
 

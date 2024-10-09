@@ -6,7 +6,7 @@ function Buscador() {
     const context = useContext(Context);
 
     function handleChange(e) {
-        context.setBusqueda(e.target.value);
+        context.setBusquedaProducto(e.target.value);
     }
 
     return (
@@ -16,7 +16,7 @@ function Buscador() {
                     className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero"
                     type="text"
                     placeholder='Buscar'
-                    value={context.busqueda}
+                    value={context.busquedaProducto}
                     onChange={handleChange}
                 />
                 <span className='flex h-full w-1/6 items-center justify-center rounded-xl hover:cursor-pointer hover:bg-segundo'>
@@ -28,7 +28,7 @@ function Buscador() {
                     className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero"
                     type="text"
                     placeholder='Buscar'
-                    value={context.busqueda}
+                    value={context.busquedaProducto}
                     onChange={handleChange}
                 />
                 <span className='flex h-full w-1/6 items-center justify-center rounded-xl hover:cursor-pointer hover:bg-segundo' >

@@ -1,19 +1,16 @@
-
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Context } from '../../Context/main';
 import Loader from '../Alerts/Loader';
 import Article from './Article';
-import Login from '../Login/Header/Login';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 function Home() {
-
-    const { busqueda } = useContext(Context);
+    const { busquedaProducto } = useContext(Context);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [mensajeProductos, setMensajeProductos] = useState();
+    const [mensajeProductos, setMensajeProductos] = useState('');
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -21,41 +18,42 @@ function Home() {
                 const response = await axios.get('https://api-sadimi-v2.vercel.app/products');
                 setProducts(response.data);
             } catch (err) {
-                setMensajeProductos("No podemos mostrar nuestro catalogo en este momento.")
+                setMensajeProductos("No podemos mostrar nuestro catálogo en este momento.");
             } finally {
                 setLoading(false);
-                console.log("Obtención de datos finalizada");
             }
         };
+
         fetchProducts();
     }, []);
 
-    if (loading) {
-        return <Loader />;
-    }
-
     const productosFiltrados = products.filter(producto =>
-        producto.nombre.toLowerCase().includes(busqueda.toLowerCase())
+        producto.nombre.toLowerCase().includes(busquedaProducto.toLowerCase())
     );
 
     return (
         <>
-            <Header />
-            <main className='my-8 flex w-full min-w-96 flex-wrap items-start justify-center gap-4 px-2 sm:px-4'>
-                {productosFiltrados.length === 0 ? (
-                    <h1 className='text-center text-xl text-primero md:text-3xl'>
-                        {mensajeProductos || "El producto que buscas no está disponible en este momento."}
-                    </h1>
-                ) : (
-                    productosFiltrados.map(producto => (
-                        <Article key={producto._id} product={producto} />
-                    ))
-                )}
-            </main>
-            <Footer />
+            {loading ? (
+                <Loader />
+            ) : (
+                <>
+                    <Header />
+                    <main className='my-8 flex w-full min-w-96 flex-wrap items-start justify-center gap-4 px-2 sm:px-4'>
+                        {productosFiltrados.length === 0 ? (
+                            <h1 className='text-center text-xl text-primero md:text-3xl'>
+                                {mensajeProductos || "El producto que buscas no está disponible en este momento."}
+                            </h1>
+                        ) : (
+                            productosFiltrados.map(producto => (
+                                <Article key={producto._id} product={producto} />
+                            ))
+                        )}
+                    </main>
+                    <Footer />
+                </>
+            )}
         </>
-
     );
-};
+}
 
-export default Home
+export default Home;

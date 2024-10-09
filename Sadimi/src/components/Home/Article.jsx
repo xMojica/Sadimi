@@ -6,10 +6,12 @@ function Article({ product }) {
 
     const context = useContext(Context);
 
-    function handleClick() {
-        context.setContador(context.contador + 1)
-        console.log("Producto añadido al carrito: ", product)
+    function agregarCarrito() {
+        context.setContadorCarrito(prevCount => prevCount + 1);
+        context.setCarrito(prevCarrito => [...prevCarrito, product]);
     }
+
+
 
     return (
         <article className="flex h-96 w-40 flex-col justify-center overflow-hidden rounded-xl border-2 bg-tercero p-3 shadow-lg hover:cursor-pointer md:h-[28rem] md:w-60">
@@ -34,7 +36,7 @@ function Article({ product }) {
                     <h3 className='text-xl font-bold text-cuarto'>$ {product.precio_oferta}</h3>
                     <h4 className='text-md font-semibold text-quinto'><s>$ {product.valor}</s></h4>
                 </span>
-                <div className='flex h-10 w-1/3 items-center justify-center rounded-lg bg-primero text-right text-xl text-tercero shadow-md hover:-translate-y-1 hover:scale-105' onClick={handleClick}>
+                <div className='flex h-10 w-1/3 items-center justify-center rounded-lg bg-primero text-right text-xl text-tercero shadow-md hover:-translate-y-1 hover:scale-105' onClick={agregarCarrito}>
                     <Carrito color={"#ececec"} />
                 </div>
             </div>
