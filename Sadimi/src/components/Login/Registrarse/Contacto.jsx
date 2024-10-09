@@ -47,7 +47,7 @@ function Contacto({ setTitulo }) {
     }
 
     return (
-        <div className='flex h-full w-full flex-col justify-start gap-6 rounded-xl bg-background p-10'>
+        <div className='flex h-full w-full flex-col justify-start gap-6 rounded-xl p-10'>
 
             <div className='flex h-12 items-center rounded-xl bg-tercero'>
                 <img className='mx-4 h-6 w-6' src={Telefono} alt="Telefono" />

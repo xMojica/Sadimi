@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios'; // Asegúrate de importar axios
+import axios from 'axios';
 import { Context } from '../../../Context/main';
 import Email from '../../../assets/email.svg';
 import Password from '../../../assets/password.svg';
@@ -22,13 +22,13 @@ function IniciarSesion({ setTitulo }) {
     const handleEmail = (e) => { setOpen(false); setEmail(e.target.value) };
     const handleContraseña = (e) => { setOpen(false); setContraseña(e.target.value) };
     const handleToggle = () => { setMostrarContraseña(!mostrarContraseña) };
-    function registrarse() { navigate("/registrarse") };
+    function registrarse() { navigate("/registrarse"); setTitulo("Datos personales") };
     function recuperarContraseña() { setTitulo("Recuperar contraseña"); setOpen(false) };
 
 
     async function iniciar() {
         setLoading(true);
-        setOpen(false); // Cerrar mensajes anteriores
+        setOpen(false);
 
         try {
             const response = await axios.post('https://api-sadimi-v2.vercel.app/users/login', {
@@ -36,81 +36,75 @@ function IniciarSesion({ setTitulo }) {
                 contrasena: contraseña
             });
 
-            // Manejo de respuesta exitosa
-            setUsuario(response.data.usuario);
-            setTipo(response.data.status);
-            setMensaje(response.data.message);
+            setUsuario(response.data.user);
+            setOpen(false)
+            navigate("/")
         } catch (err) {
-            // Manejo de error
+
             if (err.response) {
-                // Si el servidor responde con un error
-                setTipo(err.response.data.status || "Error");
-                setMensaje(err.response.data.message || "Error desconocido");
+                setTipo(err.response.data.status);
+                setMensaje(err.response.data.message);
             } else {
-                // Error en la conexión o en la configuración de la solicitud
                 setTipo("Error");
-                setMensaje("Error al hacer la solicitud");
+                setMensaje("Error interno");
             }
         } finally {
             setLoading(false);
-            setOpen(true); // Mostrar el mensaje (success/error)
+            setOpen(true);
         }
     }
 
-
-
     return (
+        <div className='flex h-full w-full min-w-96 flex-col justify-start gap-6 rounded-xl bg-background p-5'>
 
-        loading ? <Loader /> :
-            <div className='flex h-full w-full flex-col justify-start gap-6 rounded-xl bg-background p-10'>
-                <div className='flex h-12 items-center rounded-xl bg-tercero'>
-                    <img className='mx-4 h-6 w-6' src={Email} alt="Email" />
-                    <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                        <input
-                            className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero'
-                            type="email"
-                            placeholder='Email:'
-                            value={email}
-                            onChange={handleEmail}
-                        />
-                    </span>
-                </div>
-
-                <div className='flex h-12 items-center rounded-xl bg-tercero'>
-                    <img className='mx-4 h-6 w-6' src={Password} alt="Contraseña" />
-                    <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                        <input
-                            className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero'
-                            type={inputType}
-                            placeholder='Contraseña:'
-                            value={contraseña}
-                            onChange={handleContraseña}
-                        />
-                        <Show mostrarContraseña={mostrarContraseña} onToggle={handleToggle} />
-                    </span>
-                </div>
-
-                <p className='text-md text-right font-semibold text-quinto hover:cursor-pointer hover:text-primero' onClick={recuperarContraseña}>
-                    <u className='no-underline hover:underline'>¿Olvidaste tu contraseña?</u>
-                </p>
-
-                <span className='flex h-12 w-full justify-center'>
-                    <Alerta tipo={tipo} mensaje={mensaje} />
-                </span>
-
-                <span className='mt-auto flex w-full flex-col'>
-                    <button
-                        className='rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer'
-                        onClick={iniciar}
-                        disabled={loading}>
-                        Iniciar sesión
-                    </button>
-                    <p className='mt-2 justify-center text-center text-quinto'>
-                        ¿Aún no tienes una cuenta?
-                        <u className='font-extrabold no-underline hover:cursor-pointer hover:text-primero hover:underline' onClick={registrarse}>Registrate</u>
-                    </p>
+            <div className='flex h-12 items-center rounded-xl bg-tercero'>
+                <img className='mx-4 h-6 w-6' src={Email} alt="Email" />
+                <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
+                    <input
+                        className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero'
+                        type="email"
+                        placeholder='Email:'
+                        value={email}
+                        onChange={handleEmail}
+                    />
                 </span>
             </div>
+
+            <div className='flex h-12 items-center rounded-xl bg-tercero'>
+                <img className='mx-4 h-6 w-6' src={Password} alt="Contraseña" />
+                <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
+                    <input
+                        className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero'
+                        type={inputType}
+                        placeholder='Contraseña:'
+                        value={contraseña}
+                        onChange={handleContraseña}
+                    />
+                    <Show mostrarContraseña={mostrarContraseña} onToggle={handleToggle} />
+                </span>
+            </div>
+
+            <p className='text-md text-right font-semibold text-quinto hover:cursor-pointer hover:text-primero' onClick={recuperarContraseña}>
+                <u className='no-underline hover:underline'>¿Olvidaste tu contraseña?</u>
+            </p>
+
+            <span className='flex h-12 w-full justify-center'>
+                <Alerta tipo={tipo} mensaje={mensaje} />
+            </span>
+
+            <span className='mt-auto flex w-full flex-col'>
+                <button
+                    className='rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer'
+                    onClick={iniciar}
+                    disabled={loading}>
+                    Iniciar sesión
+                </button>
+                <p className='mt-2 justify-center text-center text-quinto'>
+                    ¿Aún no tienes una cuenta?
+                    <u className='ml-1 font-extrabold no-underline hover:cursor-pointer hover:text-primero hover:underline' onClick={registrarse}>Registrate</u>
+                </p>
+            </span>
+        </div>
     );
 
 }
