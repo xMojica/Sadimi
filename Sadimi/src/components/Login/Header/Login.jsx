@@ -38,7 +38,7 @@ function Login() {
 
     return (
         <main className='flex h-full w-full min-w-96 items-start justify-center bg-background md:items-center'>
-            <section id='login' className='z-50 flex min-h-[90vh] w-full min-w-96 flex-col items-start justify-start rounded-xl md:w-1/2 md:min-w-[490px] md:max-w-[700px] md:p-8'>
+            <section id='login' className='z-50 flex min-h-[80vh] w-full min-w-96 flex-col items-start justify-start rounded-xl md:w-1/2 md:min-w-[490px] md:max-w-[700px] md:p-8'>
                 <header className='flex w-full min-w-96 items-center justify-between p-5 md:rounded-xl'>
                     <span className='h-8 w-8 md:h-10 md:w-10'>
                         <Atras titulo={titulo} setTitulo={setTitulo} />

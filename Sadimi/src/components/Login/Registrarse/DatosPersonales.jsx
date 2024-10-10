@@ -5,16 +5,12 @@ import { Context } from '../../../Context/main';
 import Alerta from '../../Alerts/Alerta';
 
 function DatosPersonales({ setTitulo }) {
-    const { setOpen } = useContext(Context);
+    const { setOpen, registro, setRegistro } = useContext(Context);
     const [mensaje, setMensaje] = useState("");
     const nombreRegex = /^(?=.*[A-Za-z])[A-Za-z\s'-]+$/;
     const apellidoRegex = /^(?=.*[A-Za-z])[A-Za-z\s'-]+$/;
     const documentoRegex = /^\d{4,10}$/;
 
-    const [registro, setRegistro] = useState(() => {
-        const storedRegistro = sessionStorage.getItem('registro');
-        return storedRegistro ? JSON.parse(storedRegistro) : { nombre: '', apellido: '', documento: '', telefono: '', email: '', pais: '', departamento: '', ciudad: '', direccion: '', contraseña: '' };
-    });
 
     function validaciones() {
         if (!nombreRegex.test(registro.nombre)) {

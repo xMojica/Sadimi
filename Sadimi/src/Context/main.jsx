@@ -15,13 +15,14 @@ export default function ContextProvider({ children }) {
     const [mensaje, setMensaje] = useState() // mensaje del alert
     const [usuario, setUsuario] = useState({}); // Usurio que se logea
     const [carrito, setCarrito] = useState([]);
+    const [registro, setRegistro] = useState({})
 
     return (
         <Context.Provider value={{
             contadorCarrito, setContadorCarrito, busquedaProducto, setBusquedaProducto, mostrarLogin, setMostrarLogin,
             open, setOpen, token, setToken, menuVisiblePaises, setMenuVisiblePaises,
             menuVisibleDepartamentos, setMenuVisibleDepartamentos, menuVisibleCiudades, setMenuVisibleCiudades,
-            tipo, setTipo, mensaje, setMensaje, usuario, setUsuario, carrito, setCarrito
+            tipo, setTipo, mensaje, setMensaje, usuario, setUsuario, carrito, setCarrito, registro, setRegistro
         }}>
             {children}
         </Context.Provider>

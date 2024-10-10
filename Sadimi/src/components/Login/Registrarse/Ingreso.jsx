@@ -5,16 +5,11 @@ import Password from '../../../assets/password.svg'
 import Show from '../Header/Show';
 
 function Inicio() {
-    const { setOpen, setTipo, tipo, mensaje, setMensaje } = useContext(Context);
+    const { setOpen, setTipo, tipo, mensaje, setMensaje, registro, setRegistro } = useContext(Context);
     const [mostrarContraseña, setMostrarContraseña] = useState(true);
     const inputType = mostrarContraseña ? 'password' : 'text';
     const [contraseña1, setContraseña1] = useState("");
     const [contraseña2, setContraseña2] = useState("");
-
-    const [registro, setRegistro] = useState(() => {
-        const storedRegistro = sessionStorage.getItem('registro');
-        return storedRegistro ? JSON.parse(storedRegistro) : { nombre: '', apellido: '', documento: '', telefono: '', email: '', pais: '', departamento: '', ciudad: '', direccion: '', contraseña: '' };
-    });
 
     function handleContraseña1(e) {
         setOpen(false);
@@ -30,22 +25,39 @@ function Inicio() {
         setMostrarContraseña(!mostrarContraseña);
     }
 
+    async function insertar() {
+        try {
+            const response = await axios.post('https://api-sadimi-v2.vercel.app/user/', {
+                user: registro
+            });
+            setUsuario(response.data.user)
+            navigate("/")
+        } catch (err) {
+            if (err.response) {
+                setTipo(err.response.data.status);
+                setMensaje(err.response.data.message);
+            } else {
+                setTipo("Error");
+                setMensaje("Error interno");
+            }
+        } finally {
+            setLoading(false);
+            setOpen(true);
+        }
+    }
+
     function finalizar() {
         if (contraseña1 !== contraseña2) {
             setTipo("Error")
             setMensaje("Las contraseñas no coinciden")
             setOpen(true)
         } else {
-            setTipo("Correcto")
-            setMensaje("Usuario registrado con exito.")
-            setOpen(true)
-
             setRegistro((prevRegistro) => ({
-                ...prevRegistro, contraseña: contraseña1
+                ...prevRegistro, contrasena: contraseña1
             }));
-
-
+            insertar()
         }
+
         console.log(registro)
     }
 

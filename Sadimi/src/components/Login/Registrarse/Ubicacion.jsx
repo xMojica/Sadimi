@@ -10,30 +10,35 @@ import Departamentos from './Departamentos';
 import Ciudades from './Ciudades';
 
 function Ubicacion({ setTitulo }) {
-    const { setOpen, token, setToken, tipo, mensaje, setTipo, setMensaje } = useContext(Context);
+    const { setOpen, tipo, mensaje, registro, setRegistro } = useContext(Context);
+
     const [pais, setPais] = useState('');
     const [departamento, setDepartamento] = useState('');
     const [ciudad, setCiudad] = useState('');
-    const [registro, setRegistro] = useState(() => {
-        const storedRegistro = sessionStorage.getItem('registro');
-        return storedRegistro ? JSON.parse(storedRegistro) : { nombre: '', apellido: '', documento: '', telefono: '', email: '', pais: "", departamento: "", ciudad: "", direccion: '', contraseña: '' };
-    });
+    const [direccion, setDireccion] = useState({})
 
     function handleChange(e, tipo, valor) {
-        setOpen(false);
-        if (tipo) {
-            setRegistro((prevRegistro) => ({
-                ...prevRegistro, [tipo]: valor
-            }))
+        if (e === null) {
+            setDireccion((prevDireccion) => ({
+                ...prevDireccion,
+                [tipo]: valor,
+            }));
         } else {
             const { name, value } = e.target;
-            setRegistro((prevRegistro) => ({
-                ...prevRegistro, [name]: value
+            setDireccion((prevDireccion) => ({
+                ...prevDireccion,
+                [name]: value,
             }));
         }
+
+        setOpen(false);
     }
 
+
     function siguiente() {
+        setRegistro((prevRegistro) => ({
+            ...prevRegistro, direcciones: direccion
+        }))
         setTitulo("Ingreso")
 
     }
@@ -77,7 +82,12 @@ function Ubicacion({ setTitulo }) {
             <div className='flex h-12 items-center rounded-xl bg-tercero'>
                 <img className='mx-4 h-full w-6' src={IconoDireccion} alt="Direccion" />
                 <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                    <input className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero' type="text" value={registro.direccion} name='direccion' placeholder='Direccion:' onChange={handleChange} />
+                    <input className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero'
+                        type="text"
+                        value={registro.direccion}
+                        name='direccion'
+                        placeholder='Direccion:'
+                        onChange={handleChange} />
                 </span>
             </div>
 

@@ -5,15 +5,11 @@ import { Context } from '../../../Context/main';
 import Alerta from '../../Alerts/Alerta';
 
 function Contacto({ setTitulo }) {
-    const { setOpen } = useContext(Context);
+    const { setOpen, registro, setRegistro } = useContext(Context);
     const [mensaje, setMensaje] = useState("");
     const telefonoRegex = /^3\d{9}$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    const [registro, setRegistro] = useState(() => {
-        const storedRegistro = sessionStorage.getItem('registro');
-        return storedRegistro ? JSON.parse(storedRegistro) : { nombre: '', apellido: '', documento: '', telefono: '', email: '', pais: '', departamento: '', ciudad: '', direccion: '', contraseña: '' };
-    });
 
     function handleChange(e) {
         setOpen(false);
