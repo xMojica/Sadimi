@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../../../Context/main';
 import axios from 'axios';
 
-function Ciudades({ setCiudad, departamento, disabled, handleChange }) {
+function Ciudades({ setCiudad, disabled, handleChange, departamento, pais }) {
     const { token, menuVisibleCiudades, setMenuVisibleCiudades, setMenuVisiblePaises, setMenuVisibleDepartamentos } = useContext(Context);
     const [menuVisible, setMenuVisible] = useState(false);
     const [seleccionado, setSeleccionado] = useState(null);
@@ -41,11 +41,15 @@ function Ciudades({ setCiudad, departamento, disabled, handleChange }) {
         setMenuVisiblePaises(false)
     }
 
+    useEffect(() => {
+        document.getElementById("ciudades").value = ""
+    }, [departamento, pais])
+
     return (
         <div className="relative h-full w-full rounded-r-xl border-background">
             <input
                 id='ciudades'
-                className='h-full w-full bg-tercero px-4 text-left text-lg font-normal text-primero outline-none placeholder:text-primero hover:cursor-pointer'
+                className='h-full w-full rounded-r-xl bg-tercero px-4 text-left text-lg font-normal text-primero outline-none placeholder:text-primero hover:cursor-pointer'
                 onClick={visibilidad}
                 disabled={disabled}
                 placeholder={"Ciudades:"}

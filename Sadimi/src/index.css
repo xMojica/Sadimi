@@ -49,17 +49,24 @@ body {
     width: fit-content;
 }
 
-@media (min-width: 641px) {
+@media (min-width: 768px) {
     main {
         min-height: calc(80vh);
+        min-width: 396px;
     }
 
     #root {
         translate: 6px;
     }
+
+    #login {
+        border-radius: 20px;
+        background: #ececec;
+        box-shadow: inset -5px -5px 23px #999999, inset 5px 5px 23px #ffffff;
+    }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     main {
         min-height: calc(33vh);
     }

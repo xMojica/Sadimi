@@ -49,12 +49,10 @@ function Paises({ setPais, disabled, handleChange }) {
         <div className="relative h-full w-full rounded-r-xl border-background">
             <input
                 id='paises'
-                className='h-full w-full bg-tercero px-4 text-left text-lg font-normal text-primero outline-none placeholder:text-primero'
+                className='h-full w-full rounded-r-xl bg-tercero px-4 text-left text-lg font-normal text-primero outline-none placeholder:text-primero'
                 onClick={visibilidad}
                 disabled={disabled}
                 placeholder={"Paises:"}
-
-                name='pais'
                 onChange={(e) => { setBusqueda(e.target.value); }}
             />
             <div className={`absolute z-10 mt-1 w-full rounded-r-xl border bg-segundo overflow-y-auto max-h-56 ${menuVisiblePaises ? 'block' : 'hidden'}`}>

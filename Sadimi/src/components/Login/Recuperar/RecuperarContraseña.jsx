@@ -16,7 +16,7 @@ function RecuperarContraseña() {
     }
 
     return (
-        <div className='flex h-full w-full flex-col justify-start gap-6 rounded-xl bg-background p-10'>
+        <>
             <div className='flex h-12 items-center rounded-xl bg-tercero'>
                 <img className='mx-4 h-6 w-6' src={Email} alt="Email" />
                 <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
@@ -35,10 +35,10 @@ function RecuperarContraseña() {
                 <Alerta tipo={"Success"} mensaje={"Enviamos un correo electronico a samojica08@gmail.com para reestablecer la contraseña."} />
             </span>
 
-            <span className='mt-auto flex w-full flex-col'>
+            <span className='mt-auto flex w-full flex-col items-center justify-center'>
                 <button className='rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer' onClick={recuperar}>Recuperar</button>
             </span>
-        </div>
+        </>
     )
 }
 

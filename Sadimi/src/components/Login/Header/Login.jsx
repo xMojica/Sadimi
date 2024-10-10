@@ -37,27 +37,28 @@ function Login() {
     }, [])
 
     return (
-        <main className='flex min-h-[100vh] w-full min-w-96 items-start justify-center bg-background md:items-center'>
-            <section id='login' className='z-50 flex h-full w-full flex-col items-center justify-between rounded-xl md:w-1/2 md:min-w-[490px] md:max-w-[700px]'>
-                <header className='flex w-full min-w-96 items-center justify-between bg-background p-5 md:rounded-xl'>
+        <main className='flex h-full w-full min-w-96 items-start justify-center bg-background md:items-center'>
+            <section id='login' className='z-50 flex min-h-[90vh] w-full min-w-96 flex-col items-start justify-start rounded-xl md:w-1/2 md:min-w-[490px] md:max-w-[700px] md:p-8'>
+                <header className='flex w-full min-w-96 items-center justify-between p-5 md:rounded-xl'>
                     <span className='h-8 w-8 md:h-10 md:w-10'>
                         <Atras titulo={titulo} setTitulo={setTitulo} />
                     </span>
-                    <h1 className='mx-auto text-xl font-bold text-primero sm:text-3xl'>{titulo}</h1>
+                    <h1 className='mx-auto text-2xl font-bold text-primero md:text-3xl'>{titulo}</h1>
                     <span className='h-10 w-10'>
                         <Cerrar setTitulo={setTitulo} />
                     </span>
                 </header>
-
-                {(titulo == "Iniciar sesion") ? <IniciarSesion setTitulo={setTitulo} /> : null}
-                {(titulo == "Recuperar contraseña") ? <RecuperarContraseña setTitulo={setTitulo} /> : null}
-                {(titulo == "Datos personales") ? <DatosPersonales setTitulo={setTitulo} /> : null}
-                {(titulo == "Contacto") ? <Contacto setTitulo={setTitulo} /> : null}
-                {(titulo == "Ubicacion") ? <Ubicacion setTitulo={setTitulo} /> : null}
-                {(titulo == "Ingreso") ? <Ingreso setTitulo={setTitulo} /> : null}
+                <div className='flex h-full min-h-[70vh] w-full min-w-96 flex-col justify-between gap-6 rounded-xl p-5'>
+                    {(titulo == "Iniciar sesion") ? <IniciarSesion setTitulo={setTitulo} /> : null}
+                    {(titulo == "Recuperar contraseña") ? <RecuperarContraseña setTitulo={setTitulo} /> : null}
+                    {(titulo == "Datos personales") ? <DatosPersonales setTitulo={setTitulo} /> : null}
+                    {(titulo == "Contacto") ? <Contacto setTitulo={setTitulo} /> : null}
+                    {(titulo == "Ubicacion") ? <Ubicacion setTitulo={setTitulo} /> : null}
+                    {(titulo == "Ingreso") ? <Ingreso setTitulo={setTitulo} /> : null}
+                </div>
 
             </section >
-        </main>
+        </main >
     );
 
 }

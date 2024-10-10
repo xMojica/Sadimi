@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../../../Context/main';
 import axios from 'axios';
 
-function Departamentos({ pais, setDepartamento, disabled, handleChange }) {
+function Departamentos({ setDepartamento, disabled, handleChange, pais }) {
     const { token, menuVisibleDepartamentos, setMenuVisibleDepartamentos, setMenuVisiblePaises, setMenuVisibleCiudades } = useContext(Context);
     const [menuVisible, setMenuVisible] = useState(false);
     const [seleccionado, setSeleccionado] = useState(null);
@@ -41,11 +41,15 @@ function Departamentos({ pais, setDepartamento, disabled, handleChange }) {
         setMenuVisibleCiudades(false)
     }
 
+    useEffect(() => {
+        document.getElementById("departamentos").value = ""
+    }, [pais])
+
     return (
         <div className="relative h-full w-full rounded-r-xl border-background">
             <input
                 id='departamentos'
-                className='h-full w-full bg-tercero px-4 text-left text-lg font-normal text-primero outline-none placeholder:text-primero hover:cursor-pointer'
+                className='h-full w-full rounded-r-xl bg-tercero px-4 text-left text-lg font-normal text-primero outline-none placeholder:text-primero hover:cursor-pointer'
                 onClick={visibilidad}
                 disabled={disabled}
                 placeholder={"Departamentos:"}

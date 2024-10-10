@@ -55,7 +55,7 @@ function IniciarSesion({ setTitulo }) {
     }
 
     return (
-        <div className='flex h-full w-full min-w-96 flex-col justify-start gap-6 rounded-xl bg-background p-5'>
+        <div className='flex h-full min-h-[70vh] w-full min-w-96 flex-col justify-between gap-6 rounded-xl p-5'>
 
             <div className='flex h-12 items-center rounded-xl bg-tercero'>
                 <img className='mx-4 h-6 w-6' src={Email} alt="Email" />
@@ -92,14 +92,14 @@ function IniciarSesion({ setTitulo }) {
                 <Alerta tipo={tipo} mensaje={mensaje} />
             </span>
 
-            <span className='mt-auto flex w-full flex-col'>
+            <span className='mt-auto flex w-full flex-col items-center justify-between'>
                 <button
-                    className='rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer'
+                    className='w-2/3 rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer'
                     onClick={iniciar}
                     disabled={loading}>
                     Iniciar sesión
                 </button>
-                <p className='mt-2 justify-center text-center text-quinto'>
+                <p className='mt-3 justify-center text-center text-quinto'>
                     ¿Aún no tienes una cuenta?
                     <u className='ml-1 font-extrabold no-underline hover:cursor-pointer hover:text-primero hover:underline' onClick={registrarse}>Registrate</u>
                 </p>

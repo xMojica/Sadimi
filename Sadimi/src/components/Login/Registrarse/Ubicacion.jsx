@@ -11,9 +11,9 @@ import Ciudades from './Ciudades';
 
 function Ubicacion({ setTitulo }) {
     const { setOpen, token, setToken, tipo, mensaje, setTipo, setMensaje } = useContext(Context);
-    const [pais, setPais] = useState(null);
-    const [departamento, setDepartamento] = useState(null);
-    const [ciudad, setCiudad] = useState("");
+    const [pais, setPais] = useState('');
+    const [departamento, setDepartamento] = useState('');
+    const [ciudad, setCiudad] = useState('');
     const [registro, setRegistro] = useState(() => {
         const storedRegistro = sessionStorage.getItem('registro');
         return storedRegistro ? JSON.parse(storedRegistro) : { nombre: '', apellido: '', documento: '', telefono: '', email: '', pais: "", departamento: "", ciudad: "", direccion: '', contraseña: '' };
@@ -39,7 +39,7 @@ function Ubicacion({ setTitulo }) {
     }
 
     return (
-        <div className='flex h-full w-full flex-col justify-start gap-6 rounded-xl p-10'>
+        <>
             <div className='flex h-12 items-center rounded-xl bg-tercero'>
                 <img className='mx-4 h-6 w-6' src={IconoPais} alt="Pais" />
                 <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
@@ -66,6 +66,7 @@ function Ubicacion({ setTitulo }) {
                     <Ciudades
                         setCiudad={setCiudad}
                         departamento={departamento}
+                        pais={pais}
                         disabled={departamento == null}
                         handleChange={handleChange}
                     />
@@ -84,11 +85,11 @@ function Ubicacion({ setTitulo }) {
                 <Alerta tipo={tipo} mensaje={mensaje} />
             </div>
 
-            <span className='mt-auto flex w-full flex-col'>
-                <button className='rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer' onClick={siguiente}>Siguiente</button>
+            <span className='mt-auto flex w-full flex-col items-center justify-center'>
+                <button className='w-2/3 rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer' onClick={siguiente}>Siguiente</button>
             </span>
 
-        </div>
+        </>
     )
 }
 

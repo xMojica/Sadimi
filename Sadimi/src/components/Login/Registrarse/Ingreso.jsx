@@ -50,8 +50,7 @@ function Inicio() {
     }
 
     return (
-        <div className='flex h-full w-full flex-col justify-start gap-6 rounded-xl p-10'>
-
+        <>
             <div className='flex h-12 items-center rounded-xl bg-tercero'>
                 <img className='mx-4 h-full w-6' src={Password} alt="Contraseña" />
                 <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
@@ -72,10 +71,10 @@ function Inicio() {
                 <Alerta tipo={tipo} mensaje={mensaje} />
             </div>
 
-            <span className='mt-auto flex w-full flex-col'>
-                <button className='rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer' onClick={finalizar}>Finalizar</button>
+            <span className='mt-auto flex w-full flex-col items-center justify-center'>
+                <button className='w-2/3 rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer' onClick={finalizar}>Finalizar</button>
             </span>
-        </div>
+        </>
     )
 }
 
