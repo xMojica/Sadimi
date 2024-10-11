@@ -59,12 +59,6 @@ body {
     #root {
         translate: 6px;
     }
-
-    #login {
-        border-radius: 20px;
-        background: #ececec;
-        box-shadow: inset -5px -5px 23px #999999, inset 5px 5px 23px #ffffff;
-    }
 }
 
 @media (max-width: 768px) {

@@ -24,8 +24,8 @@ function Article({ product }) {
             </div>
             <div className='mt-auto flex flex-row flex-nowrap gap-2'>
                 {product.colores && product.colores.map((color, index) => (
-                    <span key={index} className='flex items-center justify-center rounded-[50%] border border-primero p-1'>
-                        <svg className='hover:scale-125' width="16px" height="16px" viewBox="0 0 16 16" fill={color} strokeWidth="2" xmlns="http://www.w3.org/2000/svg">
+                    <span key={index} className='flex items-center justify-center rounded-[50%]'>
+                        <svg className='hover:scale-125' width="24px" height="24px" viewBox="0 0 16 16" fill={color} strokeWidth="2" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="8" cy="8" r="8" />
                         </svg>
                     </span>

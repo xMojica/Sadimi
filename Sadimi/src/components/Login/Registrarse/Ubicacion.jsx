@@ -38,7 +38,7 @@ function Ubicacion({ setTitulo }) {
     function siguiente() {
         setRegistro((prevRegistro) => ({
             ...prevRegistro, direcciones: direccion
-        }))
+        }));
         setTitulo("Ingreso")
 
     }

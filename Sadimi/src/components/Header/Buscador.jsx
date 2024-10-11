@@ -23,7 +23,7 @@ function Buscador() {
                     <img src={Lupa} alt="buscar" />
                 </span>
             </div>
-            <div className='flex h-10 w-full items-center justify-center rounded-xl bg-tercero p-1 pl-4 shadow-md md:hidden md:w-5/6'>
+            <div className='flex h-10 w-full items-center justify-center rounded-xl bg-tercero p-1 pl-4 shadow-md sm:max-w-80 md:hidden md:w-5/6'>
                 <input
                     className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero"
                     type="text"

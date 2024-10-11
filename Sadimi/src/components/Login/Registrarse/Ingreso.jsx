@@ -3,13 +3,20 @@ import { Context } from '../../../Context/main';
 import Alerta from '../../Alerts/Alerta';
 import Password from '../../../assets/password.svg'
 import Show from '../Header/Show';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Inicio() {
-    const { setOpen, setTipo, tipo, mensaje, setMensaje, registro, setRegistro } = useContext(Context);
+    const navigate = useNavigate()
+    const { setOpen, setTipo, tipo, mensaje, setMensaje, registro, setRegistro, setUsuario } = useContext(Context);
     const [mostrarContraseña, setMostrarContraseña] = useState(true);
     const inputType = mostrarContraseña ? 'password' : 'text';
     const [contraseña1, setContraseña1] = useState("");
     const [contraseña2, setContraseña2] = useState("");
+
+    function handleToggle() {
+        setMostrarContraseña(!mostrarContraseña);
+    }
 
     function handleContraseña1(e) {
         setOpen(false);
@@ -21,18 +28,16 @@ function Inicio() {
         setContraseña2(e.target.value)
     }
 
-    function handleToggle() {
-        setMostrarContraseña(!mostrarContraseña);
-    }
 
     async function insertar() {
         try {
-            const response = await axios.post('https://api-sadimi-v2.vercel.app/user/', {
-                user: registro
-            });
+            const response = await axios.post('https://api-sadimi-v2.vercel.app/users', { user: registro });
+            console.log(registro)
             setUsuario(response.data.user)
             navigate("/")
         } catch (err) {
+            console.log(err)
+            console.log(registro)
             if (err.response) {
                 setTipo(err.response.data.status);
                 setMensaje(err.response.data.message);
@@ -41,8 +46,8 @@ function Inicio() {
                 setMensaje("Error interno");
             }
         } finally {
-            setLoading(false);
             setOpen(true);
+
         }
     }
 
@@ -58,7 +63,7 @@ function Inicio() {
             insertar()
         }
 
-        console.log(registro)
+
     }
 
     return (
