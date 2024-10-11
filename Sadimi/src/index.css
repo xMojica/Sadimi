@@ -35,7 +35,7 @@ body {
 
 #root {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     background-color: var(--background);
 }
 
@@ -46,18 +46,10 @@ body {
     transition: transform 0.3s ease;
 }
 
-*::-webkit-scrollbar {
-    width: fit-content;
-}
-
 @media (min-width: 768px) {
     main {
         min-height: calc(80vh);
         min-width: 396px;
-    }
-
-    #root {
-        translate: 6px;
     }
 }
 

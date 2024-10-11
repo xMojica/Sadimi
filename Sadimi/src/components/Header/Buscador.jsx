@@ -7,13 +7,17 @@ function Buscador() {
 
     function handleChange(e) {
         context.setBusquedaProducto(e.target.value);
+        window.scrollTo({
+            top: 0, // Desplazarse al inicio de la página
+            behavior: 'smooth' // Desplazamiento suave
+        });
     }
 
     return (
         <>
-            <div className='hidden h-10 w-80 max-w-80 items-center rounded-xl bg-tercero p-1 pl-4 shadow-md md:flex'>
+            <div className='hidden h-10 w-full items-center rounded-xl bg-segundo p-1 pl-4 sm:flex'>
                 <input
-                    className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero"
+                    className="flex h-full w-5/6 bg-segundo text-primero outline-none placeholder:text-primero"
                     type="text"
                     placeholder='Buscar'
                     value={context.busquedaProducto}
@@ -23,9 +27,9 @@ function Buscador() {
                     <img src={Lupa} alt="buscar" />
                 </span>
             </div>
-            <div className='flex h-10 w-full items-center justify-center rounded-xl bg-tercero p-1 pl-4 shadow-md sm:max-w-80 md:hidden md:w-5/6'>
+            <div className='flex h-10 w-full items-center justify-center rounded-xl bg-segundo p-1 pl-4 sm:hidden sm:max-w-80 md:w-5/6'>
                 <input
-                    className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero"
+                    className="flex h-full w-5/6 bg-segundo text-primero outline-none placeholder:text-primero"
                     type="text"
                     placeholder='Buscar'
                     value={context.busquedaProducto}
