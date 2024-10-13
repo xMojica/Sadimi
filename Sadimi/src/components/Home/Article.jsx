@@ -21,10 +21,20 @@ function Article({ product }) {
             </div>
             <div className='flex flex-col md:my-2'>
                 <h6 className='text-sm text-primero'>{product.marca}</h6>
-                <h1 className='text-sm text-quinto md:text-lg'>{product.nombre}</h1>
+                <h1 className='text-sm text-quinto md:text-xl'>{product.nombre}</h1>
+            </div>
+            <div className='mt-auto'>
+                <div class="flex gap-x-1">
+                    <span class="text-xl text-yellow-500">★</span>
+                    <span class="text-xl text-yellow-500">★</span>
+                    <span class="text-xl text-yellow-500">★</span>
+                    <span class="text-xl text-yellow-500">★</span>
+                    <span class="text-xl text-gray-300">★</span>
+                    <h6 className='text-quinto'>(+54)</h6>
+                </div>
             </div>
 
-            <div className='mt-auto flex flex-row flex-nowrap gap-2'>
+            <div className='my-1 flex flex-row flex-nowrap gap-2'>
                 {product.colores && product.colores.map((color, index) => (
                     <span key={index} className='flex items-center justify-center rounded-[50%] border-2 border-quinto p-1'>
                         <svg className='hover:scale-150' width="16px" height="16px" viewBox="0 0 16 16" fill={color} strokeWidth="2" xmlns="http://www.w3.org/2000/svg">
