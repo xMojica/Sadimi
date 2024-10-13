@@ -8,26 +8,26 @@ function Buscador() {
     function handleChange(e) {
         context.setBusquedaProducto(e.target.value);
         window.scrollTo({
-            top: 0, // Desplazarse al inicio de la página
-            behavior: 'smooth' // Desplazamiento suave
+            top: 0,
+            behavior: 'smooth'
         });
     }
 
     return (
         <>
-            <div className='hidden h-10 w-full items-center rounded-xl bg-segundo p-1 pl-4 sm:flex'>
+            <div className='mr-4 hidden h-10 w-full items-center rounded-xl bg-background p-1 pl-4 shadow-lg sm:flex'>
                 <input
-                    className="flex h-full w-5/6 bg-segundo text-primero outline-none placeholder:text-primero"
+                    className="flex h-full w-5/6 bg-background text-primero outline-none placeholder:text-primero"
                     type="text"
                     placeholder='Buscar'
                     value={context.busquedaProducto}
                     onChange={handleChange}
                 />
-                <span className='flex h-full w-1/6 items-center justify-center rounded-xl hover:cursor-pointer hover:bg-segundo'>
+                <span className='flex h-full w-1/6 items-center justify-center rounded-xl hover:cursor-pointer hover:bg-tercero'>
                     <img src={Lupa} alt="buscar" />
                 </span>
             </div>
-            <div className='flex h-10 w-full items-center justify-center rounded-xl bg-segundo p-1 pl-4 sm:hidden sm:max-w-80 md:w-5/6'>
+            <div className='mr-4 flex h-10 w-full items-center justify-center rounded-xl bg-segundo p-1 pl-4 sm:hidden sm:max-w-80 md:w-5/6'>
                 <input
                     className="flex h-full w-5/6 bg-segundo text-primero outline-none placeholder:text-primero"
                     type="text"

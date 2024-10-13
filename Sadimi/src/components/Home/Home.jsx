@@ -28,7 +28,7 @@ function Home() {
     }, []);
 
     const productosFiltrados = products.filter(producto =>
-        producto.nombre.toLowerCase().includes(busquedaProducto.toLowerCase())
+        producto.nombre.toLowerCase().includes(busquedaProducto.toLowerCase()) || producto.marca.toLowerCase().includes(busquedaProducto.toLowerCase())
     );
 
     return (
