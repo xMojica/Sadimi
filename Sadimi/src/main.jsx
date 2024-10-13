@@ -6,7 +6,7 @@ import "@fontsource/pacifico";
 import ContextProvider from "./Context/main.jsx";
 import "./index.css";
 
-<div className="min-x-96 containe flex-col justify-center">
+<div className="min-x-96 max-w-[2560px] flex-col justify-center">
     {createRoot(document.getElementById("root")).render(
         <ContextProvider>
             <App />

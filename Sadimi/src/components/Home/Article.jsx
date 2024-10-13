@@ -17,7 +17,7 @@ function Article({ product }) {
         <article className="flex h-96 w-40 flex-col justify-center overflow-hidden rounded-xl border-2 bg-tercero p-3 shadow-md hover:cursor-pointer hover:shadow-2xl sm:h-[520px] sm:w-60">
             <div className='relative flex h-32 w-full items-center justify-center sm:h-52'>
                 <img src={product.imagen} alt={product.nombre} width={200} className='z-40 aspect-square w-52 rounded-xl mix-blend-multiply' />
-                <div className='absolute left-0 top-0 z-40 w-14 justify-center rounded-lg bg-cuarto px-1 text-center text-sm font-bold text-tercero'>-30%</div>
+                <div className='absolute left-0 top-0 z-30 w-14 justify-center rounded-lg bg-cuarto px-1 text-center text-sm font-bold text-tercero'>-30%</div>
             </div>
             <div className='flex flex-col md:my-2'>
                 <h6 className='text-[10px] text-primero md:text-sm'>{product.marca}</h6>

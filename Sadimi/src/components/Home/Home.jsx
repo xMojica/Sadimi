@@ -5,6 +5,7 @@ import Loader from '../Alerts/Loader';
 import Article from './Article';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Cart from '../Carrito/Cart';
 
 function Home() {
     const { busquedaProducto } = useContext(Context);
@@ -49,6 +50,7 @@ function Home() {
                             ))
                         )}
                     </main>
+                    <Cart />
                     <Footer />
                 </>
             )}

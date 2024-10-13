@@ -14,15 +14,16 @@ export default function ContextProvider({ children }) {
     const [tipo, setTipo] = useState(); // Para el tipo del alert "error o success"
     const [mensaje, setMensaje] = useState() // mensaje del alert
     const [usuario, setUsuario] = useState({}); // Usurio que se logea
-    const [carrito, setCarrito] = useState([]);
-    const [registro, setRegistro] = useState({})
+    const [carrito, setCarrito] = useState([]); // array con el carrito de compras
+    const [registro, setRegistro] = useState({}) // para manejar los datos cuando se este registrando la persona
+    const [cart, setCart] = useState(false) // para abrir o cerrar el aside del carrito de compras
 
     return (
         <Context.Provider value={{
             contadorCarrito, setContadorCarrito, busquedaProducto, setBusquedaProducto, mostrarLogin, setMostrarLogin,
             open, setOpen, token, setToken, menuVisiblePaises, setMenuVisiblePaises,
             menuVisibleDepartamentos, setMenuVisibleDepartamentos, menuVisibleCiudades, setMenuVisibleCiudades,
-            tipo, setTipo, mensaje, setMensaje, usuario, setUsuario, carrito, setCarrito, registro, setRegistro
+            tipo, setTipo, mensaje, setMensaje, usuario, setUsuario, carrito, setCarrito, registro, setRegistro, cart, setCart
         }}>
             {children}
         </Context.Provider>

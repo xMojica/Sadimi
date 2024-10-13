@@ -1,23 +1,26 @@
 import React, { useContext } from 'react'
-import Hamburguesa from "../../assets/hamburguesa.svg"
-import Carrito from './IconoCarrito.jsx'
-import Buscador from './Buscador.jsx'
-import user from '../../assets/user.svg'
 import { Context } from '../../Context/main';
 import { useNavigate } from 'react-router-dom';
+import Hamburguesa from "../../assets/hamburguesa.svg"
+import user from '../../assets/user.svg'
+import Carrito from './IconoCarrito.jsx'
+import Buscador from './Buscador.jsx'
+import Cart from '../Carrito/Cart.jsx'
 
 function Header() {
-    const { usuario, carrito } = useContext(Context);
+    const { usuario, carrito, cart, setCart } = useContext(Context);
     const navigate = useNavigate();
 
     function clickUsuario() { navigate("/Login") }
-    function clickCarrito() { console.log(carrito) }
     const handleHamburguesa = () => { console.log("Abri el menu hamburguesa") }
+    function clickCarrito() {
+        setCart(!cart)
+    }
 
 
     return (
         <>
-            <header className='fixed left-0 top-0 z-50 flex w-full min-w-96 flex-col items-center justify-center bg-tercero pb-8 shadow-lg sm:pb-0 md:h-20'>
+            <header className='fixed left-0 top-0 z-50 flex w-full min-w-96 flex-col items-center justify-center bg-tercero pb-8 shadow-lg sm:h-20 sm:pb-0'>
                 <div className='flex h-16 w-full flex-row items-center justify-between rounded-xl px-2 md:justify-around md:px-4'>
                     <div className='flex h-10 items-center justify-start rounded-xl p-2 px-4 hover:cursor-pointer hover:bg-segundo sm:hidden' onClick={handleHamburguesa}>
                         <img className='h-7' src={Hamburguesa} alt="menu" />
@@ -34,7 +37,7 @@ function Header() {
                             }
                         </span>
 
-                        <div className='flex items-center justify-between gap-4 rounded-xl p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:cursor-pointer hover:shadow-lg md:ml-6 md:shadow-md' onClick={clickUsuario}>
+                        <div className='flex items-center justify-between gap-4 rounded-xl p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo hover:shadow-lg md:ml-6 md:shadow-md' onClick={clickUsuario}>
                             <h3 className='hidden font-bold text-primero md:flex'>{usuario.nombre || "Iniciar"}</h3>
                             <img src={user} alt="Usuario" className='h-7' />
                         </div>
