@@ -27,9 +27,9 @@ function Buscador() {
                     <img src={Lupa} alt="buscar" />
                 </span>
             </div>
-            <div className='mr-4 flex h-10 w-full items-center justify-center rounded-xl bg-segundo p-1 pl-4 sm:hidden sm:max-w-80 md:w-5/6'>
+            <div className='mr-4 flex h-10 w-full items-center justify-center rounded-xl bg-tercero p-1 pl-4 shadow-xl sm:hidden sm:max-w-80 md:w-5/6'>
                 <input
-                    className="flex h-full w-5/6 bg-segundo text-primero outline-none placeholder:text-primero"
+                    className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero"
                     type="text"
                     placeholder='Buscar'
                     value={context.busquedaProducto}
