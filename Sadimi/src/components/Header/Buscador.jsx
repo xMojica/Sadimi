@@ -15,9 +15,9 @@ function Buscador() {
 
     return (
         <>
-            <div className='mr-4 hidden h-10 w-full items-center rounded-xl bg-background p-1 pl-4 shadow-lg sm:flex'>
+            <div className='mr-4 hidden h-10 w-full items-center rounded-xl bg-tercero p-1 pl-4 shadow-lg sm:flex'>
                 <input
-                    className="flex h-full w-5/6 bg-background text-primero outline-none placeholder:text-primero"
+                    className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero"
                     type="text"
                     placeholder='Buscar'
                     value={context.busquedaProducto}

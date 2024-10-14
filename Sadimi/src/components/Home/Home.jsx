@@ -8,6 +8,7 @@ import Footer from '../Footer/Footer';
 import Cart from '../Carrito/Cart';
 
 function Home() {
+
     const { busquedaProducto } = useContext(Context);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -34,14 +35,12 @@ function Home() {
 
     return (
         <>
-            {loading ? (
-                <Loader />
-            ) : (
+            {loading ? (<Loader />) : (
                 <>
                     <Header />
-                    <main className='mt-44 flex w-full min-w-96 flex-wrap items-center justify-center gap-4 px-4 sm:mx-8 sm:mt-24'>
+                    <main className='mt-40 flex w-full flex-wrap items-start justify-center gap-4 px-4 sm:mx-8 sm:mt-28'>
                         {productosFiltrados.length === 0 ? (
-                            <h1 className='text-center text-xl text-primero md:text-3xl'>
+                            <h1 className='my-auto flex text-center text-2xl font-bold text-primero md:text-3xl'>
                                 {mensajeProductos || "El producto que buscas no está disponible en este momento."}
                             </h1>
                         ) : (

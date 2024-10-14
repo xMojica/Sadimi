@@ -3,7 +3,6 @@ export const Context = React.createContext();
 
 export default function ContextProvider({ children }) {
 
-    const [contadorCarrito, setContadorCarrito] = useState(0); // Contador para el carrito
     const [busquedaProducto, setBusquedaProducto] = useState("") // Filtrar un producto
     const [mostrarLogin, setMostrarLogin] = useState(false); // Mostrar el login y navegar entre el formulario
     const [open, setOpen] = useState(false); // Para mostrar o ocultar el alert 
@@ -17,6 +16,7 @@ export default function ContextProvider({ children }) {
     const [carrito, setCarrito] = useState([]); // array con el carrito de compras
     const [registro, setRegistro] = useState({}) // para manejar los datos cuando se este registrando la persona
     const [cart, setCart] = useState(false) // para abrir o cerrar el aside del carrito de compras
+    const [contadorCarrito, setContadorCarrito] = useState(carrito.length); // Contador para el carrito
 
     return (
         <Context.Provider value={{

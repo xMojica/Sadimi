@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
     return (
         <footer
-            className="mt-10 flex h-60 min-w-96 items-center justify-center gap-x-4 rounded-t-3xl bg-tercero p-4 hover:cursor-pointer sm:gap-x-10"
+            className="mt-10 flex h-60 w-full min-w-96 items-center justify-center gap-x-4 rounded-t-3xl bg-tercero p-4 hover:cursor-pointer sm:gap-x-10"
         >
             <div
                 className="group relative flex min-w-40 max-w-sm flex-col items-center overflow-hidden rounded-xl p-4 text-center shadow-xl transition-all duration-500 hover:shadow-2xl"
