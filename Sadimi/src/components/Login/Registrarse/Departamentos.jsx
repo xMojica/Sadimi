@@ -37,22 +37,18 @@ function Departamentos({ setDepartamento, disabled, handleChange, pais }) {
 
     function visibilidad() {
         setMenuVisibleDepartamentos(prev => !prev)
-        setMenuVisiblePaises(false)
         setMenuVisibleCiudades(false)
     }
 
-    useEffect(() => {
-        document.getElementById("departamentos").value = ""
-    }, [pais])
 
     return (
         <div className="relative h-full w-full rounded-r-xl border-background">
             <input
                 id='departamentos'
-                className='h-full w-full rounded-r-xl bg-tercero px-4 text-left text-lg font-normal text-primero outline-none placeholder:text-primero hover:cursor-pointer'
+                className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
                 onClick={visibilidad}
                 disabled={disabled}
-                placeholder={"Departamentos:"}
+                placeholder={"Departamento:"}
                 onChange={(e) => setBusqueda(e.target.value)}
             />
             <div className={`absolute z-10 mt-1 w-full rounded-r-xl border bg-segundo overflow-y-auto max-h-56 ${menuVisibleDepartamentos ? 'block' : 'hidden'}`}>

@@ -16,30 +16,46 @@ function RecuperarContraseña() {
     }
 
     return (
-        <>
-            <div className='flex h-12 items-center rounded-xl bg-tercero'>
-                <img className='mx-4 h-6 w-6' src={Email} alt="Email" />
-                <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                    <input className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero' type="email" placeholder='Email: ' onChange={handleChange} />
+        <div className='flex h-full w-full flex-col gap-6'>
+
+            <div className='flex items-center justify-center rounded-xl'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+                    <img className='absolute right-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={Email} alt="Email" />
+                    <input
+                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-10 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
+                        type="email"
+                        placeholder='Email:'
+                        onChange={handleChange}
+                    />
                 </span>
             </div>
 
-            <div className='flex h-12 items-center rounded-xl bg-tercero'>
-                <img className='mx-4 h-full w-6' src={Documento} alt="Documento" />
-                <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                    <input className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero' type="text" placeholder='Documento:' onChange={handleChange} />
+            <div className='flex items-center justify-center rounded-xl'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+                    <img className='absolute right-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={Documento} alt="Documento" />
+                    <input
+                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-10 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
+                        type="text"
+                        placeholder='Documento:'
+                        onChange={handleChange}
+                    />
                 </span>
             </div>
 
-            <span className='mt-4 flex h-12 w-full justify-center'>
-                <Alerta tipo={"Success"} mensaje={"Enviamos un correo electronico a samojica08@gmail.com para reestablecer la contraseña."} />
+            <span className='flex w-full justify-center'>
+                <Alerta tipo={"Correcto"} mensaje={"Enviamos un correo electrónico para reestablecer la contraseña."} />
             </span>
 
             <span className='mt-auto flex w-full flex-col items-center justify-center'>
-                <button className='rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer' onClick={recuperar}>Recuperar</button>
+                <button
+                    className='w-full rounded-xl bg-primero p-2 px-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer sm:w-2/3 sm:text-2xl'
+                    onClick={recuperar}>
+                    Recuperar
+                </button>
             </span>
-        </>
-    )
+        </div>
+    );
+
 }
 
 export default RecuperarContraseña

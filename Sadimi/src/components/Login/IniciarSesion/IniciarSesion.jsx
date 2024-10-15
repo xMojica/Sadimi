@@ -28,36 +28,52 @@ function IniciarSesion({ setTitulo }) {
 
     async function iniciar() {
         setOpen(false);
-        try {
-            const response = await axios.post('https://api-sadimi-v2.vercel.app/users/login', {
-                email,
-                contrasena: contraseña
-            });
+        setLoading(true)
 
-            setUsuario(response.data.user);
-            navigate("/")
-        } catch (err) {
+        if (email || contraseña === "") {
+            setTipo("Error");
+            setMensaje("Ingrese sus datos");
+            setOpen(true);
+            setLoading(false)
+        } else {
+            try {
+                const response = await axios.post('https://api-sadimi-v2.vercel.app/users/login', {
+                    email,
+                    contrasena: contraseña
+                });
 
-            if (err.response) {
-                setTipo(err.response.data.status);
-                setMensaje(err.response.data.message);
-                setOpen(true);
-            } else {
-                setTipo("Error");
-                setMensaje("Error interno");
-                setOpen(true);
+                setUsuario(response.data.user);
+                navigate("/")
+            } catch (err) {
+
+                if (err.response) {
+                    setTipo(err.response.data.status);
+                    setMensaje(err.response.data.message);
+                    setOpen(true);
+                } else {
+                    setTipo("Error");
+                    setMensaje("Error interno");
+                    setOpen(true);
+                }
+            } finally {
+                setLoading(false)
             }
+
         }
+
     }
 
     return (
-        <div className='flex h-full w-full flex-col justify-between gap-6'>
+        <div className='flex h-full w-full flex-col gap-6'>
+            <span className='flex w-full justify-center'>
+                <Alerta tipo={tipo} mensaje={mensaje} />
+            </span>
 
-            <div className='flex items-center rounded-xl'>
-                <span className='relative flex w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                    <img className='absolute right-0 mx-4 h-6 w-6' src={Email} alt="Email" />
+            <div className='flex items-center justify-center rounded-xl'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+                    <img className='absolute right-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={Email} alt="Email" />
                     <input
-                        className='h-14 w-full rounded-xl border border-gray-200 pl-3 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
+                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
                         type="email"
                         placeholder='Email:'
                         value={email}
@@ -66,10 +82,10 @@ function IniciarSesion({ setTitulo }) {
                 </span>
             </div>
 
-            <div className='flex items-center rounded-xl bg-tercero'>
-                <span className='relative flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
+            <div className='flex items-center justify-center rounded-xl bg-tercero'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
                     <input
-                        className='h-14 w-full rounded-xl border border-gray-200 pl-3 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
+                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
                         type={inputType}
                         placeholder='Contraseña:'
                         value={contraseña}
@@ -77,19 +93,16 @@ function IniciarSesion({ setTitulo }) {
                     />
                     <Show mostrarContraseña={mostrarContraseña} onToggle={handleToggle} />
                 </span>
+
             </div>
 
-            <p className='text-md text-right font-semibold text-quinto'>
-                <u className='no-underline hover:cursor-pointer hover:text-primero hover:underline' onClick={recuperarContraseña}>¿Olvidaste tu contraseña?</u>
+            <p className='text-right text-sm font-semibold text-quinto'>
+                <u className='justify-end no-underline hover:cursor-pointer hover:text-primero hover:underline' onClick={recuperarContraseña}>¿Olvidaste tu contraseña?</u>
             </p>
 
-            <span className='flex h-12 w-full justify-center'>
-                <Alerta tipo={tipo} mensaje={mensaje} />
-            </span>
-
-            <span className='mt-auto flex w-full flex-col items-center justify-between'>
+            <span className='mt-10 flex w-full flex-col items-center justify-between sm:mt-auto'>
                 <button
-                    className='w-2/3 rounded-xl bg-primero p-4 text-2xl font-bold text-tercero hover:scale-105 hover:cursor-pointer'
+                    className='w-full rounded-xl bg-primero p-2 px-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer sm:w-2/3 sm:text-2xl'
                     onClick={iniciar}
                     disabled={loading}>
                     Iniciar sesión
@@ -100,6 +113,7 @@ function IniciarSesion({ setTitulo }) {
                 </p>
             </span>
         </div>
+
     );
 
 }

@@ -31,21 +31,13 @@ html {
     background-color: var(--background);
 }
 
+main {
+    min-height: calc(100svh);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     transition: transform 0.3s ease;
-}
-
-@media (min-width: 768px) {
-    main {
-        min-height: calc(100svh);
-    }
-}
-
-@media (max-width: 768px) {
-    main {
-        min-height: calc(45svh);
-    }
 }

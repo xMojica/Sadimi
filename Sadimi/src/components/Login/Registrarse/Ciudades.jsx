@@ -2,9 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../../../Context/main';
 import axios from 'axios';
 
-function Ciudades({ setCiudad, disabled, handleChange, departamento, pais }) {
-    const { token, menuVisibleCiudades, setMenuVisibleCiudades, setMenuVisiblePaises, setMenuVisibleDepartamentos } = useContext(Context);
-    const [menuVisible, setMenuVisible] = useState(false);
+function Ciudades({ setCiudad, disabled, handleChange, departamento }) {
+    const { token, menuVisibleCiudades, setMenuVisibleCiudades, setMenuVisibleDepartamentos } = useContext(Context);
     const [seleccionado, setSeleccionado] = useState(null);
     const [ciudades, setCiudades] = useState([]);
     const [error, setError] = useState(null);
@@ -38,18 +37,17 @@ function Ciudades({ setCiudad, disabled, handleChange, departamento, pais }) {
     function visibilidad() {
         setMenuVisibleCiudades(prev => !prev)
         setMenuVisibleDepartamentos(false)
-        setMenuVisiblePaises(false)
     }
 
     useEffect(() => {
         document.getElementById("ciudades").value = ""
-    }, [departamento, pais])
+    }, [departamento])
 
     return (
         <div className="relative h-full w-full rounded-r-xl border-background">
             <input
                 id='ciudades'
-                className='h-full w-full rounded-r-xl bg-tercero px-4 text-left text-lg font-normal text-primero outline-none placeholder:text-primero hover:cursor-pointer'
+                className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
                 onClick={visibilidad}
                 disabled={disabled}
                 placeholder={"Ciudades:"}

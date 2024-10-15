@@ -44,30 +44,23 @@ function Ubicacion({ setTitulo }) {
     }
 
     return (
-        <>
-            <div className='flex h-12 items-center rounded-xl bg-tercero'>
-                <img className='mx-4 h-6 w-6' src={IconoPais} alt="Pais" />
-                <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                    <Paises
-                        setPais={setPais}
-                        disabled={false}
-                        handleChange={handleChange} />
-                </span>
-            </div>
-            <div className='flex h-12 items-center rounded-xl bg-tercero'>
-                <img className='mx-4 h-full w-6' src={IconoDepartamento} alt="Departamento" />
-                <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
+        <div className='flex h-full w-full flex-col gap-6'>
+
+            <div className='flex items-center justify-center rounded-xl'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+                    <img className='absolute left-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={IconoDepartamento} alt="Departamento" />
                     <Departamentos
                         setDepartamento={setDepartamento}
-                        pais={pais}
-                        disabled={pais == null}
+                        pais={"colombia"}
+                        disabled={false}
                         handleChange={handleChange}
                     />
                 </span>
             </div>
-            <div className='flex h-12 items-center rounded-xl bg-tercero'>
-                <img className='mx-4 h-full w-6' src={IconoCiudad} alt="Ciudad" />
-                <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
+
+            <div className='flex items-center justify-center rounded-xl'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+                    <img className='absolute left-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={IconoCiudad} alt="Ciudad" />
                     <Ciudades
                         setCiudad={setCiudad}
                         departamento={departamento}
@@ -78,16 +71,17 @@ function Ubicacion({ setTitulo }) {
                 </span>
             </div>
 
-
-            <div className='flex h-12 items-center rounded-xl bg-tercero'>
-                <img className='mx-4 h-full w-6' src={IconoDireccion} alt="Direccion" />
-                <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                    <input className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero'
+            <div className='flex items-center justify-center rounded-xl'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+                    <input
+                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
                         type="text"
                         value={registro.direccion}
                         name='direccion'
-                        placeholder='Direccion:'
-                        onChange={handleChange} />
+                        placeholder='Dirección:'
+                        onChange={handleChange}
+                    />
+                    <img className='absolute right-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={IconoDireccion} alt="Direccion" />
                 </span>
             </div>
 
@@ -96,11 +90,15 @@ function Ubicacion({ setTitulo }) {
             </div>
 
             <span className='mt-auto flex w-full flex-col items-center justify-center'>
-                <button className='w-2/3 rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer' onClick={siguiente}>Siguiente</button>
+                <button
+                    className='w-2/3 rounded-xl bg-primero p-4 text-2xl font-bold text-tercero hover:scale-105 hover:cursor-pointer'
+                    onClick={siguiente}>
+                    Siguiente
+                </button>
             </span>
+        </div>
+    );
 
-        </>
-    )
 }
 
 export default Ubicacion

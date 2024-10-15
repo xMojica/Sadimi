@@ -38,15 +38,16 @@ function Login() {
     }, [])
 
     return (
-        <main className='flex h-full w-full items-start justify-center md:items-center'>
 
-            <section id='login' className='z-50 flex h-full w-1/2 flex-col items-start justify-start rounded-xl shadow-xl md:p-8'>
+        <main className='flex h-full w-full items-start justify-center sm:items-center'>
+
+            <section id='login' className='z-50 flex h-[100svh] w-full flex-col items-center justify-start rounded-xl p-4 shadow-xl sm:h-full sm:w-2/3 sm:p-8 md:w-1/2'>
                 <header className='flex w-full items-center justify-between'>
-                    <span className='h-8 w-8 md:h-10 md:w-10'>
+                    <span className='h-6 w-6 sm:h-10 sm:w-10'>
                         <Atras titulo={titulo} setTitulo={setTitulo} />
                     </span>
-                    <h1 className='mx-auto text-2xl font-bold text-primero md:text-6xl'>{titulo}</h1>
-                    <span className='h-10 w-10'>
+                    <h1 className='mx-auto text-xl font-bold text-primero sm:text-2xl xl:text-4xl'>{titulo}</h1>
+                    <span className='h-6 w-6 sm:h-10 sm:w-10'>
                         <Cerrar setTitulo={setTitulo} />
                     </span>
                 </header>
@@ -59,8 +60,9 @@ function Login() {
                     {(titulo == "Ingreso") ? <Ingreso setTitulo={setTitulo} /> : null}
                 </div>
             </section >
-            <img src={vector} alt="vector" className='w-[520px] rounded-xl mix-blend-multiply' />
+            <img src={vector} alt="vector" className='hidden rounded-xl mix-blend-multiply lg:flex lg:w-96 xl:w-[420px]' />
         </main >
+
     );
 
 }

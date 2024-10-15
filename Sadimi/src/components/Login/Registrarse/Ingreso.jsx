@@ -67,19 +67,31 @@ function Inicio() {
     }
 
     return (
-        <>
-            <div className='flex h-12 items-center rounded-xl bg-tercero'>
-                <img className='mx-4 h-full w-6' src={Password} alt="Contraseña" />
-                <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                    <input className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero' type={inputType} name='contraseña' placeholder='Contraseña:' onChange={handleContraseña1} />
+        <div className='flex h-full w-full flex-col gap-6'>
+            <div className='flex items-center justify-center rounded-xl'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+
+                    <input
+                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
+                        type={inputType}
+                        name='contraseña'
+                        placeholder='Contraseña:'
+                        onChange={handleContraseña1}
+                    />
                     <Show mostrarContraseña={mostrarContraseña} onToggle={handleToggle} />
                 </span>
             </div>
 
-            <div className='flex h-12 items-center rounded-xl bg-tercero'>
-                <img className='mx-4 h-full w-6' src={Password} alt="Repetir contraseña" />
-                <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
-                    <input className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero' type={inputType} name='contraseña' placeholder='Repetir contraseña:' onChange={handleContraseña2} />
+            <div className='flex items-center justify-center rounded-xl'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+
+                    <input
+                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
+                        type={inputType}
+                        name='repetirContraseña'
+                        placeholder='Repetir contraseña:'
+                        onChange={handleContraseña2}
+                    />
                     <Show mostrarContraseña={mostrarContraseña} onToggle={handleToggle} />
                 </span>
             </div>
@@ -88,11 +100,16 @@ function Inicio() {
                 <Alerta tipo={tipo} mensaje={mensaje} />
             </div>
 
-            <span className='mt-auto flex w-full flex-col items-center justify-center'>
-                <button className='w-2/3 rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer' onClick={finalizar}>Finalizar</button>
+            <span className='mt-10 flex w-full flex-col items-center justify-between sm:mt-auto'>
+                <button
+                    className='w-full rounded-xl bg-primero p-2 px-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer sm:w-2/3 sm:text-2xl'
+                    onClick={finalizar}>
+                    Finalizar
+                </button>
             </span>
-        </>
-    )
+        </div>
+    );
+
 }
 
 export default Inicio
