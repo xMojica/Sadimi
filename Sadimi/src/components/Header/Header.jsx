@@ -14,7 +14,8 @@ function Header() {
     function clickUsuario() { navigate("/Login") }
     const handleHamburguesa = () => { console.log("Abri el menu hamburguesa") }
     function clickCarrito() {
-        setCart(!cart)
+        // setCart(!cart)
+        console.log("Se clickeo el carrito")
     }
 
 
@@ -27,9 +28,9 @@ function Header() {
                     </div>
                     <h1 className='flex translate-x-6 p-2 text-center font-cursive text-3xl font-bold text-primero hover:scale-105 hover:cursor-pointer md:mx-0 md:flex md:w-80 md:translate-x-0 md:text-4xl'>Sadimi</h1>
                     <span className='hidden sm:flex md:w-96'><Buscador /></span>
-                    <div className='flex h-10 items-center justify-end md:w-80 md:min-w-60 md:justify-between'>
+                    <div className='flex h-10 items-center justify-end gap-x-2 md:w-80 md:min-w-60 md:justify-between'>
 
-                        <span className='relative flex rounded-xl p-2 px-4 text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo md:shadow-md md:hover:shadow-lg' onClick={clickCarrito}>
+                        <span className='relative flex rounded-xl border-quinto/20 p-2 text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo sm:border-2 md:shadow-md md:hover:shadow-lg' onClick={clickCarrito}>
                             <Carrito color={"#4c7766"} />
                             {
                                 carrito.length > 0 ?
@@ -37,7 +38,7 @@ function Header() {
                             }
                         </span>
 
-                        <div className='flex items-center justify-between gap-4 rounded-xl p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo hover:shadow-lg md:ml-6 md:shadow-md' onClick={clickUsuario}>
+                        <div className='flex items-center justify-between gap-4 rounded-xl border-quinto/20 p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo hover:shadow-lg sm:border-2 md:ml-6 md:shadow-md' onClick={clickUsuario}>
                             <h3 className='hidden font-bold text-primero md:flex'>{usuario.nombre || "Iniciar"}</h3>
                             <img src={user} alt="Usuario" className='h-7' />
                         </div>

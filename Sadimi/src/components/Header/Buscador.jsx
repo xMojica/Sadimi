@@ -15,7 +15,7 @@ function Buscador() {
 
     return (
         <>
-            <div className='mr-4 hidden h-10 w-full items-center rounded-xl bg-tercero p-1 pl-4 shadow-lg sm:flex'>
+            <div className='mr-4 hidden h-11 w-full items-center rounded-xl border-2 border-quinto/20 bg-tercero p-1 pl-4 shadow-lg sm:flex'>
                 <input
                     className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero"
                     type="text"
@@ -27,7 +27,7 @@ function Buscador() {
                     <img src={Lupa} alt="buscar" />
                 </span>
             </div>
-            <div className='mr-4 flex h-10 w-full items-center justify-center rounded-xl bg-tercero p-1 pl-4 shadow-xl sm:hidden sm:max-w-80 md:w-5/6'>
+            <div className='flex h-11 w-full items-center justify-center rounded-xl border-2 border-quinto/20 bg-tercero p-1 pl-4 shadow-xl sm:hidden sm:max-w-80 md:w-5/6'>
                 <input
                     className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero"
                     type="text"

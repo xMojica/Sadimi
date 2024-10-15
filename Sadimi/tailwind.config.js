@@ -7,10 +7,10 @@ module.exports = {
                 cursive: ["Pacifico", "cursive"],
             },
             colors: {
-                background: "#fbf0f4",
+                background: "#fbf5f7a7",
                 primero: "#4c7766",
                 segundo: "#cce5db",
-                tercero: "#ececec",
+                tercero: "#eff7f5",
                 cuarto: "#e36666",
                 quinto: "#505956",
             },

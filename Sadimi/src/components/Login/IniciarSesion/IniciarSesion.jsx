@@ -27,9 +27,7 @@ function IniciarSesion({ setTitulo }) {
 
 
     async function iniciar() {
-        setLoading(true);
         setOpen(false);
-
         try {
             const response = await axios.post('https://api-sadimi-v2.vercel.app/users/login', {
                 email,
@@ -37,31 +35,29 @@ function IniciarSesion({ setTitulo }) {
             });
 
             setUsuario(response.data.user);
-            setOpen(false)
             navigate("/")
         } catch (err) {
 
             if (err.response) {
                 setTipo(err.response.data.status);
                 setMensaje(err.response.data.message);
+                setOpen(true);
             } else {
                 setTipo("Error");
                 setMensaje("Error interno");
+                setOpen(true);
             }
-        } finally {
-            setLoading(false);
-            setOpen(true);
         }
     }
 
     return (
-        <div className='flex h-full min-h-[70vh] w-full min-w-96 flex-col justify-between gap-6 rounded-xl p-5'>
+        <div className='flex h-full w-full flex-col justify-between gap-6'>
 
-            <div className='flex h-12 items-center rounded-xl bg-tercero'>
-                <img className='mx-4 h-6 w-6' src={Email} alt="Email" />
-                <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
+            <div className='flex items-center rounded-xl'>
+                <span className='relative flex w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
+                    <img className='absolute right-0 mx-4 h-6 w-6' src={Email} alt="Email" />
                     <input
-                        className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero'
+                        className='h-14 w-full rounded-xl border border-gray-200 pl-3 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type="email"
                         placeholder='Email:'
                         value={email}
@@ -70,11 +66,10 @@ function IniciarSesion({ setTitulo }) {
                 </span>
             </div>
 
-            <div className='flex h-12 items-center rounded-xl bg-tercero'>
-                <img className='mx-4 h-6 w-6' src={Password} alt="Contraseña" />
-                <span className='flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
+            <div className='flex items-center rounded-xl bg-tercero'>
+                <span className='relative flex h-12 w-full flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <input
-                        className='h-full w-full rounded-r-xl border-background bg-tercero pl-3 text-lg text-primero outline-none placeholder:text-primero'
+                        className='h-14 w-full rounded-xl border border-gray-200 pl-3 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type={inputType}
                         placeholder='Contraseña:'
                         value={contraseña}
@@ -84,8 +79,8 @@ function IniciarSesion({ setTitulo }) {
                 </span>
             </div>
 
-            <p className='text-md text-right font-semibold text-quinto hover:cursor-pointer hover:text-primero' onClick={recuperarContraseña}>
-                <u className='no-underline hover:underline'>¿Olvidaste tu contraseña?</u>
+            <p className='text-md text-right font-semibold text-quinto'>
+                <u className='no-underline hover:cursor-pointer hover:text-primero hover:underline' onClick={recuperarContraseña}>¿Olvidaste tu contraseña?</u>
             </p>
 
             <span className='flex h-12 w-full justify-center'>
@@ -94,7 +89,7 @@ function IniciarSesion({ setTitulo }) {
 
             <span className='mt-auto flex w-full flex-col items-center justify-between'>
                 <button
-                    className='w-2/3 rounded-xl bg-primero p-4 text-2xl font-bold text-segundo hover:scale-105 hover:cursor-pointer'
+                    className='w-2/3 rounded-xl bg-primero p-4 text-2xl font-bold text-tercero hover:scale-105 hover:cursor-pointer'
                     onClick={iniciar}
                     disabled={loading}>
                     Iniciar sesión

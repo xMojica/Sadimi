@@ -7,10 +7,11 @@ import ContextProvider from "./Context/main.jsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
-
-    <ContextProvider>
-        <App />
-    </ContextProvider>
+    <div className="container">
+        <ContextProvider>
+            <App />
+        </ContextProvider>
+    </div>
 
 
 )

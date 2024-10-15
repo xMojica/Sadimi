@@ -1,5 +1,5 @@
 :root {
-    --background: #e1e1e1;
+    --background: #fbf5f7f5;
     --primero: #4c7766;
     --segundo: #cce5db;
     --tercero: #ececec;
@@ -21,8 +21,6 @@ html {
     background: var(--background);
     font-family: "Onest Variable", sans-serif;
     margin: 0;
-    display: flex;
-    justify-content: center;
 }
 
 #root {
@@ -42,7 +40,7 @@ html {
 
 @media (min-width: 768px) {
     main {
-        min-height: calc(80vh);
+        min-height: calc(100svh);
     }
 }
 

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Context } from '../../../Context/main';
 import Atras from './Atras';
 import Cerrar from './Cerrar';
+import vector from './../../../assets/vector4.jpg'
 import IniciarSesion from '../IniciarSesion/IniciarSesion';
 import DatosPersonales from '../Registrarse/DatosPersonales';
 import Ubicacion from '../Registrarse/Ubicacion'
@@ -37,18 +38,19 @@ function Login() {
     }, [])
 
     return (
-        <main className='flex h-full w-full min-w-96 items-start justify-center bg-background md:items-center'>
-            <section id='login' className='z-50 flex min-h-[80vh] w-full min-w-96 flex-col items-start justify-start rounded-xl md:w-1/2 md:min-w-[490px] md:max-w-[700px] md:p-8'>
-                <header className='flex w-full min-w-96 items-center justify-between p-5 md:rounded-xl'>
+        <main className='flex h-full w-full items-start justify-center md:items-center'>
+
+            <section id='login' className='z-50 flex h-full w-1/2 flex-col items-start justify-start rounded-xl shadow-xl md:p-8'>
+                <header className='flex w-full items-center justify-between'>
                     <span className='h-8 w-8 md:h-10 md:w-10'>
                         <Atras titulo={titulo} setTitulo={setTitulo} />
                     </span>
-                    <h1 className='mx-auto text-2xl font-bold text-primero md:text-3xl'>{titulo}</h1>
+                    <h1 className='mx-auto text-2xl font-bold text-primero md:text-6xl'>{titulo}</h1>
                     <span className='h-10 w-10'>
                         <Cerrar setTitulo={setTitulo} />
                     </span>
                 </header>
-                <div className='flex h-full min-h-[70vh] w-full min-w-96 flex-col justify-between gap-6 rounded-xl p-5'>
+                <div className='mt-16 flex h-full w-full rounded-xl'>
                     {(titulo == "Iniciar sesion") ? <IniciarSesion setTitulo={setTitulo} /> : null}
                     {(titulo == "Recuperar contraseña") ? <RecuperarContraseña setTitulo={setTitulo} /> : null}
                     {(titulo == "Datos personales") ? <DatosPersonales setTitulo={setTitulo} /> : null}
@@ -56,8 +58,8 @@ function Login() {
                     {(titulo == "Ubicacion") ? <Ubicacion setTitulo={setTitulo} /> : null}
                     {(titulo == "Ingreso") ? <Ingreso setTitulo={setTitulo} /> : null}
                 </div>
-
             </section >
+            <img src={vector} alt="vector" className='w-[520px] rounded-xl mix-blend-multiply' />
         </main >
     );
 
