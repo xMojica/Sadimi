@@ -21,10 +21,10 @@ function Cart() {
                 <h1 className='mx-auto text-xl font-bold text-primero sm:text-3xl'>Carrito de compras</h1>
             </header>
             <div className='flex flex-col justify-start gap-4 p-4 sm:flex-row sm:justify-center'>
-                <section className='flex w-2/3 items-center justify-center rounded-xl border-2 border-gray-300 bg-tercero p-4 text-quinto shadow-lg'>
+                <section className='flex w-full items-center justify-center rounded-xl border-2 border-gray-300 bg-tercero p-4 text-quinto shadow-lg sm:w-2/3'>
                     <h1 className='text-center text-2xl font-bold'>Esta seccion esta en desarrollo</h1>
                 </section>
-                <section className='flex w-1/3 flex-col gap-4 rounded-xl border-2 border-gray-300 bg-tercero p-4 text-quinto shadow-lg'>
+                <section className='flex w-full flex-col gap-4 rounded-xl border-2 border-gray-300 bg-tercero p-4 text-quinto shadow-lg sm:w-1/3'>
                     <h1 className='items-center text-2xl font-bold'>Checkout</h1>
                     <hr />
                     <div className='inline-block items-center'>
