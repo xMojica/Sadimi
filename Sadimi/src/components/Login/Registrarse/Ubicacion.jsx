@@ -48,7 +48,7 @@ function Ubicacion({ setTitulo }) {
 
             <div className='flex items-center justify-center rounded-xl'>
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
-                    <img className='absolute left-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={IconoDepartamento} alt="Departamento" />
+                    <img className='absolute left-0 mx-4 h-6 w-6' src={IconoDepartamento} alt="Departamento" />
                     <Departamentos
                         setDepartamento={setDepartamento}
                         pais={"colombia"}
@@ -60,7 +60,7 @@ function Ubicacion({ setTitulo }) {
 
             <div className='flex items-center justify-center rounded-xl'>
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
-                    <img className='absolute left-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={IconoCiudad} alt="Ciudad" />
+                    <img className='absolute left-0 mx-4 h-6 w-6' src={IconoCiudad} alt="Ciudad" />
                     <Ciudades
                         setCiudad={setCiudad}
                         departamento={departamento}
@@ -81,7 +81,7 @@ function Ubicacion({ setTitulo }) {
                         placeholder='Dirección:'
                         onChange={handleChange}
                     />
-                    <img className='absolute right-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={IconoDireccion} alt="Direccion" />
+                    <img className='absolute right-0 mx-4 h-6 w-6' src={IconoDireccion} alt="Direccion" />
                 </span>
             </div>
 
@@ -89,9 +89,9 @@ function Ubicacion({ setTitulo }) {
                 <Alerta tipo={tipo} mensaje={mensaje} />
             </div>
 
-            <span className='mt-auto flex w-full flex-col items-center justify-center'>
+            <span className='mx-auto mt-8 flex w-full max-w-96 flex-col items-center justify-center'>
                 <button
-                    className='w-2/3 rounded-xl bg-primero p-4 text-2xl font-bold text-tercero hover:scale-105 hover:cursor-pointer'
+                    className='w-full rounded-xl bg-primero p-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer'
                     onClick={siguiente}>
                     Siguiente
                 </button>

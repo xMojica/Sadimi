@@ -41,13 +41,13 @@ function Login() {
 
         <main className='flex h-full w-full items-start justify-center sm:items-center'>
 
-            <section id='login' className='z-50 flex h-[100svh] w-full flex-col items-center justify-start rounded-xl p-4 shadow-xl sm:h-full sm:w-2/3 sm:p-8 md:w-1/2'>
+            <section id='login' className='z-50 flex h-[100svh] w-full flex-col items-center justify-start rounded-xl p-8 shadow-xl sm:h-full sm:min-h-[520px] sm:w-2/3 md:w-1/2'>
                 <header className='flex w-full items-center justify-between'>
-                    <span className='h-6 w-6 sm:h-10 sm:w-10'>
+                    <span className='h-10 w-10'>
                         <Atras titulo={titulo} setTitulo={setTitulo} />
                     </span>
                     <h1 className='mx-auto text-2xl font-bold text-primero xl:text-4xl'>{titulo}</h1>
-                    <span className='h-6 w-6 sm:h-10 sm:w-10'>
+                    <span className='h-10 w-10'>
                         <Cerrar setTitulo={setTitulo} />
                     </span>
                 </header>
@@ -60,7 +60,7 @@ function Login() {
                     {(titulo == "Ingreso") ? <Ingreso setTitulo={setTitulo} /> : null}
                 </div>
             </section >
-            <img src={vector} alt="vector" className='hidden rounded-xl mix-blend-multiply md:flex md:w-96 xl:w-[420px]' />
+            <img src={vector} alt="vector" className='hidden rounded-xl mix-blend-multiply md:flex md:w-80 xl:w-[420px]' />
         </main >
 
     );

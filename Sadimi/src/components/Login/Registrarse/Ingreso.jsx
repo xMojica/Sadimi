@@ -100,9 +100,9 @@ function Inicio() {
                 <Alerta tipo={tipo} mensaje={mensaje} />
             </div>
 
-            <span className='mt-10 flex w-full flex-col items-center justify-between sm:mt-auto'>
+            <span className='mx-auto mt-8 flex w-full max-w-96 flex-col items-center justify-center'>
                 <button
-                    className='w-full rounded-xl bg-primero p-2 px-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer sm:w-2/3 sm:text-2xl'
+                    className='w-full rounded-xl bg-primero p-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer'
                     onClick={finalizar}>
                     Finalizar
                 </button>

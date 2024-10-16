@@ -57,7 +57,7 @@ function DatosPersonales({ setTitulo }) {
 
             <div className='flex items-center justify-center rounded-xl'>
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
-                    <img className='absolute right-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={Nombre} alt="Nombre" />
+                    <img className='absolute right-0 mx-4 h-6 w-6' src={Nombre} alt="Nombre" />
                     <input
                         className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
                         type="text"
@@ -71,7 +71,7 @@ function DatosPersonales({ setTitulo }) {
 
             <div className='flex items-center justify-center rounded-xl'>
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
-                    <img className='absolute right-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={Nombre} alt="Apellido" />
+                    <img className='absolute right-0 mx-4 h-6 w-6' src={Nombre} alt="Apellido" />
                     <input
                         className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
                         type="text"
@@ -85,7 +85,7 @@ function DatosPersonales({ setTitulo }) {
 
             <div className='flex items-center justify-center rounded-xl'>
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
-                    <img className='absolute right-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={Documento} alt="Documento" />
+                    <img className='absolute right-0 mx-4 h-6 w-6' src={Documento} alt="Documento" />
                     <input
                         className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
                         type="text"
@@ -101,9 +101,9 @@ function DatosPersonales({ setTitulo }) {
                 <Alerta tipo={"Error"} mensaje={mensaje} />
             </span>
 
-            <span className='mt-10 flex w-full flex-col items-center justify-center sm:mt-auto'>
+            <span className='mx-auto mt-8 flex w-full max-w-96 flex-col items-center justify-center'>
                 <button
-                    className='w-full rounded-xl bg-primero p-2 px-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer sm:w-2/3 sm:text-2xl'
+                    className='w-full rounded-xl bg-primero p-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer'
                     onClick={siguiente}>
                     Siguiente
                 </button>
