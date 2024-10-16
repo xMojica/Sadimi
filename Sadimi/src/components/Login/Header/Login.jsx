@@ -46,7 +46,7 @@ function Login() {
                     <span className='h-6 w-6 sm:h-10 sm:w-10'>
                         <Atras titulo={titulo} setTitulo={setTitulo} />
                     </span>
-                    <h1 className='mx-auto text-xl font-bold text-primero sm:text-2xl xl:text-4xl'>{titulo}</h1>
+                    <h1 className='mx-auto text-2xl font-bold text-primero xl:text-4xl'>{titulo}</h1>
                     <span className='h-6 w-6 sm:h-10 sm:w-10'>
                         <Cerrar setTitulo={setTitulo} />
                     </span>
@@ -60,7 +60,7 @@ function Login() {
                     {(titulo == "Ingreso") ? <Ingreso setTitulo={setTitulo} /> : null}
                 </div>
             </section >
-            <img src={vector} alt="vector" className='hidden rounded-xl mix-blend-multiply lg:flex lg:w-96 xl:w-[420px]' />
+            <img src={vector} alt="vector" className='hidden rounded-xl mix-blend-multiply md:flex md:w-96 xl:w-[420px]' />
         </main >
 
     );

@@ -71,9 +71,9 @@ function IniciarSesion({ setTitulo }) {
 
             <div className='flex items-center justify-center rounded-xl'>
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
-                    <img className='absolute right-0 mx-4 h-4 w-4 sm:h-6 sm:w-6' src={Email} alt="Email" />
+                    <img className='absolute right-0 mx-4 h-6 w-6' src={Email} alt="Email" />
                     <input
-                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
+                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type="email"
                         placeholder='Email:'
                         value={email}
@@ -85,7 +85,7 @@ function IniciarSesion({ setTitulo }) {
             <div className='flex items-center justify-center rounded-xl bg-tercero'>
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
                     <input
-                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
+                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type={inputType}
                         placeholder='Contraseña:'
                         value={contraseña}
@@ -96,11 +96,11 @@ function IniciarSesion({ setTitulo }) {
 
             </div>
 
-            <p className='text-right text-sm font-semibold text-quinto'>
-                <u className='justify-end no-underline hover:cursor-pointer hover:text-primero hover:underline' onClick={recuperarContraseña}>¿Olvidaste tu contraseña?</u>
-            </p>
+            <span className='mx-auto w-96 text-sm font-semibold text-quinto sm:w-full'>
+                <u className='flex justify-end text-right no-underline hover:cursor-pointer hover:text-primero hover:underline' onClick={recuperarContraseña}>¿Olvidaste tu contraseña?</u>
+            </span>
 
-            <span className='mt-10 flex w-full flex-col items-center justify-between sm:mt-auto'>
+            <span className='mx-auto mt-auto flex w-full max-w-96 flex-col items-center justify-between'>
                 <button
                     className='w-full rounded-xl bg-primero p-2 px-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer sm:w-2/3 sm:text-2xl'
                     onClick={iniciar}
