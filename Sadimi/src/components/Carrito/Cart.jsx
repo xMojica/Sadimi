@@ -13,22 +13,21 @@ function Cart() {
         const asideElement = document.querySelector("aside");
 
         mainElement.style.opacity = cart ? "0.1" : "1";
-        mainElement.style.pointerEvents = cart ? "none" : "auto";
         htmlElement.style.overflowY = cart ? "hidden" : "auto";
         asideElement.style.overflowY = cart ? "auto" : "hidden";
     }, [cart]);
 
-    const closeCart = useCallback(() => setCart(false), [setCart]);
-    const emptyCart = useCallback(() => setCarrito([]), [setCarrito]);
+    const cerrarCarrito = useCallback(() => setCart(false), [setCart]);
+    const vaciarCarrito = useCallback(() => setCarrito([]), [setCarrito]);
 
     const subtotal = useMemo(() =>
         carrito.reduce((acc, item) => acc + parseInt(item.precio_oferta * item.stock), 0),
         [carrito]
     );
 
-    const total = subtotal; // You can include shipping cost logic here if needed
+    const total = subtotal;
 
-    const updateQuantity = (id, increment) => {
+    const actualizarCantidad = (id, increment) => {
         setCarrito(prevCarrito =>
             prevCarrito.map(item =>
                 item._id === id
@@ -45,18 +44,18 @@ function Cart() {
     return (
         <aside className={`flex flex-col gap-4 p-4 fixed right-0 top-0 sm:top-24 rounded-l-xl min-w-96 z-[52] max-h-[100svh] sm:h-[84svh] md:h-[620px] w-full md:w-[620px] bg-tercero shadow-xl ${cart ? "flex" : "hidden"}`}>
             <div className='flex w-full flex-row items-center justify-center rounded-xl p-4'>
-                <div className='absolute left-8 rounded-full p-2 hover:scale-110 hover:cursor-pointer hover:bg-segundo' onClick={emptyCart}>
+                <div className='absolute left-8 rounded-full p-2 hover:scale-110 hover:cursor-pointer hover:bg-segundo' onClick={vaciarCarrito}>
                     <img src={Vaciar} alt="Vaciar carrito" className='w-8 sm:w-10' />
                 </div>
-                <h1 className='mx-auto text-lg font-bold text-primero sm:text-2xl'>Carrito de compras</h1>
-                <div className='absolute right-8 rounded-full p-2 hover:scale-110 hover:cursor-pointer hover:bg-segundo' onClick={closeCart}>
+                <h1 className='mx-auto text-xl font-bold text-primero sm:text-2xl'>Carrito de compras</h1>
+                <div className='absolute right-8 rounded-full p-2 hover:scale-110 hover:cursor-pointer hover:bg-segundo' onClick={cerrarCarrito}>
                     <img src={Close} alt="cerrar" className='w-8 sm:w-10' />
                 </div>
             </div>
             <div className='flex h-full flex-col gap-4 rounded-xl'>
                 {carrito.length === 0 ? (
-                    <div className='mt-28 flex h-full items-start justify-center'>
-                        <h1 className='text-md text-center font-bold text-quinto sm:text-2xl'>No hay productos en el carrito</h1>
+                    <div className='mt-28 flex h-[69svh] items-start justify-center'>
+                        <h1 className='text-center text-xl font-bold text-quinto sm:text-2xl'>No hay productos en el carrito</h1>
                     </div>
                 ) : (
                     <>
@@ -79,9 +78,9 @@ function Cart() {
                                         <td className='p-1 text-sm text-quinto sm:p-4'>{item.nombre}</td>
                                         <td className='p-1 sm:p-4'>
                                             <div className='flex flex-row items-center justify-center gap-3'>
-                                                <button className='rounded-lg bg-gray-300 px-2 text-xl text-quinto' onClick={() => updateQuantity(item._id, -1)}>-</button>
+                                                <button className='rounded-lg bg-gray-300 px-2 text-xl text-quinto' onClick={() => actualizarCantidad(item._id, -1)}>-</button>
                                                 <h1 className='text-quinto sm:mx-2'>{item.stock}</h1>
-                                                <button className='rounded-lg bg-gray-300 px-2 text-xl text-quinto' onClick={() => updateQuantity(item._id, 1)}>+</button>
+                                                <button className='rounded-lg bg-gray-300 px-2 text-xl text-quinto' onClick={() => actualizarCantidad(item._id, 1)}>+</button>
                                             </div>
                                         </td>
                                         <td className='p-1 text-left text-quinto sm:p-4'>{item.precio_oferta}</td>
