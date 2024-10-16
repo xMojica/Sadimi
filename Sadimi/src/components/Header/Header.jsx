@@ -15,6 +15,7 @@ function Header() {
         if (!usuario.nombre) {
             navigate("/Login");
         } else {
+            navigate("/")
             setUsuario({})
         }
     }
@@ -22,8 +23,11 @@ function Header() {
     function handleHamburguesa() { console.log("Abri el menu hamburguesa") }
 
     function clickCarrito() {
-        // setCart(!cart)
-        console.log("Se clickeo el carrito")
+        if (usuario.nombre) {
+            navigate("/Carrito");
+        } else {
+            navigate("/Login")
+        }
     }
 
 
@@ -34,7 +38,7 @@ function Header() {
                     <div className='flex h-10 items-center justify-start rounded-xl p-2 px-4 hover:cursor-pointer hover:bg-segundo sm:hidden' onClick={handleHamburguesa}>
                         <img className='h-7' src={Hamburguesa} alt="menu" />
                     </div>
-                    <h1 className='flex translate-x-6 p-2 text-center font-cursive text-3xl font-bold text-primero hover:scale-105 hover:cursor-pointer md:mx-0 md:flex md:w-80 md:translate-x-0 md:text-4xl'>Sadimi</h1>
+                    <h1 className='flex translate-x-6 p-2 text-center font-cursive text-3xl font-bold text-primero hover:scale-105 hover:cursor-pointer md:mx-0 md:flex md:w-80 md:translate-x-0 md:text-4xl' onClick={() => { navigate("/") }}>Sadimi</h1>
                     <span className='hidden sm:flex md:w-96'><Buscador /></span>
                     <div className='flex h-10 items-center justify-end gap-x-2 md:w-80 md:min-w-60 md:justify-between'>
 
