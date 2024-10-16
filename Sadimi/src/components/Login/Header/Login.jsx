@@ -43,11 +43,11 @@ function Login() {
 
             <section id='login' className='z-50 flex h-[100svh] w-full flex-col items-center justify-start rounded-xl p-8 shadow-xl sm:h-full sm:min-h-[520px] sm:w-2/3 md:w-1/2'>
                 <header className='flex w-full items-center justify-between'>
-                    <span className='h-10 w-10'>
+                    <span className='h-8 w-8'>
                         <Atras titulo={titulo} setTitulo={setTitulo} />
                     </span>
-                    <h1 className='mx-auto text-2xl font-bold text-primero xl:text-4xl'>{titulo}</h1>
-                    <span className='h-10 w-10'>
+                    <h1 className='mx-auto text-xl font-bold text-primero xl:text-4xl'>{titulo}</h1>
+                    <span className='h-8 w-8'>
                         <Cerrar setTitulo={setTitulo} />
                     </span>
                 </header>
@@ -57,7 +57,7 @@ function Login() {
                     {(titulo == "Datos personales") ? <DatosPersonales setTitulo={setTitulo} /> : null}
                     {(titulo == "Contacto") ? <Contacto setTitulo={setTitulo} /> : null}
                     {(titulo == "Ubicacion") ? <Ubicacion setTitulo={setTitulo} /> : null}
-                    {(titulo == "Ingreso") ? <Ingreso setTitulo={setTitulo} /> : null}
+                    {(titulo == "Contraseña") ? <Ingreso setTitulo={setTitulo} /> : null}
                 </div>
             </section >
             <img src={vector} alt="vector" className='hidden rounded-xl mix-blend-multiply md:flex md:w-80 xl:w-[420px]' />

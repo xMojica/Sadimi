@@ -7,7 +7,7 @@ import Alerta from '../../Alerts/Alerta';
 function Contacto({ setTitulo }) {
     const { setOpen, registro, setRegistro } = useContext(Context);
     const [mensaje, setMensaje] = useState("");
-    const telefonoRegex = /^3\d{9}$/;
+    const telefonoRegex = /^(?!0+$)\d{8,10}$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
@@ -35,7 +35,6 @@ function Contacto({ setTitulo }) {
 
     function siguiente() {
         if (validaciones()) {
-            sessionStorage.setItem('registro', JSON.stringify(registro));
             setTitulo("Ubicacion");
         } else {
             setOpen(true);
@@ -43,12 +42,15 @@ function Contacto({ setTitulo }) {
     }
 
     return (
-        <div className='flex h-full w-full flex-col gap-6'>
+        <div className='flex h-full w-full flex-col gap-4'>
+            <span className='flex w-full justify-center'>
+                <Alerta tipo={"Error"} mensaje={mensaje} />
+            </span>
             <div className='flex items-center justify-center rounded-xl'>
-                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <img className='absolute right-0 mx-4 h-6 w-6' src={Telefono} alt="Telefono" />
                     <input
-                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
+                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type="number"
                         value={registro.telefono}
                         name='telefono'
@@ -59,10 +61,10 @@ function Contacto({ setTitulo }) {
             </div>
 
             <div className='flex items-center justify-center rounded-xl'>
-                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <img className='absolute right-0 mx-4 h-6 w-6' src={Email} alt="Email" />
                     <input
-                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
+                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type="text"
                         value={registro.email}
                         name='email'
@@ -71,10 +73,6 @@ function Contacto({ setTitulo }) {
                     />
                 </span>
             </div>
-
-            <span className='flex h-12 w-full justify-center'>
-                <Alerta tipo={"Error"} mensaje={mensaje} />
-            </span>
 
             <span className='mx-auto mt-8 flex w-full max-w-96 flex-col items-center justify-center'>
                 <button

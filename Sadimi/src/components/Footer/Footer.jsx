@@ -2,8 +2,8 @@ import React from 'react'
 
 function Footer() {
     return (
-        <footer className="flex w-full min-w-96 items-center justify-center gap-x-4 rounded-t-xl bg-tercero p-4 py-12 hover:cursor-pointer sm:gap-x-10">
-            <div className="group relative flex min-w-40 max-w-sm flex-col items-center overflow-hidden rounded-xl p-4 text-center shadow-xl transition-all duration-500 hover:shadow-2xl">
+        <footer className="mt-8 flex w-full flex-wrap items-center justify-center gap-x-4 rounded-t-xl p-2 py-12 hover:cursor-pointer sm:flex-row sm:gap-x-10 sm:p-4">
+            <div className="group relative flex flex-col items-center overflow-hidden rounded-xl p-2 text-center shadow-xl transition-all duration-500 hover:shadow-2xl sm:p-4">
                 <div className="text-primero transition-all group-hover:scale-105">
                     <svg
                         className="h-16 w-16"
@@ -79,7 +79,7 @@ function Footer() {
                 </div>
             </div>
 
-            <div className="group relative flex min-w-40 max-w-sm flex-col items-center overflow-hidden rounded-xl p-4 text-center shadow-xl transition-all duration-500 hover:shadow-2xl">
+            <div className="group relative flex flex-col items-center overflow-hidden rounded-xl p-2 text-center shadow-xl transition-all duration-500 hover:shadow-2xl sm:p-4">
                 <div className="text-primero transition-all group-hover:scale-105">
                     <svg
                         className="h-16 w-16"

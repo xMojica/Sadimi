@@ -10,9 +10,9 @@ import Departamentos from './Departamentos';
 import Ciudades from './Ciudades';
 
 function Ubicacion({ setTitulo }) {
-    const { setOpen, tipo, mensaje, registro, setRegistro } = useContext(Context);
+    const { setOpen, mensaje, registro, setRegistro } = useContext(Context);
 
-    const [pais, setPais] = useState('');
+    const [pais, setPais] = useState('colombia');
     const [departamento, setDepartamento] = useState('');
     const [ciudad, setCiudad] = useState('');
     const [direccion, setDireccion] = useState({})
@@ -39,15 +39,20 @@ function Ubicacion({ setTitulo }) {
         setRegistro((prevRegistro) => ({
             ...prevRegistro, direcciones: direccion
         }));
-        setTitulo("Ingreso")
+
+        setTitulo("Contraseña")
 
     }
 
     return (
-        <div className='flex h-full w-full flex-col gap-6'>
+        <div className='flex h-full w-full flex-col gap-4'>
+
+            <div className='flex w-full justify-center'>
+                <Alerta tipo="Error" mensaje={mensaje} />
+            </div>
 
             <div className='flex items-center justify-center rounded-xl'>
-                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <img className='absolute left-0 mx-4 h-6 w-6' src={IconoDepartamento} alt="Departamento" />
                     <Departamentos
                         setDepartamento={setDepartamento}
@@ -59,7 +64,7 @@ function Ubicacion({ setTitulo }) {
             </div>
 
             <div className='flex items-center justify-center rounded-xl'>
-                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <img className='absolute left-0 mx-4 h-6 w-6' src={IconoCiudad} alt="Ciudad" />
                     <Ciudades
                         setCiudad={setCiudad}
@@ -72,9 +77,9 @@ function Ubicacion({ setTitulo }) {
             </div>
 
             <div className='flex items-center justify-center rounded-xl'>
-                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <input
-                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
+                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type="text"
                         value={registro.direccion}
                         name='direccion'
@@ -83,10 +88,6 @@ function Ubicacion({ setTitulo }) {
                     />
                     <img className='absolute right-0 mx-4 h-6 w-6' src={IconoDireccion} alt="Direccion" />
                 </span>
-            </div>
-
-            <div className='flex h-12 w-full justify-center'>
-                <Alerta tipo={tipo} mensaje={mensaje} />
             </div>
 
             <span className='mx-auto mt-8 flex w-full max-w-96 flex-col items-center justify-center'>

@@ -5,11 +5,11 @@ import { Context } from '../../../Context/main';
 
 function Cerrar() {
     const navigate = useNavigate();
-    const { setOpen } = useContext(Context)
+    const { setOpen, setRegistro } = useContext(Context)
 
     function handleClick() {
-        sessionStorage.setItem('registro', JSON.stringify({}));
         setOpen(false)
+        setRegistro({})
         navigate("/")
     }
 

@@ -85,7 +85,7 @@ function IniciarSesion({ setTitulo }) {
 
 
     return (
-        <div className='flex h-full w-full flex-col gap-6'>
+        <div className='flex h-full w-full flex-col gap-4'>
             <span className='flex w-full justify-center'>
                 <Alerta tipo={tipo} mensaje={mensaje} />
             </span>
@@ -122,7 +122,7 @@ function IniciarSesion({ setTitulo }) {
                     <u className='absolute right-0 no-underline hover:cursor-pointer hover:text-primero hover:underline' onClick={recuperarContraseña}>¿Olvidaste tu contraseña?</u>
                 </span>
             </div>
-            <span className='mx-auto mt-8 flex w-full max-w-96 flex-col items-center justify-between'>
+            <span className='mx-auto mt-4 flex w-full max-w-96 flex-col items-center justify-between'>
                 <button
                     className='w-full rounded-xl bg-primero p-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer'
                     onClick={iniciar}

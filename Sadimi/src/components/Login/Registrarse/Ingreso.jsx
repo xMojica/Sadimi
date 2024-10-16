@@ -28,11 +28,24 @@ function Inicio() {
         setContraseña2(e.target.value)
     }
 
+    function finalizar() {
+        if (contraseña1 !== contraseña2) {
+            setTipo("Error")
+            setMensaje("Las contraseñas no coinciden")
+            setOpen(true)
+        } else {
+            setRegistro((prevRegistro) => ({
+                ...prevRegistro, contrasena: contraseña1
+            }));
+            insertar()
+        }
+
+    }
 
     async function insertar() {
         try {
             const response = await axios.post('https://api-sadimi-v2.vercel.app/users', { user: registro });
-            console.log(registro)
+            setRegistro({})
             setUsuario(response.data.user)
             navigate("/")
         } catch (err) {
@@ -51,26 +64,13 @@ function Inicio() {
         }
     }
 
-    function finalizar() {
-        if (contraseña1 !== contraseña2) {
-            setTipo("Error")
-            setMensaje("Las contraseñas no coinciden")
-            setOpen(true)
-        } else {
-            setRegistro((prevRegistro) => ({
-                ...prevRegistro, contrasena: contraseña1
-            }));
-            insertar()
-        }
-
-
-    }
-
     return (
-        <div className='flex h-full w-full flex-col gap-6'>
+        <div className='flex h-full w-full flex-col gap-4'>
+            <div className='flex w-full justify-center'>
+                <Alerta tipo={tipo} mensaje={mensaje} />
+            </div>
             <div className='flex items-center justify-center rounded-xl'>
-                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
-
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <input
                         className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
                         type={inputType}
@@ -83,8 +83,7 @@ function Inicio() {
             </div>
 
             <div className='flex items-center justify-center rounded-xl'>
-                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg xl:max-w-[620px]'>
-
+                <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <input
                         className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
                         type={inputType}
@@ -94,10 +93,6 @@ function Inicio() {
                     />
                     <Show mostrarContraseña={mostrarContraseña} onToggle={handleToggle} />
                 </span>
-            </div>
-
-            <div className='flex h-12 w-full justify-center'>
-                <Alerta tipo={tipo} mensaje={mensaje} />
             </div>
 
             <span className='mx-auto mt-8 flex w-full max-w-96 flex-col items-center justify-center'>

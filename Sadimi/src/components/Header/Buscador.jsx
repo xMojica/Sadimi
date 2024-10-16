@@ -15,29 +15,27 @@ function Buscador() {
 
     return (
         <>
-            <div className='mr-4 hidden h-11 w-full items-center rounded-xl border-2 border-quinto/20 bg-tercero p-1 pl-4 shadow-lg sm:flex'>
+            <div className='relative mr-4 hidden h-12 w-full items-center rounded-xl border-2 border-quinto/20 pr-4 shadow-lg sm:flex'>
                 <input
-                    className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero"
+                    id='buscador1'
+                    className="flex h-full w-full rounded-xl bg-tercero pl-2 pr-4 text-primero outline-none placeholder:text-primero"
                     type="text"
                     placeholder='Buscar'
                     value={context.busquedaProducto}
                     onChange={handleChange}
                 />
-                <span className='flex h-full w-1/6 items-center justify-center rounded-xl hover:cursor-pointer hover:bg-tercero'>
-                    <img src={Lupa} alt="buscar" />
-                </span>
+                <img className='absolute right-0 rounded-xl p-2' src={Lupa} alt="Buscar" />
             </div>
-            <div className='flex h-11 w-full items-center justify-center rounded-xl border-2 border-quinto/20 bg-tercero p-1 pl-4 shadow-xl sm:hidden sm:max-w-80 md:w-5/6'>
+            <div className='flex h-11 w-full items-center justify-center rounded-xl border-2 border-quinto/20 p-1 pl-4 sm:hidden sm:max-w-80 md:w-5/6'>
                 <input
-                    className="flex h-full w-5/6 bg-tercero text-primero outline-none placeholder:text-primero"
+                    id='buscador2'
+                    className="relative flex h-full w-full bg-tercero pl-2 pr-4 text-primero outline-none placeholder:text-primero"
                     type="text"
                     placeholder='Buscar'
                     value={context.busquedaProducto}
                     onChange={handleChange}
                 />
-                <span className='flex h-full w-1/6 items-center justify-center rounded-xl hover:cursor-pointer hover:bg-segundo' >
-                    <img className='h-6 w-4/5' src={Lupa} alt="Buscar" />
-                </span>
+                <img className='absolute right-5 rounded-xl p-2' src={Lupa} alt="Buscar" />
             </div>
         </>
     );

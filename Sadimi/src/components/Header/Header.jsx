@@ -8,11 +8,19 @@ import Buscador from './Buscador.jsx'
 import Cart from '../Carrito/Cart.jsx'
 
 function Header() {
-    const { usuario, carrito, cart, setCart } = useContext(Context);
+    const { usuario, carrito, cart, setCart, setUsuario } = useContext(Context);
     const navigate = useNavigate();
 
-    function clickUsuario() { navigate("/Login") }
-    const handleHamburguesa = () => { console.log("Abri el menu hamburguesa") }
+    function clickUsuario() {
+        if (!usuario.nombre) {
+            navigate("/Login");
+        } else {
+            setUsuario({})
+        }
+    }
+
+    function handleHamburguesa() { console.log("Abri el menu hamburguesa") }
+
     function clickCarrito() {
         // setCart(!cart)
         console.log("Se clickeo el carrito")
@@ -38,7 +46,9 @@ function Header() {
                             }
                         </span>
 
-                        <div className='flex items-center justify-between gap-4 rounded-xl border-quinto/20 p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo hover:shadow-lg sm:border-2 md:ml-6 md:shadow-md' onClick={clickUsuario}>
+                        <div className='flex items-center justify-between gap-4 rounded-xl border-quinto/20 p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo hover:shadow-lg sm:border-2 md:ml-6 md:shadow-md'
+                            onClick={clickUsuario}
+                        >
                             <h3 className='hidden font-bold text-primero md:flex'>{usuario.nombre || "Iniciar"}</h3>
                             <img src={user} alt="Usuario" className='h-7' />
                         </div>

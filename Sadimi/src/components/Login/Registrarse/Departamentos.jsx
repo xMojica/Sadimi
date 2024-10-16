@@ -1,14 +1,15 @@
 import React, { useState, useContext, useEffect } from 'react';
+import iconoDepartamento from "../../../assets/departamento.svg"
 import { Context } from '../../../Context/main';
 import axios from 'axios';
 
 function Departamentos({ setDepartamento, disabled, handleChange, pais }) {
-    const { token, menuVisibleDepartamentos, setMenuVisibleDepartamentos, setMenuVisiblePaises, setMenuVisibleCiudades } = useContext(Context);
+    const { token } = useContext(Context);
     const [menuVisible, setMenuVisible] = useState(false);
     const [seleccionado, setSeleccionado] = useState(null);
     const [departamentos, setDepartamentos] = useState([]);
     const [error, setError] = useState(null);
-    const [busqueda, setBusqueda] = useState("")
+    const [busqueda, setBusqueda] = useState("");
 
     useEffect(() => {
         const getStates = async () => {
@@ -31,35 +32,41 @@ function Departamentos({ setDepartamento, disabled, handleChange, pais }) {
     const handleSelect = (departamento) => {
         setSeleccionado(departamento.state_name);
         setDepartamento(departamento.state_name);
-        setMenuVisibleDepartamentos(false);
+        setMenuVisible(false);
         document.getElementById("departamentos").value = departamento.state_name;
     };
 
-    function visibilidad() {
-        setMenuVisibleDepartamentos(prev => !prev)
-        setMenuVisibleCiudades(false)
-    }
+    const handleFocus = () => {
+        setMenuVisible(true);
+    };
 
+    const handleBlur = () => {
+        setTimeout(() => {
+            setMenuVisible(false);
+        }, 100);
+    };
 
     return (
-        <div className="relative h-full w-full rounded-r-xl border-background">
+        <div className="relative flex h-full w-full items-center rounded-r-xl border-background">
+            <img src={iconoDepartamento} alt="departamento" className='absolute right-0 mx-4 h-6 w-6' />
             <input
                 id='departamentos'
-                className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
-                onClick={visibilidad}
+                className='h-14 w-full rounded-xl border border-gray-200 pl-4 text-xl text-primero outline-none placeholder:text-primero focus:ring-2 focus:ring-primero'
                 disabled={disabled}
-                placeholder={"Departamento:"}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                placeholder={seleccionado || "Departamento:"}
                 onChange={(e) => setBusqueda(e.target.value)}
+                autoComplete="off"
             />
-            <div className={`absolute z-10 mt-1 w-full rounded-r-xl border bg-segundo overflow-y-auto max-h-56 ${menuVisibleDepartamentos ? 'block' : 'hidden'}`}>
+            <div className={`absolute top-16 z-10 mt-1 w-full rounded-xl border bg-gray-300 overflow-y-auto max-h-56 ${menuVisible ? 'block' : 'hidden'}`}>
                 {departamentos.filter(departamento =>
                     departamento.state_name.toLowerCase().includes(busqueda.toLowerCase())
                 ).map((departamento) => (
                     <div
                         key={departamento.state_name}
-                        className='m-2 flex cursor-pointer items-center rounded-r-xl p-2 text-primero hover:bg-quinto hover:text-tercero'
-                        name="departamento"
-                        onClick={() => { handleSelect(departamento); handleChange(null, "departamento", departamento.state_name) }}
+                        className='m-2 flex cursor-pointer items-center rounded-xl p-2 text-primero hover:bg-quinto hover:text-tercero'
+                        onClick={() => { handleSelect(departamento); handleChange(null, "departamento", departamento.state_name); }}
                     >
                         <span className='ml-4'>{departamento.state_name}</span>
                     </div>
@@ -70,3 +77,4 @@ function Departamentos({ setDepartamento, disabled, handleChange, pais }) {
 }
 
 export default Departamentos;
+
