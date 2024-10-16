@@ -100,7 +100,7 @@ function IniciarSesion({ setTitulo }) {
                 <u className='flex justify-end text-right no-underline hover:cursor-pointer hover:text-primero hover:underline' onClick={recuperarContraseña}>¿Olvidaste tu contraseña?</u>
             </span>
 
-            <span className='mx-auto mt-auto flex w-full max-w-96 flex-col items-center justify-between'>
+            <span className='mx-auto mt-8 flex w-full max-w-96 flex-col items-center justify-between sm:mt-auto'>
                 <button
                     className='w-full rounded-xl bg-primero p-2 px-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer sm:w-2/3 sm:text-2xl'
                     onClick={iniciar}
