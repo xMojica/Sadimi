@@ -3,36 +3,57 @@ import { Context } from '../../Context/main';
 import Header from "../Header/Header"
 import Footer from '../Footer/Footer';
 import Atras from "../../assets/back.svg"
+import Cerrar from '../../assets/close.svg'
 import { useNavigate } from 'react-router-dom';
+
 
 function Cart() {
     const { cart, setCart, carrito, setCarrito } = useContext(Context);
     const navigate = useNavigate()
     const vaciarCarrito = useCallback(() => setCarrito([]), [setCarrito]);
+    const eliminarProducto = (product) => {
+        console.log(product)
+        setCarrito(carrito.filter(producto => producto._id !== product._id))
+    }
 
     return (
         <>
             <Header />
 
-            <header className='mt-40 flex w-full justify-center p-4 sm:mt-28'>
-                <div className='rounded-[50%] hover:scale-110 hover:cursor-pointer hover:bg-segundo' onClick={() => { navigate("/") }}>
-                    <img src={Atras} alt="atras" className='h-8 w-8' />
-                </div>
-                <h1 className='mx-auto text-xl font-bold text-primero sm:text-3xl'>Carrito de compras</h1>
-            </header>
-            <div className='flex flex-col justify-start gap-4 p-4 sm:flex-row sm:justify-center'>
-                <section className='flex w-full items-center justify-center rounded-xl border-2 border-gray-300 bg-tercero p-4 text-quinto shadow-lg sm:w-2/3'>
-                    <h1 className='text-center text-2xl font-bold'>Esta seccion esta en desarrollo</h1>
+            <div className='mt-36 flex w-full flex-col justify-start gap-4 p-4 sm:mt-28 sm:flex-row'>
+                <section className='w-full gap-8 rounded-xl sm:w-2/3'>
+                    {carrito.map((product) => (
+                        <>
+                            <article key={product._id} className='relative mb-2 flex flex-row items-center rounded-lg border-2 border-gray-300 bg-tercero p-2 text-quinto shadow-lg'>
+                                <img src={product.imagen} alt={product.nombre} className='aspect-square h-12 mix-blend-multiply sm:h-24 lg:h-32' />
+                                <div className='flex flex-col justify-center lg:gap-8'>
+                                    <h1 className='text-sm font-bold text-quinto lg:text-xl xl:text-2xl'>{product.nombre}</h1>
+                                    <h3 className='text-sm text-quinto lg:text-lg xl:text-xl' >$ {product.precio_oferta}</h3>
+                                </div>
+                                <div className='ml-auto mr-4 flex items-center gap-8 sm:mr-8'>
+                                    <span className='flex max-w-max items-center gap-x-2 rounded-lg border-2 border-gray-300 p-2 text-sm shadow-lg lg:gap-x-4 lg:text-xl'>
+                                        <button className='rounded-lg px-2'>-</button>
+                                        <p className=''>{product.stock}</p>
+                                        <button className='rounded-lg px-2'>+</button>
+                                    </span>
+                                    <button className='absolute right-0 top-0 rounded-[50%] p-1 text-tercero sm:p-2 lg:p-4' onClick={() => { eliminarProducto(product) }}>
+                                        <img src={Cerrar} alt="cerrar" className='h-4 w-4 lg:h-6 lg:w-6' />
+                                    </button>
+                                </div>
+                            </article>
+                        </>
+                    ))}
+
                 </section>
-                <section className='flex w-full flex-col gap-4 rounded-xl border-2 border-gray-300 bg-tercero p-4 text-quinto shadow-lg sm:w-1/3'>
-                    <h1 className='items-center text-2xl font-bold'>Checkout</h1>
+                <section className='flex max-h-max w-full flex-col gap-4 rounded-xl border-2 border-gray-300 bg-tercero p-4 text-quinto shadow-lg sm:w-1/3'>
+                    <h1 className='items-center text-sm font-bold lg:text-xl'>Checkout</h1>
                     <hr />
                     <div className='inline-block items-center'>
-                        <h4 className=''>Subtotal: <span className='float-end font-normal'>$3.999.900</span></h4>
-                        <h4 className=''>Envio: <span className='float-end font-normal text-primero'>Gratis</span></h4>
-                        <h4 className='mt-4 font-extrabold'>Total: <span className='float-end font-normal'>$3.999.900</span></h4>
+                        <h4 className='text-sm lg:text-lg'>Subtotal: <span className='float-end font-normal'>$3.999.900</span></h4>
+                        <h4 className='text-sm lg:text-lg'>Envio: <span className='float-end font-normal text-primero'>Gratis</span></h4>
+                        <h4 className='mt-4 text-sm font-extrabold lg:text-lg'>Total: <span className='float-end font-normal'>$3.999.900</span></h4>
                     </div>
-                    <button className='rounded-xl bg-primero p-2 text-xl text-tercero'>Pagar</button>
+                    <button className='rounded-xl bg-primero p-2 text-xl text-tercero hover:scale-105'>Pagar</button>
                 </section>
 
             </div>
