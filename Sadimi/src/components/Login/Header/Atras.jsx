@@ -25,7 +25,7 @@ function Atras({ titulo, setTitulo }) {
             case "Ubicacion":
                 setTitulo("Contacto")
                 break;
-            case "Ingreso":
+            case "Contraseña":
                 setTitulo("Ubicacion")
                 break;
             default:

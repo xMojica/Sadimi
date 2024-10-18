@@ -33,11 +33,12 @@ function Cart() {
 
     useEffect(() => {
         const calcularTotal = () => {
+            let subtotalNuevo = 0
             for (const product of carrito) {
-                setSubtotal(Math.floor(product.precio_oferta * product.stock));
-                parseInt(setTotal(Math.floor((product.precio_oferta * product.stock) + envio)));
-
+                subtotalNuevo = subtotalNuevo + Math.floor(product.precio_oferta * product.stock)
             }
+            setSubtotal(subtotalNuevo);
+            parseInt(setTotal(subtotalNuevo + envio));
 
         }
         calcularTotal();

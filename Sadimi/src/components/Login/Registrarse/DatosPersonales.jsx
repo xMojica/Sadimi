@@ -53,7 +53,7 @@ function DatosPersonales({ setTitulo }) {
     return (
         <div className='flex h-full w-full flex-col gap-4'>
 
-            <span className='flex w-full justify-center'>
+            <span className='mx-auto w-full max-w-96'>
                 <Alerta tipo={"Error"} mensaje={mensaje} />
             </span>
 

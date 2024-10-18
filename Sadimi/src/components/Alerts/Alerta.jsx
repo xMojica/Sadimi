@@ -15,7 +15,7 @@ function Alerta({ tipo, mensaje }) {
             <Collapse in={open}>
                 <Alert
                     icon={<CheckIcon sx={{ color: "#4c7766" }} fontSize="inherit" />}
-                    sx={{ mb: 2, textAlign: "center", fontWeight: "Bold", alignItems: "center", background: "var(--success)", borderRadius: "16px", widht: "100%" }}
+                    sx={{ mb: 2, textAlign: "center", minWidth: "386px", fontWeight: "Bold", alignItems: "center", background: "var(--success)", borderRadius: "16px", widht: "100%" }}
                     action={
                         <IconButton
                             size="large"

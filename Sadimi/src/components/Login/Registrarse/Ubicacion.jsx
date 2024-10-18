@@ -47,7 +47,7 @@ function Ubicacion({ setTitulo }) {
     return (
         <div className='flex h-full w-full flex-col gap-4'>
 
-            <div className='flex w-full justify-center'>
+            <div className='mx-auto w-full max-w-96'>
                 <Alerta tipo="Error" mensaje={mensaje} />
             </div>
 
