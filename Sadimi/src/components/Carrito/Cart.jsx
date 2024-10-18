@@ -30,7 +30,7 @@ function Cart() {
                                     <h1 className='text-sm font-bold text-quinto lg:text-xl xl:text-2xl'>{product.nombre}</h1>
                                     <h3 className='text-sm text-quinto lg:text-lg xl:text-xl' >$ {product.precio_oferta}</h3>
                                 </div>
-                                <div className='ml-auto mr-4 flex items-center gap-8 sm:mr-8'>
+                                <div className='ml-auto mr-8 flex items-center gap-8'>
                                     <span className='flex max-w-max items-center gap-x-2 rounded-lg border-2 border-gray-300 p-2 text-sm shadow-lg lg:gap-x-4 lg:text-xl'>
                                         <button className='rounded-lg px-2'>-</button>
                                         <p className=''>{product.stock}</p>
