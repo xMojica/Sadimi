@@ -38,7 +38,7 @@ function Home() {
             {loading ? (<Loader />) : (
                 <>
                     <Header />
-                    <main className='mt-40 flex w-full flex-wrap items-start justify-center gap-2 sm:mx-8 sm:mt-28'>
+                    <main className='mt-40 flex w-full flex-wrap items-start justify-center gap-2 sm:mt-28'>
                         {productosFiltrados.length === 0 ? (
                             <h1 className='mt-24 flex text-center text-xl font-bold text-primero md:text-3xl'>
                                 {mensajeProductos || "El producto que buscas no está disponible en este momento."}
