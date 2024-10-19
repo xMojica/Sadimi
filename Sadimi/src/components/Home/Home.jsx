@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Context } from '../../Context/main';
+import Carrusel from "../Carrusel/Carrusel"
 import Loader from '../Alerts/Loader';
 import Article from './Article';
 import Header from '../Header/Header';
@@ -41,9 +42,10 @@ function Home() {
             ) : (
                 <>
                     <Header />
-                    <main className='mt-40 flex w-full flex-wrap items-start justify-center gap-2 sm:mt-28'>
+                    <Carrusel />
+                    <main className='mt-4 flex w-full flex-wrap items-start justify-center gap-2 sm:mt-12'>
                         {productosFiltrados.length === 0 ? (
-                            <h1 className='mt-24 flex text-center text-xl font-bold text-primero md:text-3xl'>
+                            <h1 className='mt-4 flex text-center text-xl font-bold text-primero md:text-3xl'>
                                 {mensajeProductos || "El producto que buscas no está disponible en este momento."}
                             </h1>
                         ) : (

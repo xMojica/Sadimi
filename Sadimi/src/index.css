@@ -43,3 +43,12 @@ main {
     box-sizing: border-box;
     transition: transform 0.3s ease;
 }
+
+input:focus {
+    border: none;
+    outline: none;
+}
+
+input {
+    border: none;
+}
