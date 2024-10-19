@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Context } from '../../Context/main';
+import { useNavigate } from 'react-router-dom';
 
 function Article({ product }) {
 
     const { setCarrito, setContadorCarrito } = useContext(Context);
+    const navigate = useNavigate()
 
     function agregarCarrito() {
         setContadorCarrito(prevCount => prevCount + 1);
@@ -48,7 +50,7 @@ function Article({ product }) {
 
 
     return (
-        <article className="flex h-96 w-40 flex-col justify-center overflow-hidden rounded-xl border-2 bg-tercero p-3 shadow-md hover:cursor-pointer hover:shadow-xl sm:h-[520px] sm:w-60">
+        <article className="flex h-96 w-40 flex-col justify-center overflow-hidden rounded-xl border-2 bg-tercero p-3 shadow-md hover:cursor-pointer hover:shadow-xl sm:h-[520px] sm:w-60" onClick={() => { navigate("/Producto", { state: product }) }}>
 
             <div className='relative flex h-32 w-full items-center justify-center sm:h-52'>
                 {product.precio_oferta ?

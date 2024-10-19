@@ -43,7 +43,7 @@ function Home() {
                 <>
                     <Header />
                     <Carrusel />
-                    <main className='mt-4 flex w-full flex-wrap items-start justify-center gap-2 sm:mt-12'>
+                    <main className='flex w-full flex-wrap items-start justify-center gap-2 sm:mt-12'>
                         {productosFiltrados.length === 0 ? (
                             <h1 className='mt-4 flex text-center text-xl font-bold text-primero md:text-3xl'>
                                 {mensajeProductos || "El producto que buscas no está disponible en este momento."}

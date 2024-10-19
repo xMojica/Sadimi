@@ -43,6 +43,7 @@ function Inicio() {
     }
 
     async function insertar() {
+        console.log(registro)
         try {
             const response = await axios.post('https://api-sadimi-v2.vercel.app/users', { user: registro });
             setRegistro({})
