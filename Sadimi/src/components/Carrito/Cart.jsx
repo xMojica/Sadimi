@@ -48,44 +48,47 @@ function Cart() {
     return (
         <>
             <Header />
+            {carrito.length >= 1 ? (
+                <div className='mt-36 flex w-full flex-col justify-start gap-4 p-4 sm:mt-28 sm:flex-row'>
+                    <section className='w-full gap-8 rounded-xl sm:w-2/3'>
+                        {
+                            carrito.map((product) => (
+                                <article key={product._id} className='relative mb-2 flex flex-row items-center rounded-lg border-2 border-gray-300 bg-tercero p-2 text-quinto shadow-lg'>
+                                    <img src={product.imagen} alt={product.nombre} className='aspect-square h-12 mix-blend-multiply sm:h-24 lg:h-32' />
+                                    <div className='flex flex-col justify-center lg:gap-8'>
+                                        <h1 className='text-sm font-bold text-quinto lg:text-xl xl:text-2xl'>{product.nombre}</h1>
+                                        <h3 className='text-sm text-quinto lg:text-lg xl:text-xl'>${product.precio_oferta}</h3>
+                                    </div>
+                                    <div className='ml-auto mr-8 flex items-center gap-8'>
+                                        <span className='flex max-w-max items-center gap-x-2 rounded-lg border-2 border-gray-300 p-2 text-sm shadow-lg lg:gap-x-4 lg:text-xl'>
+                                            <button className='rounded-lg px-2' onClick={() => manejarCantidad(product, -1)}>-</button>
+                                            <p>{product.stock}</p>
+                                            <button className='rounded-lg px-2' onClick={() => manejarCantidad(product, 1)}>+</button>
+                                        </span>
+                                        <button className='absolute right-0 top-0 rounded-[50%] p-1 text-tercero sm:p-2 lg:p-4' onClick={() => eliminarProducto(product)}>
+                                            <img src={Cerrar} alt="cerrar" className='h-4 w-4 lg:h-6 lg:w-6' />
+                                        </button>
+                                    </div>
+                                </article>
+                            ))
+                        }
 
-            <div className='mt-36 flex w-full flex-col justify-start gap-4 p-4 sm:mt-28 sm:flex-row'>
-                <section className='w-full gap-8 rounded-xl sm:w-2/3'>
-                    {carrito.map((product) => (
-                        <>
-                            <article key={product._id} className='relative mb-2 flex flex-row items-center rounded-lg border-2 border-gray-300 bg-tercero p-2 text-quinto shadow-lg'>
-                                <img src={product.imagen} alt={product.nombre} className='aspect-square h-12 mix-blend-multiply sm:h-24 lg:h-32' />
-                                <div className='flex flex-col justify-center lg:gap-8'>
-                                    <h1 className='text-sm font-bold text-quinto lg:text-xl xl:text-2xl'>{product.nombre}</h1>
-                                    <h3 className='text-sm text-quinto lg:text-lg xl:text-xl' >$ {product.precio_oferta}</h3>
-                                </div>
-                                <div className='ml-auto mr-8 flex items-center gap-8'>
-                                    <span className='flex max-w-max items-center gap-x-2 rounded-lg border-2 border-gray-300 p-2 text-sm shadow-lg lg:gap-x-4 lg:text-xl'>
-                                        <button className='rounded-lg px-2' onClick={() => { manejarCantidad(product, -1) }}>-</button>
-                                        <p className=''>{product.stock}</p>
-                                        <button className='rounded-lg px-2' onClick={() => { manejarCantidad(product, 1) }}>+</button>
-                                    </span>
-                                    <button className='absolute right-0 top-0 rounded-[50%] p-1 text-tercero sm:p-2 lg:p-4' onClick={() => { eliminarProducto(product) }}>
-                                        <img src={Cerrar} alt="cerrar" className='h-4 w-4 lg:h-6 lg:w-6' />
-                                    </button>
-                                </div>
-                            </article>
-                        </>
-                    ))}
-
-                </section>
-                <section className='flex max-h-max w-full flex-col gap-4 rounded-xl border-2 border-gray-300 bg-tercero p-4 text-quinto shadow-lg sm:w-1/3'>
-                    <h1 className='items-center text-sm font-bold lg:text-xl'>Checkout</h1>
-                    <hr />
-                    <div className='inline-block items-center'>
-                        <h4 className='text-sm lg:text-lg'>Subtotal: <span className='float-end font-normal'>$ {subtotal}</span></h4>
-                        <h4 className='text-sm lg:text-lg'>Envio: <span className='float-end font-normal text-primero'>Gratis</span></h4>
-                        <h4 className='mt-4 text-sm font-extrabold lg:text-lg'>Total: <span className='float-end font-normal'>$ {total}</span></h4>
-                    </div>
-                    <button className='rounded-xl bg-primero p-2 text-xl text-tercero hover:scale-105'>Pagar</button>
-                </section>
-
-            </div>
+                    </section>
+                    <section className='flex max-h-max w-full flex-col gap-4 rounded-xl border-2 border-gray-300 bg-tercero p-4 text-quinto shadow-lg sm:w-1/3'>
+                        <h1 className='items-center text-sm font-bold lg:text-xl'>Checkout</h1>
+                        <hr />
+                        <div className='inline-block items-center'>
+                            <h4 className='text-sm lg:text-lg'>Subtotal: <span className='float-end font-normal'>$ {subtotal}</span></h4>
+                            <h4 className='text-sm lg:text-lg'>Envio: <span className='float-end font-normal text-primero'>Gratis</span></h4>
+                            <h4 className='mt-4 text-sm font-extrabold lg:text-lg'>Total: <span className='float-end font-normal'>$ {total}</span></h4>
+                        </div>
+                        <button className='rounded-xl bg-primero p-2 text-xl text-tercero hover:scale-105'>Pagar</button>
+                    </section>
+                </div>
+            ) : (
+                <h1 className='my-52 flex w-full justify-center text-pretty p-4 text-center text-2xl font-bold text-quinto sm:my-56'>El carrito de compras esta vacío</h1>
+            )
+            }
             <Footer />
         </>
     );

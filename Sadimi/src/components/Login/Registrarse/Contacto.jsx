@@ -50,7 +50,7 @@ function Contacto({ setTitulo }) {
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <img className='absolute right-0 mx-4 h-6 w-6' src={Telefono} alt="Telefono" />
                     <input
-                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
+                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type="number"
                         value={registro.telefono}
                         name='telefono'
@@ -64,7 +64,7 @@ function Contacto({ setTitulo }) {
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <img className='absolute right-0 mx-4 h-6 w-6' src={Email} alt="Email" />
                     <input
-                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
+                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type="text"
                         value={registro.email}
                         name='email'
