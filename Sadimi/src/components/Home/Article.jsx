@@ -4,11 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 function Article({ product }) {
 
-    const { setCarrito, setContadorCarrito } = useContext(Context);
+    const { setCarrito } = useContext(Context);
     const navigate = useNavigate()
 
     function agregarCarrito() {
-        setContadorCarrito(prevCount => prevCount + 1);
 
         setCarrito(prevCarrito => {
             const productoExistente = prevCarrito.find(item => item._id === product._id);
@@ -42,7 +41,7 @@ function Article({ product }) {
     function mostrarCantidades() {
         return (
             product.cantidad !== 1 ?
-                (product.cantidad > 15 ? "+15 unidades disponibles" : product.cantidad + " unidades disponibles")
+                (product.cantidad + " unidades disponibles")
                 :
                 "Ultima unida disponible"
         )

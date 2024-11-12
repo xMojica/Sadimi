@@ -1,14 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { Context } from '../../../Context/main';
 import Alerta from '../../Alerts/Alerta';
-import Password from '../../../assets/password.svg'
 import Show from '../Header/Show';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function Inicio() {
-    const navigate = useNavigate()
-    const { setOpen, setTipo, tipo, mensaje, setMensaje, registro, setRegistro, setUsuario } = useContext(Context);
+    const navigate = useNavigate();
+    const { setOpen, setTipo, tipo, mensaje, setMensaje, setUsuario, registro } = useContext(Context);
     const [mostrarContraseña, setMostrarContraseña] = useState(true);
     const inputType = mostrarContraseña ? 'password' : 'text';
     const [contraseña1, setContraseña1] = useState("");
@@ -20,48 +19,44 @@ function Inicio() {
 
     function handleContraseña1(e) {
         setOpen(false);
-        setContraseña1(e.target.value)
+        setContraseña1(e.target.value);
     }
 
     function handleContraseña2(e) {
         setOpen(false);
-        setContraseña2(e.target.value)
+        setContraseña2(e.target.value);
     }
 
     function finalizar() {
         if (contraseña1 !== contraseña2) {
-            setTipo("Error")
-            setMensaje("Las contraseñas no coinciden")
-            setOpen(true)
+            setTipo("Error");
+            setMensaje("Las contraseñas no coinciden");
+            setOpen(true);
         } else {
-            setRegistro((prevRegistro) => ({
-                ...prevRegistro, contrasena: contraseña1
-            }));
-            insertar()
+            const nuevoRegistro = {
+                ...registro,
+                contrasena: contraseña1
+            };
+            insertar(nuevoRegistro);
         }
-
     }
 
-    async function insertar() {
-        console.log(registro)
+    async function insertar(nuevoRegistro) {
         try {
-            const response = await axios.post('https://api-sadimi-v2.vercel.app/users', { user: registro });
-            setRegistro({})
-            setUsuario(response.data.user)
-            navigate("/")
+            console.log(nuevoRegistro)
+            const response = await axios.post('https://api-sadimi-v2.vercel.app/users', { user: nuevoRegistro });
+            setUsuario(response.data.user);
+            navigate("/");
         } catch (err) {
-            console.log(err)
-            console.log(registro)
             if (err.response) {
                 setTipo(err.response.data.status);
                 setMensaje(err.response.data.message);
+                setOpen(true);
             } else {
                 setTipo("Error");
                 setMensaje("Error interno");
+                setOpen(true);
             }
-        } finally {
-            setOpen(true);
-
         }
     }
 
@@ -73,7 +68,7 @@ function Inicio() {
             <div className='flex items-center justify-center rounded-xl'>
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <input
-                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
+                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type={inputType}
                         name='contraseña'
                         placeholder='Contraseña:'
@@ -86,7 +81,7 @@ function Inicio() {
             <div className='flex items-center justify-center rounded-xl'>
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <input
-                        className='text-md h-10 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero sm:h-14 sm:text-xl'
+                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type={inputType}
                         name='repetirContraseña'
                         placeholder='Repetir contraseña:'
@@ -105,7 +100,6 @@ function Inicio() {
             </span>
         </div>
     );
-
 }
 
-export default Inicio
+export default Inicio;

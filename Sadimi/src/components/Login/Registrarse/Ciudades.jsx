@@ -55,7 +55,7 @@ function Ciudades({ setCiudad, disabled, handleChange, departamento }) {
             <img src={iconoCiudades} alt="departamento" className='absolute right-0 mx-4 h-6 w-6' />
             <input
                 id='ciudades'
-                className='h-14 w-full rounded-xl border border-gray-200 pl-4 text-xl text-primero outline-none placeholder:text-primero focus:ring-2 focus:ring-primero'
+                className='h-14 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 disabled={disabled}

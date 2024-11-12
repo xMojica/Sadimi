@@ -46,9 +46,9 @@ function RecuperarContraseña() {
                 </span>
             </div>
 
-            <span className='mt-4 flex w-full flex-col items-center justify-center'>
+            <span className='mx-auto mt-4 flex w-full max-w-96 flex-col items-center justify-between'>
                 <button
-                    className='w-full rounded-xl bg-primero p-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer sm:w-2/3 sm:text-2xl'
+                    className='w-full rounded-xl bg-primero p-4 text-xl font-bold text-tercero hover:scale-105 hover:cursor-pointer'
                     onClick={recuperar}>
                     Recuperar
                 </button>

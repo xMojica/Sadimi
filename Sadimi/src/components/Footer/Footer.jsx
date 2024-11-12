@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
     return (
-        <footer className="mt-8 flex w-full flex-wrap items-center justify-center gap-x-4 rounded-t-xl p-2 py-12 hover:cursor-pointer sm:flex-row sm:gap-x-10 sm:p-4">
+        <footer className="my-6 flex w-full flex-wrap items-center justify-center gap-x-4 rounded-t-xl p-2 py-12 hover:cursor-pointer sm:flex-row sm:gap-x-10 sm:p-4">
             <div className="group relative flex flex-col items-center overflow-hidden rounded-xl p-2 text-center shadow-xl transition-all duration-500 hover:shadow-2xl sm:p-4">
                 <div className="text-primero transition-all group-hover:scale-105">
                     <svg
