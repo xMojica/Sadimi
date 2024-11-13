@@ -87,7 +87,7 @@ function IniciarSesion({ setTitulo }) {
 
     return (
         <div className='flex h-full w-full flex-col gap-4'>
-            <span className='mx-auto w-full max-w-96'>
+            <span className='mx-auto w-full max-w-96 '>
                 <Alerta tipo={tipo} mensaje={mensaje} />
             </span>
 

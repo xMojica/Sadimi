@@ -9,7 +9,7 @@ function DatosPersonales({ setTitulo }) {
     const [mensaje, setMensaje] = useState("");
     const nombreRegex = /^(?=.*[A-Za-zñ])[A-Za-zñ'-]{1,}$/;
     const apellidoRegex = /^(?=.*[A-Za-zñ])[A-Za-zñ'-]{1,}$/;
-    const documentoRegex = /^(?!0{4,10})\d{4,10}$/;
+    const documentoRegex = /^(?!0{4,12})\d{4,12}$/;
 
 
     function validaciones() {
@@ -90,7 +90,7 @@ function DatosPersonales({ setTitulo }) {
                     <img className='absolute right-0 mx-4 h-6 w-6' src={Documento} alt="Documento" />
                     <input
                         className='h-14 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
-                        type="text"
+                        type="number"
                         name="documento"
                         value={registro.documento}
                         placeholder='Documento:'

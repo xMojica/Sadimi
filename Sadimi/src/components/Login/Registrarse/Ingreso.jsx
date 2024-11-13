@@ -38,13 +38,13 @@ function Inicio() {
                 contrasena: contraseña1
             };
             insertar(nuevoRegistro);
+            console.log(nuevoRegistro)
         }
     }
 
     async function insertar(nuevoRegistro) {
         try {
-            console.log(nuevoRegistro)
-            const response = await axios.post('https://api-sadimi-v2.vercel.app/users', { user: nuevoRegistro });
+            const response = await axios.post('https://api-sadimi-v2.vercel.app/users', nuevoRegistro);
             setUsuario(response.data.user);
             navigate("/");
         } catch (err) {
