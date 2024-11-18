@@ -20,11 +20,11 @@ function Cart() {
     }
 
     const manejarCantidad = (product, cambio) => {
-        const nuevaCantidad = product.stock + cambio;
-        if (nuevaCantidad >= 0 && nuevaCantidad <= product.cantidad) {
+        const nuevaCantidad = product.cantidad + cambio;
+        if (nuevaCantidad >= 0 && nuevaCantidad <= product.stock) {
             setCarrito(prevCarrito => {
                 return prevCarrito.map(item =>
-                    item._id === product._id ? { ...item, stock: nuevaCantidad } : item
+                    item._id === product._id ? { ...item, cantidad: nuevaCantidad } : item
                 );
             });
             console.log(carrito)
@@ -35,7 +35,7 @@ function Cart() {
         const calcularTotal = () => {
             let subtotalNuevo = 0
             for (const product of carrito) {
-                subtotalNuevo = subtotalNuevo + Math.floor(product.precio_oferta * product.stock)
+                subtotalNuevo = subtotalNuevo + Math.floor(product.precio_oferta * product.cantidad)
             }
             setSubtotal(subtotalNuevo);
             parseInt(setTotal(subtotalNuevo + envio));
@@ -62,7 +62,7 @@ function Cart() {
                                     <div className='ml-auto mr-8 flex items-center gap-8'>
                                         <span className='flex max-w-max items-center gap-x-2 rounded-lg border-2 border-gray-300 p-2 text-sm shadow-lg lg:gap-x-4 lg:text-xl'>
                                             <button className='rounded-lg px-2' onClick={() => manejarCantidad(product, -1)}>-</button>
-                                            <p>{product.stock}</p>
+                                            <p>{product.cantidad}</p>
                                             <button className='rounded-lg px-2' onClick={() => manejarCantidad(product, 1)}>+</button>
                                         </span>
                                         <button className='absolute right-0 top-0 rounded-[50%] p-1 text-tercero sm:p-2 lg:p-4' onClick={() => eliminarProducto(product)}>

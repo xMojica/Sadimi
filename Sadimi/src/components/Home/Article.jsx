@@ -13,10 +13,10 @@ function Article({ product }) {
             const productoExistente = prevCarrito.find(item => item._id === product._id);
             if (productoExistente) {
                 return prevCarrito.map(item =>
-                    item._id === product._id ? { ...item, stock: item.stock + 1 } : item
+                    item._id === product._id ? { ...item, cantidad: item.cantidad + 1 } : item
                 );
             } else {
-                return [...prevCarrito, { ...product, stock: 1 }];
+                return [...prevCarrito, { ...product, cantidad: 1 }];
             }
         });
     }
@@ -40,8 +40,8 @@ function Article({ product }) {
     }
     function mostrarCantidades() {
         return (
-            product.cantidad !== 1 ?
-                (product.cantidad + " unidades disponibles")
+            product.stock !== 1 ?
+                (product.stock + " unidades disponibles")
                 :
                 "Ultima unida disponible"
         )
