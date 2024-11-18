@@ -18,9 +18,9 @@ function Buscador() {
             <div className='relative mr-4 hidden h-12 w-full items-center rounded-xl border-2 border-quinto/20  sm:flex'>
                 <input
                     id='buscador1'
-                    className="flex h-full w-full rounded-xl bg-tercero pl-2 pr-4 text-primero placeholder:text-primero focus:ring-0"
+                    className="flex h-full w-full rounded-xl bg-tercero pl-2 pr-4 text-primero placeholder:text-primero/60 focus:ring-0"
                     type="text"
-                    placeholder='Buscar'
+                    placeholder='¿Que producto estas buscando?'
                     value={context.busquedaProducto}
                     onChange={handleChange}
                 />
@@ -31,7 +31,7 @@ function Buscador() {
                     id='buscador2'
                     className="relative flex h-full w-full border-none bg-tercero pl-2 text-primero outline-none placeholder:text-primero focus:ring-0"
                     type="text"
-                    placeholder='Buscar'
+                    placeholder='¿Que producto estas buscando?'
                     value={context.busquedaProducto}
                     onChange={handleChange}
                 />
