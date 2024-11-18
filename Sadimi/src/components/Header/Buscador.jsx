@@ -15,7 +15,7 @@ function Buscador() {
 
     return (
         <>
-            <div className='relative mr-4 hidden h-12 w-full items-center rounded-xl border-2 border-quinto/20 shadow-lg sm:flex'>
+            <div className='relative mr-4 hidden h-12 w-full items-center rounded-xl border-2 border-quinto/20  sm:flex'>
                 <input
                     id='buscador1'
                     className="flex h-full w-full rounded-xl bg-tercero pl-2 pr-4 text-primero placeholder:text-primero focus:ring-0"

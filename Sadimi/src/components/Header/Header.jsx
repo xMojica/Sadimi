@@ -33,8 +33,8 @@ function Header() {
 
     return (
         <>
-            <header className='fixed left-0 top-0 z-[51] flex w-full flex-col items-center justify-center bg-tercero pb-8 shadow-lg sm:h-20 sm:pb-0'>
-                <div className='flex h-16 w-full flex-row items-center justify-between rounded-xl px-2 md:justify-around md:px-4'>
+            <header className='sticky left-0 top-0 z-[51] flex w-full flex-col items-center justify-center shadow-lg  bg-tercero pb-8 sm:h-20 sm:pb-0'>
+                <div className='flex h-16 w-full flex-row items-center justify-between rounded-xl px-2 md:px-4'>
                     <div className='flex h-10 items-center justify-start rounded-xl p-2 px-4 hover:cursor-pointer hover:bg-segundo sm:hidden' onClick={handleHamburguesa}>
                         <img className='h-7' src={Hamburguesa} alt="menu" />
                     </div>
@@ -42,7 +42,7 @@ function Header() {
                     <span className='hidden sm:flex md:w-96'><Buscador /></span>
                     <div className='flex h-10 items-center justify-end gap-x-2 md:w-80 md:min-w-60 md:justify-between'>
 
-                        <span className='relative flex rounded-xl border-quinto/20 p-2 text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo sm:border-2 md:shadow-md md:hover:shadow-lg' onClick={clickCarrito}>
+                        <span className='relative flex rounded-xl border-quinto/20 p-2 text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo sm:border-2 md:hover:shadow-lg' onClick={clickCarrito}>
                             <Carrito color={"#4c7766"} />
                             {
                                 carrito.length > 0 ?
@@ -50,7 +50,7 @@ function Header() {
                             }
                         </span>
 
-                        <div className='flex items-center justify-between gap-4 rounded-xl border-quinto/20 p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo hover:shadow-lg sm:border-2 md:ml-6 md:shadow-md'
+                        <div className='flex items-center justify-between gap-4 rounded-xl border-quinto/20 p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo hover:shadow-lg sm:border-2 md:ml-6 '
                             onClick={clickUsuario}
                         >
                             <h3 className='hidden font-bold text-primero md:flex'>{usuario.nombre || "Iniciar"}</h3>

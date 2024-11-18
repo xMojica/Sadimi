@@ -34,7 +34,7 @@ function Producto() {
     return (
         <>
             <Header />
-            <main className='mt-36 p-4 sm:mt-32'>
+            <main className='mt-2 p-4'>
                 <div className='flex-wrap flex items-start justify-center shadow-xl border border-gray-300 rounded-xl p-4'>
                     <section className='flex justify-center object-contain flex-grow'>
                         <img className='mix-blend-multiply h-96 min-w-96' src={product.imagen} alt={product.nombre} />

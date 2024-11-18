@@ -4,7 +4,7 @@ import Portada from "../../assets/BANNER.png"
 
 function Carrusel() {
     return (
-        <div className="mx-4 mt-24 h-56 rounded-xl sm:h-64 xl:h-80 2xl:h-96">
+        <div className="mx-4 h-56 rounded-xl sm:h-64 xl:h-80 2xl:h-96 lg:mt-4">
             <Carousel>
                 {/* <img className="rounded-xl bg-cover" src="https://images.falabella.com/v3/assets/blt088e6fffbba20f16/blta2fce35bb94ed357/6711a02970e413dbf2d54743/V_Ofertas_hotsale_2024_Desk.png?disable=upscale&auto=webp&quality=70&width=1920" alt="..." /> */}
                 {/* <img className="rounded-xl bg-cover" src="https://wallpapercave.com/wp/wp14320011.jpg" alt="..." /> */}

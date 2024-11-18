@@ -3,6 +3,7 @@ import Email from '../../../assets/email.svg'
 import Documento from '../../../assets/documento.svg'
 import Alerta from '../../Alerts/Alerta';
 import { Context } from '../../../Context/main';
+import axios from 'axios';
 
 function RecuperarContraseña() {
     const [documento, setDocumento] = useState("")
@@ -40,11 +41,13 @@ function RecuperarContraseña() {
 
         if (validaciones()) {
             try {
-                const response = await axios.post('https://api-sadimi-v2.vercel.app/users/reset', { documento: documento, email: email });
+                const response = await axios.post('https://api-sadimi-v2.vercel.app/users/reset',
+                    { documento: documento, email: email });
                 setMensaje(response.data.message);
                 setTipo(response.data.status);
                 setOpen(true);
             } catch (err) {
+                console.log(documento, email)
                 if (err.response) {
                     setTipo(err.response.data.status);
                     setMensaje(err.response.data.message);
