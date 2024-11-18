@@ -5,7 +5,6 @@ import Hamburguesa from "../../assets/hamburguesa.svg"
 import user from '../../assets/user.svg'
 import Carrito from './IconoCarrito.jsx'
 import Buscador from './Buscador.jsx'
-import Cart from '../Carrito/Cart.jsx'
 
 function Header() {
     const { usuario, carrito, cart, setCart, setUsuario } = useContext(Context);
@@ -33,14 +32,13 @@ function Header() {
         <>
             <header className='sticky left-0 top-0 z-[51] flex w-full flex-col items-center justify-center bg-tercero pb-8 sm:h-20 sm:pb-0'>
                 <div className='flex h-16 w-full flex-row items-center justify-between rounded-xl px-2 md:px-4'>
-                    <div className='flex h-10 items-center justify-start rounded-xl p-2 px-4 hover:cursor-pointer hover:bg-segundo sm:hidden' onClick={handleHamburguesa}>
-                        <img className='h-7' src={Hamburguesa} alt="menu" />
+                    <div className='flex h-12 items-center justify-start rounded-xl p-2 sm:px-4 hover:cursor-pointer hover:bg-segundo hover:shadow-lg' onClick={handleHamburguesa}>
+                        <img className='h-7 w-7' src={Hamburguesa} alt="menu" />
                     </div>
-                    <h1 className='flex translate-x-6 p-2 text-center font-cursive text-3xl font-bold text-primero hover:scale-105 hover:cursor-pointer md:mx-0 md:flex md:w-80 md:translate-x-0 md:text-4xl' onClick={() => { navigate("/") }}>Sadimi</h1>
-                    <span className='hidden sm:flex md:w-96'><Buscador /></span>
-                    <div className='flex h-10 items-center justify-end gap-x-2 md:w-80 md:min-w-60 md:justify-between'>
-
-                        <span className='relative flex rounded-xl border-quinto/20 p-2 text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo sm:border-2 md:hover:shadow-lg' onClick={clickCarrito}>
+                    {/* aca va el titulo por si hay un futuro cambio */}
+                    <span className='hidden  sm:translate-x-7 md:translate-x-16 sm:flex md:w-80'><Buscador /></span>
+                    <div className='flex items-center gap-x-4'>
+                        <span className='relative h-12 flex rounded-xl p-2 sm:px-4 text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo hover:shadow-lg' onClick={clickCarrito}>
                             <Carrito color={"#4c7766"} />
                             {
                                 carrito.length > 0 ?
@@ -48,16 +46,16 @@ function Header() {
                             }
                         </span>
 
-                        <div className='flex items-center justify-between gap-4 rounded-xl border-quinto/20 p-2 px-4 text-lg font-bold text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo hover:shadow-lg sm:border-2 md:ml-6 '
+                        <div className='flex h-12 items-center justify-between gap-1 rounded-xl border-quinto/20 p-2 md:px-8 text-lg font-bold text-primero md:bg-primero hover:scale-105 hover:cursor-pointer hover:shadow-lg '
                             onClick={clickUsuario}
                         >
-                            <h3 className='hidden text-primero md:flex'>{usuario.nombre || "Iniciar"}</h3>
-                            <img src={user} alt="Usuario" className='h-7' />
+                            <h3 className='hidden text-tercero md:flex'>{usuario.nombre || "Iniciar"}</h3>
+                            <img src={user} alt="Usuario" className='h-7 md:hidden' />
                         </div>
                     </div>
                 </div>
 
-                <div className='flex h-10 w-full items-center justify-center px-4 sm:mx-4 sm:hidden'>
+                <div className='flex h-10 w-full items-center justify-center px-2 sm:hidden'>
                     <Buscador />
                 </div>
 

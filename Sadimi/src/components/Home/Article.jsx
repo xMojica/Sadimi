@@ -74,7 +74,7 @@ function Article({ product }) {
                 {mostrarCantidades()}
             </div>
 
-            <div className='text-md mt-2 flex h-10 items-center justify-center rounded-xl bg-primero px-4 text-center font-bold text-tercero shadow-lg hover:scale-105 hover:shadow-lg' onClick={agregarCarrito}>Agregar</div>
+            <div className='text-md mt-2 z-50 flex h-10 items-center justify-center rounded-xl bg-primero px-4 text-center font-bold text-tercero shadow-lg hover:scale-105 hover:shadow-lg' onClick={((e) => { e.stopPropagation(); agregarCarrito() })}>Agregar</div>
 
         </article>
     );
