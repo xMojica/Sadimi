@@ -61,7 +61,7 @@ function DatosPersonales({ setTitulo }) {
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <img className='absolute right-0 mx-4 h-6 w-6' src={Nombre} alt="Nombre" />
                     <input
-                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
+                        className='h-14 w-full rounded-xl border bg-tercero border-gray-200 pl-4 pr-12 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type="text"
                         name="nombre"
                         value={registro.nombre}
@@ -75,7 +75,7 @@ function DatosPersonales({ setTitulo }) {
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <img className='absolute right-0 mx-4 h-6 w-6' src={Nombre} alt="Apellido" />
                     <input
-                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
+                        className='h-14 w-full rounded-xl border bg-tercero border-gray-200 pl-4 pr-12 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type="text"
                         name="apellido"
                         value={registro.apellido}
@@ -89,7 +89,7 @@ function DatosPersonales({ setTitulo }) {
                 <span className='relative flex w-full max-w-96 flex-row items-center rounded-xl bg-tercero shadow-lg'>
                     <img className='absolute right-0 mx-4 h-6 w-6' src={Documento} alt="Documento" />
                     <input
-                        className='h-14 w-full rounded-xl border border-gray-200 pl-4 pr-12 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
+                        className='h-14 w-full rounded-xl border bg-tercero border-gray-200 pl-4 pr-12 text-xl text-primero outline-none placeholder:text-primero/80 focus:ring-2 focus:ring-primero'
                         type="number"
                         name="documento"
                         value={registro.documento}
