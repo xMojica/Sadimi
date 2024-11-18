@@ -58,7 +58,6 @@ function IniciarSesion({ setTitulo }) {
 
         try {
             setLoading(true);
-
             const response = await axios.post('https://api-sadimi-v2.vercel.app/users/login', {
                 email,
                 contrasena: contraseña

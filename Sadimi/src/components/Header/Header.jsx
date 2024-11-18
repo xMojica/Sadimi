@@ -33,7 +33,7 @@ function Header() {
 
     return (
         <>
-            <header className='sticky left-0 top-0 z-[51] flex w-full flex-col items-center justify-center shadow-lg  bg-tercero pb-8 sm:h-20 sm:pb-0'>
+            <header className='sticky left-0 top-0 z-[51] flex w-full flex-col items-center justify-center bg-tercero pb-8 sm:h-20 sm:pb-0'>
                 <div className='flex h-16 w-full flex-row items-center justify-between rounded-xl px-2 md:px-4'>
                     <div className='flex h-10 items-center justify-start rounded-xl p-2 px-4 hover:cursor-pointer hover:bg-segundo sm:hidden' onClick={handleHamburguesa}>
                         <img className='h-7' src={Hamburguesa} alt="menu" />
