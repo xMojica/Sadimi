@@ -29,8 +29,6 @@ function Header() {
             navigate("/Login")
         }
     }
-
-
     return (
         <>
             <header className='sticky left-0 top-0 z-[51] flex w-full flex-col items-center justify-center bg-tercero pb-8 sm:h-20 sm:pb-0'>
