@@ -29,6 +29,7 @@ function Atras({ titulo, setTitulo }) {
                 setTitulo("Ubicacion")
                 break;
             default:
+                navigate("/")
                 break;
         }
     }
