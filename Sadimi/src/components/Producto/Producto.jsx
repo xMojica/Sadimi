@@ -35,8 +35,8 @@ function Producto() {
     return (
         <>
             <Header />
-            <main className='mt-8 p-4'>
-                <span className='flex ml-4'>
+            <main className='mt-2 p-4'>
+                <span className='flex absolute ml-4 '>
                     <Atras />
                 </span>
                 <div className='flex-wrap flex items-start justify-center shadow-xl rounded-xl p-4'>
@@ -54,8 +54,8 @@ function Producto() {
                         </span>
 
                         <div className='mt-10 lg:mt-36 w-full  flex flex-col sm:flex-row gap-4 justify-center sm:justify-between'>
-                            <span className='flex flex-col justify-center'>
-                                <h1 className='text-cuarto text-start sm:text-start text-2xl font-bold'>$ {product.precio_oferta} <span className='absolute ml-2 p-1 bg-cuarto rounded-xl text-sm text-tercero'>-30%</span></h1>
+                            <span className='flex flex-col justify-center align-middle'>
+                                <h1 className='text-cuarto text-start sm:text-start text-3xl font-bold'>$ {product.precio_oferta} <span className='absolute ml-2 p-1 bg-cuarto rounded-md text-sm px-2 text-tercero'>-30%</span></h1>
                                 <h3 className='text-quinto text-start sm:text-start text-xl'><s>$ {product.valor}</s></h3>
                             </span>
                             <span className='gap-4 flex justify-center'>

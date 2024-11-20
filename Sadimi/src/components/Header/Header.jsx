@@ -30,7 +30,7 @@ function Header() {
     }
     return (
         <>
-            <header className='sticky left-0 top-0 z-[51] flex w-full flex-col items-center justify-center bg-tercero pb-8 sm:h-20 sm:pb-0'>
+            <header className='sticky left-0 top-0 z-[51] flex w-full flex-col items-center justify-center bg-tercero sm:h-20'>
                 <div className='flex h-16 w-full flex-row items-center justify-between rounded-xl px-2 md:px-4'>
                     <div className='flex h-12 items-center justify-start  p-2 sm:px-4 hover:cursor-pointer '>
                         <img className='h-12 w-12 rounded-xl p-2  hover:bg-segundo hover:shadow-lg' src={Hamburguesa} alt="menu" onClick={handleHamburguesa} />
