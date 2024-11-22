@@ -47,12 +47,12 @@ function Producto() {
                         <h6 className='text-quinto text-sm '>{product.marca}</h6>
                         <h1 className='text-quinto text-2xl sm:text-3xl  font-bold'>{product.nombre}</h1>
                         <p className='my-4 text-quinto text-xl'>{product.descripcion}</p>
-                        <span className=' flex max-w-max items-center gap-x-2 rounded-lg border-2 text-quinto font-bold border-gray-300 p-2 text-sm shadow-lg lg:gap-x-4 lg:text-xl'>
+                        <span className='mt-4 flex max-w-max items-center gap-x-2 rounded-lg border-2 text-quinto font-bold border-gray-300 p-2 text-sm shadow-lg lg:gap-x-4 lg:text-xl'>
                             <button className='rounded-lg px-2' onClick={() => manejarContador(-1)}>-</button>
                             <p>{contador}</p>
                             <button className='rounded-lg px-2' onClick={() => manejarContador(1)}>+</button>
                         </span>
-
+                        <p className='text-quinto'>100 unidades disponibles</p>
                         <div className='mt-10 lg:mt-36 w-full  flex flex-col sm:flex-row gap-4 justify-center sm:justify-between'>
                             <span className='flex flex-col justify-center align-middle'>
                                 <h1 className='text-cuarto text-start sm:text-start text-3xl font-bold'>$ {product.precio_oferta} <span className='absolute ml-2 p-1 bg-cuarto rounded-md text-sm px-2 text-tercero'>-30%</span></h1>
