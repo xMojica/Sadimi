@@ -36,7 +36,7 @@ function Producto() {
         <>
             <Header />
             <main className='mt-2  p-4'>
-                <span className='flex absolute ml-4 mt-4 z-[55]'>
+                <span className='flex absolute ml-4 z-[55]'>
                     <Atras />
                 </span>
                 <article className='flex flex-col shadow-xl rounded-xl p-4 '>
