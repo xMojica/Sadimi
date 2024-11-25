@@ -26,6 +26,7 @@ function Buscador() {
                 />
                 <img className='absolute right-0 rounded-xl p-2' src={Lupa} alt="Buscar" />
             </div>
+
             <div className='flex h-12 w-full items-center justify-center rounded-xl border-2 border-quinto/20 p-1 pb-2 pl-4 sm:hidden sm:max-w-80 md:w-5/6'>
                 <input
                     id='buscador2'

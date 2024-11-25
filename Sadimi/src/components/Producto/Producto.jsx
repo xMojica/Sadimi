@@ -35,37 +35,35 @@ function Producto() {
     return (
         <>
             <Header />
-            <main className='mt-2 p-4'>
-                <span className='flex absolute ml-4 '>
+            <main className='mt-2'>
+                <span className='flex absolute ml-4 mt-4'>
                     <Atras />
                 </span>
-                <div className='flex-wrap flex items-start justify-center shadow-xl rounded-xl p-4'>
+                <article className='flex flex-col shadow-xl rounded-xl p-4'>
                     <section className='flex justify-center object-contain flex-grow'>
                         <img className='mix-blend-multiply h-96 min-w-96' src={product.imagen} alt={product.nombre} />
                     </section>
-                    <section className='mx-auto flex flex-col justify-start lg:flex-grow lg:min-h-[24rem]'>
-                        <h6 className='text-quinto text-sm '>{product.marca}</h6>
-                        <h1 className='text-quinto text-2xl sm:text-3xl  font-bold'>{product.nombre}</h1>
-                        <p className='my-4 text-quinto text-xl'>{product.descripcion}</p>
-                        <span className='mt-4 flex max-w-max items-center gap-x-2 rounded-lg border-2 text-quinto font-bold border-gray-300 p-2 text-sm shadow-lg lg:gap-x-4 lg:text-xl'>
-                            <button className='rounded-lg px-2' onClick={() => manejarContador(-1)}>-</button>
-                            <p>{contador}</p>
-                            <button className='rounded-lg px-2' onClick={() => manejarContador(1)}>+</button>
-                        </span>
-                        <p className='text-quinto'>100 unidades disponibles</p>
-                        <div className='mt-10 lg:mt-36 w-full  flex flex-col sm:flex-row gap-4 justify-center sm:justify-between'>
-                            <span className='flex flex-col justify-center align-middle'>
-                                <h1 className='text-cuarto text-start sm:text-start text-3xl font-bold'>$ {product.precio_oferta} <span className='absolute ml-2 p-1 bg-cuarto rounded-md text-sm px-2 text-tercero'>-30%</span></h1>
+                    <section className='flex flex-wrap justify-between p-4'>
+                        <div className=''>
+                            <h6 className='text-quinto text-sm '>{product.marca}</h6>
+                            <h1 className='text-quinto text-2xl sm:text-3xl  font-bold'>{product.nombre}</h1>
+                            <p className='my-4 text-quinto text-xl'>{product.descripcion}</p>
+                        </div>
+                        <div className='mt-8 xl:mt-0 flex flex-col xl:flex-col sm:flex-row justify-between w-full xl:w-auto'>
+                            <span className='relative flex flex-col justify-center align-middle mr-4'>
+                                <span className='flex flex-row gap-x-2'>
+                                    <h1 className=' text-cuarto text-start sm:text-start text-3xl font-bold'>$ {product.precio_oferta}</h1>
+                                    <h3 className=' bg-cuarto rounded-md text-sm px-4 p-2 text-center my-auto font-bold text-tercero'>-30%</h3>
+                                </span>
                                 <h3 className='text-quinto text-start sm:text-start text-xl'><s>$ {product.valor}</s></h3>
                             </span>
-                            <span className='gap-4 flex justify-center'>
-                                <button className='p-4 rounded-xl border-2 border-gray-300 text-tercero shadow-lg'><img src={IconoCarrito} alt="Agregar" onClick={agregarCarrito} /></button>
-                                <button className='px-12 py-5 rounded-xl bg-primero shadow-lg text-tercero text-xl'>Comprar</button>
+                            <span className='gap-4 flex mt-4 sm:mt-0 xl:mt-4'>
+                                <button className='p-4 rounded-xl border-2 border-gray-300 text-tercero shadow-lg' onClick={agregarCarrito}><img src={IconoCarrito} alt="Agregar" /></button>
+                                <button className='px-12 py-5 rounded-xl bg-primero shadow-lg text-tercero text-xl w-full font-bold '>Comprar</button>
                             </span>
-
                         </div>
                     </section>
-                </div>
+                </article>
             </main>
             <Footer />
         </>

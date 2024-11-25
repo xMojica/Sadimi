@@ -36,7 +36,7 @@ function Header() {
                         <img className='h-12 w-12 rounded-xl p-2  hover:bg-segundo hover:shadow-lg' src={Hamburguesa} alt="menu" onClick={handleHamburguesa} />
                         <h1 className='flex p-2 text-start font-cursive text-3xl font-bold text-primero hover:scale-105 hover:cursor-pointer md:flex  md:translate-x-0 md:text-4xl' onClick={() => { navigate("/") }}>Sadimi</h1>
                     </div>
-                    <span className='hidden  md:translate-x-2 sm:flex md:w-80'><Buscador /></span>
+                    <span className='hidden  md:-translate-x-1 sm:flex md:w-80'><Buscador /></span>
                     <div className='flex items-center gap-x-4'>
                         <span className='relative h-12 items-center flex rounded-xl p-2 sm:px-4 text-primero hover:scale-105 hover:cursor-pointer hover:bg-segundo hover:shadow-lg' onClick={clickCarrito}>
                             <Carrito color={"#4c7766"} />

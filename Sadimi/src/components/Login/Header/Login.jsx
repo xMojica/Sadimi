@@ -60,7 +60,6 @@ function Login() {
                     {(titulo == "Contraseña") ? <Ingreso setTitulo={setTitulo} /> : null}
                 </div>
             </section >
-            <img src={vector} alt="vector" className='hidden rounded-xl mix-blend-multiply md:flex md:w-80 xl:w-[420px]' />
         </main >
 
     );

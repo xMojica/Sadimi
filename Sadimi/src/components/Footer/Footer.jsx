@@ -6,9 +6,9 @@ import React from 'react'
 function Footer() {
     return (
         <footer className="bg-primero flex flex-col w-full sm:rounded-t-md tems-center justify-center gap-x-4 mt-8">
-            <div className="h-96 sm:h-52 flex w-full flex-wrap items-center justify-center gap-x-4  hover:cursor-pointer sm:flex-row sm:gap-x-10">
+            <div className="h-52 flex w-full flex-wrap items-center justify-center gap-x-4  hover:cursor-pointer sm:flex-row sm:gap-x-10">
                 <div className="group relative flex flex-col items-center overflow-hidden rounded-xl p-2 text-center shadow-xl transition-all duration-500 hover:shadow-2xl sm:p-4">
-                    <div className="text-tercero transition-all group-hover:scale-105">
+                    <div className="text-segundo/70 transition-all group-hover:scale-105">
                         <svg
                             className="h-16 w-16"
                             stroke="currentColor"
@@ -27,7 +27,7 @@ function Footer() {
                         <p className="text-sm font-semibold text-segundo/70">Frontend developer</p>
                     </div>
                     <div className="absolute -bottom-full flex w-full items-center justify-evenly gap-2 transition-all delay-75 duration-200 group-hover:bottom-3">
-                        <div className="flex gap-3 rounded-full bg-tercero p-1 text-2xl text-primero shadow-sm transition-all delay-75 duration-200 hover:p-2">
+                        <div className="flex gap-3 rounded-full bg-primero p-1 text-2xl text-tercero shadow-sm transition-all delay-75 duration-200 hover:p-2">
                             <a
                                 className="transition-all delay-75 duration-200 hover:scale-110"
                                 href="https://github.com/xMojica"
@@ -84,7 +84,7 @@ function Footer() {
                 </div>
 
                 <div className="group relative flex flex-col items-center overflow-hidden rounded-xl p-2 text-center shadow-xl transition-all duration-500 hover:shadow-2xl sm:p-4">
-                    <div className="text-tercero transition-all group-hover:scale-105">
+                    <div className="text-segundo/70 transition-all group-hover:scale-105">
                         <svg
                             className="h-16 w-16"
                             stroke="currentColor"
