@@ -49,7 +49,7 @@ function Cart() {
         <>
             <Header />
             {carrito.length >= 1 ? (
-                <div className='mt-36 flex w-full flex-col justify-start gap-4 p-4 sm:mt-28 sm:flex-row'>
+                <div className='mt-4 flex w-full flex-col justify-start gap-4 p-4 sm:mt-28 sm:flex-row'>
                     <section className='w-full gap-8 rounded-xl sm:w-2/3'>
                         {
                             carrito.map((product) => (
