@@ -21,20 +21,16 @@ function Article({ product }) {
         });
     }
 
-    function calcularDescuento() {
-        const descuento = parseInt(product.precio_oferta * 100 / product.valor)
-        return 100 - descuento;
-    }
 
     function mostrarPrecios() {
         return (
             product.precio_oferta ? (
                 <>
-                    <h2 className='text-lg font-bold text-cuarto'>${product.precio_oferta}</h2>
-                    <h2 className='text-sm text-quinto'><s>${product.valor}</s></h2>
+                    <h2 className='text-lg font-bold text-cuarto'>$ {product.precio_oferta}</h2>
+                    <h2 className='text-sm text-quinto'><s>$ {product.valor}</s></h2>
                 </>
             ) : (
-                <h2 className='text-lg font-bold text-quinto'>${product.valor}</h2>
+                <h2 className='text-lg font-bold text-quinto'>$ {product.valor}</h2>
             )
         )
     }
@@ -54,10 +50,10 @@ function Article({ product }) {
             <div className='relative flex h-32 w-full justify-center items-start sm:h-52'>
                 {product.precio_oferta ?
                     <div className='absolute left-0 top-0 z-[41] w-14 justify-center rounded-lg bg-cuarto px-1 text-center text-sm font-bold text-tercero'>
-                        -{calcularDescuento(product.precio_oferta, product.valor)}%
+                        {product.descuento}
                     </div> : null
                 }
-                <img src={product.imagen} alt={product.nombre} width={200} className='z-40 aspect-square w-52 rounded-xl mix-blend-multiply' />
+                <img src={product.imagen} alt={product.nombre} width={200} className='z-40 my-auto w-52 rounded-xl mix-blend-multiply' />
             </div>
 
             <div className='flex flex-col sm:my-2'>

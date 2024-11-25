@@ -49,7 +49,7 @@ function Cart() {
         <>
             <Header />
             {carrito.length >= 1 ? (
-                <div className='mt-4 flex w-full flex-col justify-start gap-4 p-4 sm:mt-28 sm:flex-row'>
+                <main className='mt-4 flex w-full flex-col justify-start gap-4 p-4 sm:mt-28 sm:flex-row'>
                     <section className='w-full gap-8 rounded-xl sm:w-2/3'>
                         {
                             carrito.map((product) => (
@@ -84,7 +84,7 @@ function Cart() {
                         </div>
                         <button className='rounded-xl bg-primero p-2 text-xl text-tercero hover:scale-105'>Pagar</button>
                     </section>
-                </div>
+                </main>
             ) : (
                 <h1 className='my-52 flex w-full justify-center text-pretty p-4 text-center text-2xl font-bold text-quinto sm:my-56'>El carrito de compras esta vacío</h1>
             )
