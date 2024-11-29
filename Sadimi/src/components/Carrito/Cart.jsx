@@ -57,7 +57,7 @@ function Cart() {
                             <article
                                 key={product._id}
                                 className="relative flex flex-col p-2 mb-2 border-2 border-gray-300 rounded-lg sm:flex-row bg-tercero text-quinto">
-                                <div className='flex items-center justify-center h-52'>
+                                <div className='flex items-center justify-center mx-8 h-52'>
                                     <img
                                         className="h-auto w-44 mix-blend-multiply"
                                         src={product.imagen}
@@ -65,10 +65,10 @@ function Cart() {
                                 </div>
                                 <div className='flex flex-col justify-between w-full mt-4 ml-4'>
                                     <span className='w-full'>
-                                        <h1 className="text-lg font-bold md:text-2xl lg:text-3xl">{product.nombre}</h1>
-                                        <h2 className='mt-2 text-2xl font-bold text-cuarto'>$ 4.999.900</h2>
+                                        <h1 className="text-lg font-bold md:text-xl lg:text-3xl">{product.nombre}</h1>
+                                        <h2 className='mt-2 text-lg font-bold md:text-xl lg:text-2xl text-cuarto'>$ 4.999.900</h2>
                                     </span>
-                                    <div className="flex flex-row items-center justify-between w-full">
+                                    <div className="flex flex-row items-center justify-between w-full mt-2">
                                         <div className='items-center flex-flex-col'>
                                             <div className="flex flex-row items-center justify-between text-2xl w-28 text-quinto gap-x-4">
                                                 <button
@@ -76,7 +76,7 @@ function Cart() {
                                                     onClick={() => manejarCantidad(product, -1)}>
                                                     -
                                                 </button>
-                                                <p className=''>{product.cantidad}</p>
+                                                <p className='text-sm sm:text-lg '>{product.cantidad}</p>
                                                 <button
                                                     className="px-2 rounded-lg bg-segundo"
                                                     onClick={() => manejarCantidad(product, 1)}>
@@ -108,7 +108,9 @@ function Cart() {
                             </h4>
                         </div>
                         <div className='flex gap-4'>
-                            <button className="p-2 px-4 text-xl border-2 border-gray-300 rounded-xl text-quinto hover:scale-105 hover:bg-cuarto hover:text-tercero hover:border-none">Vaciar</button>
+                            <button className="p-2 px-4 text-xl border-2 border-gray-300 rounded-xl text-quinto hover:scale-105 hover:bg-cuarto hover:text-tercero hover:border-none">
+                                Vaciar
+                            </button>
                             <button className="w-full p-2 text-xl rounded-xl bg-primero text-tercero hover:scale-105">
                                 Pagar
                             </button>
