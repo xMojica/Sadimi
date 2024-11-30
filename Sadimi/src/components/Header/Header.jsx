@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Context } from '../../Context/main';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Hamburguesa from "../../assets/hamburguesa.svg"
 import user from '../../assets/user.svg'
 import Carrito from './IconoCarrito.jsx'
@@ -9,23 +9,26 @@ import Buscador from './Buscador.jsx'
 function Header() {
     const { usuario, carrito, cart, setCart, setUsuario } = useContext(Context);
     const navigate = useNavigate();
+    const location = useLocation();
 
     function clickUsuario() {
         if (!usuario.nombre) {
             navigate("/Login");
         } else {
             navigate("/")
-            setUsuario({})
+            //setUsuario({})
         }
     }
 
     function handleHamburguesa() { console.log("Abri el menu hamburguesa") }
 
     function clickCarrito() {
-        if (usuario.nombre) {
+        if (usuario.nombre && location.pathname !== "/Carrito") {
             navigate("/Carrito");
+        } else if (!usuario.nombre) {
+            navigate("/Login");
         } else {
-            navigate("/Login")
+            navigate("/")
         }
     }
     return (

@@ -108,7 +108,8 @@ function Cart() {
                             </h4>
                         </div>
                         <div className='flex gap-4'>
-                            <button className="p-2 px-4 text-xl border-2 border-gray-300 rounded-xl text-quinto hover:scale-105 hover:bg-cuarto hover:text-tercero hover:border-none">
+                            <button className="p-2 px-4 text-xl border-2 border-gray-300 rounded-xl text-quinto hover:scale-105 hover:bg-cuarto hover:text-tercero hover:border-none"
+                                onClick={() => { setCarrito([]) }} >
                                 Vaciar
                             </button>
                             <button className="w-full p-2 text-xl rounded-xl bg-primero text-tercero hover:scale-105">
