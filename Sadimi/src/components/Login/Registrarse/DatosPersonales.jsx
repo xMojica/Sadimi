@@ -5,8 +5,10 @@ import { Context } from '../../../Context/main';
 import Alerta from '../../Alerts/Alerta';
 import Atras from '../Header/Atras';
 import Cerrar from '../Header/Cerrar';
+import { useNavigate } from 'react-router-dom';
 
 function DatosPersonales({ setTitulo }) {
+    const navigate = useNavigate();
     const { setOpen, registro, setRegistro } = useContext(Context);
     const [mensaje, setMensaje] = useState("");
     const nombreRegex = /^(?=.*[A-Za-zñ])[A-Za-zñ'-]{1,}$/;
@@ -45,7 +47,7 @@ function DatosPersonales({ setTitulo }) {
 
     function siguiente() {
         if (validaciones()) {
-            Navigate("Contacto")
+            navigate("/Contacto")
         } else {
             setOpen(true);
         }

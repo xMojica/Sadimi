@@ -36,7 +36,7 @@ function IniciarSesion({ setTitulo }) {
 
     function registrarse() {
         setOpen(false);
-        navigate("/Registrarse");
+        navigate("/Datos");
     };
 
     function recuperarContraseña() {
